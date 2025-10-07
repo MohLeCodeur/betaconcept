@@ -1,0 +1,666 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<!-- Mirrored from www.marathon.co.uk/privacy-cookie-policy/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:10:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="../favicon.ico" />
+	<title>MARKETING</title>
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="canonical" href="index.html">
+    <link rel="stylesheet" href="front/style5.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900">
+	<link rel="stylesheet" href="../css/styled882.css?v=Fd3f0XFBpHHPdH8P2gW-Dj62pnboBWRgL9UTkHRXjFw">
+
+	
+	
+</head>
+
+
+<body>
+	<script nonce="WXSzk4U9nNxVWUaZUdQ6pjoh0z6ASF4rgqYYrZ6ykZw=" type = "text/javascript" >
+    var config = {
+        apiKey: '89789d071d481b8dfb074a8766005961b088cf25',
+     product: 'PRO_MULTISITE',
+        initialState: "open",
+        necessaryCookies: ['UMB-XSRF-TOKEN'],
+        theme: 'light',
+        position: 'left',
+        acceptButton: true,
+        rejectButton: true,
+        consentCookieExpiry: 90,
+	 branding: {
+             fontFamily: "Playfair Display,Roboto,Arial,Helvetica,sans-serif",
+            fontColor: "#676767",
+            fontSizeTitle: "20px",
+            fontSizeIntro: "14px",
+            fontSizeHeaders: "20px",
+            fontSize: "14px",
+            acceptText: "#fff",	
+            acceptBackground: "#8f2829",
+            rejectText: "#fff",
+            rejectBackground: "#8f2829",
+            backgroundColor: "#e1e1e1",
+	    alertBackground: "#8f2829",
+	    alertText: "#fff",
+            toggleText: "#fff",
+            toggleColor: "#fff",
+            toggleBackground: "#8f2829",
+            removeAbout: true
+        },
+        text: {
+            notifyTitle: "Our use of cookies",
+            notifyDescription: "We use cookies to make the site work and help us make it better. By clicking accept, weâ€™ll set recommended analytics cookies. Or, you can ignore or close this message and weâ€™ll set only the recommended ones.",
+            accept: "Accept",
+            reject: "Reject",
+            settings: "Settings",
+            necessaryTitle: "Necessary cookies",
+            necessaryDescription: "Necessary cookies enable core functionality such as security, network management, and accessibility. You may disable these by changing your browser settings, but this may affect how the website functions.",
+            title: "Our use of cookies",
+            intro: "We use necessary cookies to make our site work. We\u0027d also like to set optional analytics cookies to help us improve it. Using this tool will set a cookie on your device to remember your preferences.",
+            acceptRecommended: "accept",
+            acceptSettings: "Accept",
+            rejectSettings: "Reject",
+            closeLabel: "",
+        },
+        statement: {
+            description: "For more detailed information about the cookies we use, see our",
+            name: "Cookies page",
+            url: "/privacy-cookie-policy",
+            updated: "21/11/2019",
+        },        
+        optionalCookies: [{
+            name: "analytics",
+            label: "Analytics cookies",
+            description: "We\u0027d like to set Google Analytics cookies to help us to improve our website by collecting and reporting information on how you use it. The cookies collect information in a way that does not directly identify anyone. If you choose to switch these cookies off (by moving the slide bar to 'Off') we will not be able to track, on any anonymous basis, how many visitors we have to our site, and therefore monitor its performance. For more information on how these cookies work, please see our \u0027Cookies page\u0027.",
+            cookies: ["_ga","_gid","_gat"],
+            recommendedState: true,
+			lawfulBasis: "consent",
+            onAccept: function() {
+                (function(w, d, s, l, i) {
+                    w[l] = w[l] || [];
+                    w[l].push({
+                        'gtm.start': new Date().getTime(),
+                        event: 'gtm.js'
+                    });
+                    var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s),
+                        dl = l != 'dataLayer' ? '&l=' + l : '';
+                    j.async = true;
+                    j.src = '../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', 'GTM-55X5GQD');
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.org_analytics;
+                }
+            },
+            onRevoke: function() {
+                window['ga-disable-GTM-55X5GQD'] = true;
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.no_analytics;
+                }
+            },            
+        },	
+		]
+    };
+
+
+var loops = 0;
+var threshold = 30;
+
+function CookieControlInit() {
+    if (typeof CookieControl !== "undefined" && window.jQuery && $('#ccc').length > 0) {
+        if ($('header[role=banner]').length > 0) {
+            $('#ccc').insertBefore($('header[role=banner]'));
+            $('#ccc').css('z-index', 9999);
+        }
+        $('#ccc-optional-categories .optional-cookie').each(function() {
+            var label = $('.optional-cookie-header', $(this)).text();
+            var idAttr = (label.split(' ').join('_')).toLowerCase();
+            $('<span/>', {
+                'class': 'invisible',
+                for: idAttr,
+                text: label + " toggle",
+            }).prependTo($('.checkbox-toggle-label', $(this)));
+            $('.checkbox-toggle-input', $(this)).attr('id', idAttr);
+
+        });
+    } else {
+        if (loops++ < threshold) {
+            setTimeout(CookieControlInit, 300);
+        }
+    }
+}
+var script = document.createElement('script');
+script.onload = function() {
+    CookieControl.load(config);
+    CookieControlInit();
+};
+script.crossorigin = "anonymous";
+script.src = '../../cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js';
+document.head.appendChild(script);
+
+var onPageStyle = "";
+if (config.text.acceptRecommended == "") {
+    onPageStyle += "#ccc-recommended-settings{display:none;}"
+}
+if (config.text.rejectSettings == "") {
+    onPageStyle += "#ccc-reject-settings{display:none;}"
+}
+if (onPageStyle != "") {
+    var style = document.createElement('style');
+    style.innerHTML = onPageStyle;
+    document.head.appendChild(style);
+}
+</script>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55X5GQD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div class="wrapper">
+
+		
+    <header class="header header-pages header-fix" aria-haspopup="true">
+      <div class="header-inner">
+        <nav class="left">
+          <a href="../contact-us/index.html">Contact Us</a>
+        </nav>
+
+        <a href="../index.html" class="logo">
+          <img src="../media/1016/smco-modified.png" class="logo-color" />
+          <img src="../media/1015/logo-white.svg" class="logo-white" />
+          <img
+            src="../media/1014/redlogo.png"
+            alt="Marathon"
+            class="logo-emblem"
+            width="150"
+            height="35"
+          />
+        </a>
+
+        <div class="right">
+          <button type="button" class="btn-client js-open-client">
+            <span>Client area</span>
+          </button>
+        </div>
+        <div class="header-inner sticky-header">
+          <nav class="left">
+                  <a href="../contact-us/index.html">Contact Us</a>
+          </nav>
+  
+          <a href="../index.html" class="logo">
+                  <img src="../media/1016/smco-modified.png" class="logo-color">
+                  <img src="../media/1015/logo-white.svg" class="logo-white">
+                  <img src="../media/1014/redlogo.png" alt="Marathon" class="logo-emblem" >
+          </a>
+  
+          <div class="right">
+                  <button type="button" class="btn-client js-open-client"><span>Client area</span></button>
+                  <button type="button" class="hamburger"></button>
+          </div>
+               <style>
+      
+.hamburger {
+display: none; /* Caché par défaut */
+}
+
+@media (max-width: 525px) {
+.hamburger {
+  display: block; /* Affiche uniquement en dessous de 425px */
+  width: 30px; /* Ajuste selon la taille de ton image */
+height: 30px;
+background-image: url('front/menu.png'); /* Assure-toi que le chemin est correct */
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+border: none;
+cursor: pointer;
+background-color: transparent; /* Supprime l’arrière-plan du bouton */
+margin-left: 80px; /* Ajuste la valeur selon ton besoin */
+}
+
+.hero-navigation {
+  display: none; /* Cache le menu par défaut sur petits écrans */
+}
+
+.hero-navigation.active {
+  display: block; /* Affiche le menu quand la classe "active" est ajoutée */
+}
+}
+@media (max-width: 425px) and (min-width: 410px) {
+.hamburger {
+  margin-left: 80px;
+}
+}
+
+@media (max-width: 409px) and (min-width: 367px) {
+.hamburger {
+  margin-left: 59px;
+}
+}
+@media (max-width: 366px) and (min-width: 344px) {
+.hamburger {
+  margin-left: 50px;
+}
+}
+@media (max-width: 343px) and (min-width: 38px) {
+.hamburger {
+  margin-left: 37px;
+}
+}
+
+@media (max-width: 320px) {
+.hamburger {
+  margin-left: 33px;
+}
+}
+
+
+            </style>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const menuButton = document.querySelector(".hamburger");
+                const navMenu = document.querySelector(".hero-navigation");
+            
+                menuButton.addEventListener("click", function () {
+                  navMenu.classList.toggle("active");
+                });
+              });
+            </script>
+            
+          <div class="hero-navigation sticky-page-nav">
+                      <ul role="menu">
+                        <li role="menuitem">
+                          <a href="collective.html" >COLLECTIVE MANAGEMENT</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="private.html">PRIVATE MANAGEMENT</a>
+                        </li>
+                          <li role="menuitem">
+                              <a href="equity.html">EQUITY</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="loan.html">LOAN</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="realestate.html">REAL ESTATE</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="marketing.html">MARKETING</a>
+                          </li>
+                          <li role="menuitem">
+                            <a href="team.html">TEAM</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="proposal.html"">PROPOSAL INVESTING</a>
+                          </li>
+                        </ul>
+                  </div>
+      </div>
+      </div>
+<div class="client-overlay-wrap" aria-hidden="true">
+        <div class="client-inner">
+          <button type="button" class="close-overlay">
+            <span class="font-ico-close"></span
+            ><span class="sr-only">Close client overlay</span>
+          </button>
+          <h3>Sign in below</h3>
+
+          <form
+            action="https://www.marathon.co.uk/privacy-cookie-policy/"
+            class="form"
+            enctype="multipart/form-data"
+            id="form13ff0327de4f4d2aa3806717c22782bf"
+            method="post"
+          >
+            <div class="validation-summary-valid" data-valmsg-summary="true">
+              <ul>
+                <li style="display: none"></li>
+              </ul>
+            </div>
+            <input
+              class="in-text"
+              data-val="true"
+              data-val-required="The User name field is required."
+              id="client-email"
+              name="Username"
+              placeholder="Email address"
+              type="text"
+              value=""
+            /><input
+              class="in-text"
+              data-val="true"
+              data-val-length="The field Password must be a string with a maximum length of 256."
+              data-val-length-max="256"
+              data-val-required="The Password field is required."
+              id="client-password"
+              maxlength="256"
+              name="Password"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+            <button type="submit" class="btn keep-overlay-open">Login</button>
+            <input
+              name="__RequestVerificationToken"
+              type="hidden"
+              value="CfDJ8GqEOhd3m2pMgn4ccNZWJyHvNOkcYhza6wLupfqg9L5MjT8A8u6F98e4OOEGRkbud5jJ1p8q3I-0w6p0mX-5I6kG4tPb_50E3YIKs2s9srVeMkwLrP439Xx1wwHZ23NFxEyVBk_2J6ARo0VwbQ31kxs"
+            /><input
+              name="ufprt"
+              type="hidden"
+              value="CfDJ8GqEOhd3m2pMgn4ccNZWJyGcmvVmqszDpzUQ4Q1_-tgKVwLR1T4QUiESOgsJzJE0ZR8G9Mz74R3sQUa9oG2XJbHRIGeN7qb609uPjHCi2Ddc7OvmOo1oDmj3Rg0EQp_NClsyOwuuHsOox3sMhO6GtlY"
+            />
+          </form>
+          <div class="user-links">
+            <a href="../account/password-reset/index.html"
+              >Forgot your password?</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+		<main class="content">
+			
+<div class="standard-page">
+    <div class="container">
+        <div class="inner-indented">
+            <div class="section-header">
+                <h1>MARKETING</h1>
+                <span class="header-overlay">MARKETING</span>
+            </div>
+            <div class="rte-content">
+                <p>&nbsp;</p>
+                <h3>Luxury Property Marketing</h3>
+                <p>SM Invest delivers high-impact marketing solutions for premium real estate assets. Our performance-driven strategies combine elite digital platforms, luxury branding, and institutional-grade analytics to position your properties at the pinnacle of their market segments.</p>
+               
+            
+                <section id="hero" class="hero-section">
+                    <div class="hero-content container">
+                      
+                        <p class="subtitle">Elite Property Positioning</p>
+                        <h1>Transforming luxury properties into irresistible investment opportunities</h1>
+              
+                    </div>
+                </section>
+                <br> 
+                <p><a href="../contact-us/index.html" class="button">Launch Your Marketing Campaign</a></p>
+                
+                <h3>Core Marketing Services</h3>
+                
+                <div class="marketing-grid">
+                    <div class="service-card">
+                        <h4>Digital Dominance</h4>
+                        <ul>
+                            <li>Luxury property video productions with cinema-grade equipment and drone cinematography</li>
+                            <li>Targeted social media amplification across 12 platforms including WeChat and LinkedIn</li>
+                            <li>Premium portal placements (LuxuryEstate, Christie's, Sotheby's, JamesEdition)</li>
+                            <li>AI-driven ad optimization with real-time bidding across global markets</li>
+                            <li>Multilingual digital campaigns tailored to 8 key investor demographics</li>
+                            <li>Programmatic buying reaching 92% of UHNWI digital audiences</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h4>Brand Architecture</h4>
+                        <ul>
+                            <li>Asset-specific branding with custom logos and visual identity systems</li>
+                            <li>Luxury lifestyle content creation including editorial-quality brochures</li>
+                            <li>High-net-worth audience profiling using wealth segmentation data</li>
+                            <li>Global investor outreach through our database of 25,000 qualified buyers</li>
+                            <li>Signature property naming and storytelling for emotional connection</li>
+                            <li>Luxury partnership activations with high-end brands</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h4>Market Positioning</h4>
+                        <ul>
+                            <li>Competitive pricing analysis using hedonic regression models</li>
+                            <li>Tier-1 broker network activation across 45 premier firms</li>
+                            <li>Private banking channel marketing to 18 leading wealth managers</li>
+                            <li>Ultra-HNWI direct outreach through personalized campaigns</li>
+                            <li>Psychological pricing strategies for maximum perceived value</li>
+                            <li>Seasonal market timing analysis for optimal launch windows</li>
+                        </ul>
+                    </div>
+                </div>
+            
+                <section id="hero" class="oustroupistache">
+                    <div class="hero-content container">
+                       
+                    </div>
+                </section>
+                <br>
+                <h3>Technology-Enabled Marketing</h3>
+                
+                <table border="0" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">Innovation</th>
+                            <th style="text-align:left;">Application</th>
+                            <th style="text-align:left;">Impact</th>
+                            <th style="text-align:left;">Implementation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Virtual Reality Tours</td>
+                            <td>8K immersive property experiences with spatial audio</td>
+                            <td>+40% engagement time</td>
+                            <td>72-hour production timeline</td>
+                        </tr>
+                        <tr>
+                            <td>3D Architectural Rendering</td>
+                            <td>Photorealistic pre-construction visualization</td>
+                            <td>+25% presale conversion</td>
+                            <td>Custom lighting and material simulations</td>
+                        </tr>
+                        <tr>
+                            <td>Augmented Reality</td>
+                            <td>Interactive space planning and furniture placement</td>
+                            <td>+35% faster decision cycle</td>
+                            <td>iOS/Android compatible apps</td>
+                        </tr>
+                        <tr>
+                            <td>Blockchain Listings</td>
+                            <td>Tamper-proof property records and virtual showings</td>
+                            <td>+30% buyer confidence</td>
+                            <td>Secure digital twin technology</td>
+                        </tr>
+                        <tr>
+                            <td>Predictive Analytics</td>
+                            <td>AI-driven buyer matching and timing recommendations</td>
+                            <td>22% better offer conversion</td>
+                            <td>Machine learning algorithms</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Investor Communications</h3>
+                
+                <div class="two-column">
+                    <div class="column">
+                        <h4>Investor Relations</h4>
+                        <ul>
+                            <li>Quarterly performance dashboards with 28 key metrics</li>
+                            <li>Institutional-grade reporting packages</li>
+                            <li>Capital event announcements with press release distribution</li>
+                            <li>Family office briefings through secure webinars</li>
+                            <li>Tax-efficient exit strategy communications</li>
+                            <li>Portfolio performance benchmarking</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4>Public Relations</h4>
+                        <ul>
+                            <li>Forbes-listed press placements in 12 languages</li>
+                            <li>Industry award submissions for design and innovation</li>
+                            <li>CEO thought leadership in top-tier publications</li>
+                            <li>Crisis communications with 24/7 monitoring</li>
+                            <li>Reputation management for ultra-high-profile clients</li>
+                            <li>Exclusive media tours and journalist briefings</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Proof of Performance</h3>
+                
+                <h4>Success Highlights</h4>
+                <ul>
+                    <li>€150M London penthouse sold off-market in 14 days to Asian billionaire</li>
+                    <li>Miami waterfront tower 92% leased pre-completion through virtual tours</li>
+                    <li>Paris historic portfolio achieving 18% above asking through competitive bidding</li>
+                  
+                </ul>
+            
+                <section id="hero" class="oustroupistache2">
+                    <div class="hero-content container">
+                       
+                    </div>
+                </section>
+                <br>
+                <h3>Strategic Alliances</h3>
+                <ul>
+                    <li>Exclusive partnerships with 8 luxury publications including Robb Report and Architectural Digest</li>
+                    <li>Sponsorship of 14 premier real estate forums globally</li>
+                    <li>Collaborations with 6 elite concierge services including Quintessentially</li>
+                    <li>Preferred vendor status with 3 major private jet networks</li>
+                    <li>Partnerships with 5-star hotel chains for property showcases</li>
+                </ul>
+                
+                <h3>Marketing Process</h3>
+                <ol>
+                    <li><strong>Discovery Phase:</strong> 2-week comprehensive property assessment</li>
+                    <li><strong>Strategy Development:</strong> Customized 45-point marketing plan</li>
+                    <li><strong>Creative Production:</strong> High-end photo/video shoots</li>
+                    <li><strong>Channel Activation:</strong> Targeted global campaign launch</li>
+                    <li><strong>Performance Monitoring:</strong> Daily analytics review</li>
+                    <li><strong>Optimization:</strong> Real-time campaign adjustments</li>
+                </ol>
+                
+                <h3>Client Reporting</h3>
+                <ul>
+                    <li>Weekly performance reports with engagement metrics</li>
+                    <li>Bi-weekly strategy calls with senior marketing team</li>
+                    <li>Digital dashboard with real-time analytics</li>
+                    <li>Competitive positioning analysis updates</li>
+                    <li>Buyer feedback and sentiment analysis</li>
+                </ul>
+                
+                <p><a href="../contact-us/index.html" class="button">Elevate Your Property Marketing</a></p>
+                
+                <p class="disclaimer">
+                    Marketing results may vary based on property characteristics and market conditions. 
+                    Certain services require minimum marketing budgets. International campaigns subject to 
+                    local regulations. Performance claims based on historical data.
+                </p>
+                
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </div>
+</div>
+		</main>
+
+    <style>
+      body {
+        background-image: url(front/red/yes.png);
+        background-repeat: repeat;  
+        background-size: cover;
+        background-position: center; 
+        
+/* background-position: center;  */
+}
+@media screen and (max-width: 341px) {
+  body {
+    background-image: url(front/red/mino.png);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 321px) {
+body {
+background-image: url(front/red/minim.png);
+background-repeat: repeat;
+background-size: cover;
+background-position: center;
+}
+}
+    </style>
+
+<footer class="footer" aria-label="Pied de page du site">
+  <div class="footer__top">
+    <div class="footer__logo">
+      <img src="../media/1015/sss.png" alt="Logo SM Invest" width="200" />
+    </div>
+    <div class="footer__contact">
+      <address id="dr">
+        Address : Weidstrasse 43, 8472 Seuzach,<br>
+        Switzerland
+      </address>
+      <p id="dragnir">
+        Email :
+        <a href="mailto:info@sm-invest.ch">info@sm-invest.ch</a>
+      </p>
+    </div>
+  </div>
+
+  <hr class="footer__separator" />
+
+  <div class="footer__bottom">
+    <p class="footer__copyright">© 2025 SM Invest</p>
+    <nav aria-label="Informations légales et politique de confidentialité">
+      <ul class="footer__links">
+        <li>
+          <a href="index.html">Privacy &amp; Cookie Policy</a>
+        </li>
+        <li>
+          <a href="../legal-notice/index.html">Legal/Regulatory Notice</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+	</div>
+
+	<!-- <script nonce="WXSzk4U9nNxVWUaZUdQ6pjoh0z6ASF4rgqYYrZ6ykZw=" src="../sb/site-scripts.js.v1"></script> -->
+	
+
+	<!-- Google Analytics) -->
+	
+	<!-- Google Analytics) -->
+<script>
+document.addEventListener("click", function (event) {
+  // Clic sur bouton "Client area"
+  if (event.target.closest(".js-open-client")) {
+    const overlay = document.querySelector(".client-overlay-wrap");
+    if (overlay) {
+      overlay.classList.add("open");
+    }
+  }
+
+  // Clic sur bouton "Close client overlay"
+  if (event.target.closest(".close-overlay")) {
+    const overlay = document.querySelector(".client-overlay-wrap");
+    if (overlay) {
+      overlay.classList.remove("open");
+    }
+  }
+});
+</script>
+
+</body>
+
+<!-- Mirrored from www.marathon.co.uk/privacy-cookie-policy/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:10:00 GMT -->
+</html>

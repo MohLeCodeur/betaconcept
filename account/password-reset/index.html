@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<!-- Mirrored from www.marathon.co.uk/account/password-reset/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:09:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="../../favicon.ico" />
+	<title>Password Reset | Marathon London</title>
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="canonical" href="index.html">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900">
+	<link rel="stylesheet" href="../../css/styled882.css?v=Fd3f0XFBpHHPdH8P2gW-Dj62pnboBWRgL9UTkHRXjFw">
+
+	
+	
+</head>
+
+
+<body>
+	<script nonce="EmGqZAFIZ4PpFhoRs46stXm0ltlCaqsIaNhwHqKSm3I=" type = "text/javascript" >
+    var config = {
+        apiKey: '89789d071d481b8dfb074a8766005961b088cf25',
+     product: 'PRO_MULTISITE',
+        initialState: "open",
+        necessaryCookies: ['UMB-XSRF-TOKEN'],
+        theme: 'light',
+        position: 'left',
+        acceptButton: true,
+        rejectButton: true,
+        consentCookieExpiry: 90,
+	 branding: {
+             fontFamily: "Playfair Display,Roboto,Arial,Helvetica,sans-serif",
+            fontColor: "#676767",
+            fontSizeTitle: "20px",
+            fontSizeIntro: "14px",
+            fontSizeHeaders: "20px",
+            fontSize: "14px",
+            acceptText: "#fff",	
+            acceptBackground: "#8f2829",
+            rejectText: "#fff",
+            rejectBackground: "#8f2829",
+            backgroundColor: "#e1e1e1",
+	    alertBackground: "#8f2829",
+	    alertText: "#fff",
+            toggleText: "#fff",
+            toggleColor: "#fff",
+            toggleBackground: "#8f2829",
+            removeAbout: true
+        },
+        text: {
+            notifyTitle: "Our use of cookies",
+            notifyDescription: "We use cookies to make the site work and help us make it better. By clicking accept, weâ€™ll set recommended analytics cookies. Or, you can ignore or close this message and weâ€™ll set only the recommended ones.",
+            accept: "Accept",
+            reject: "Reject",
+            settings: "Settings",
+            necessaryTitle: "Necessary cookies",
+            necessaryDescription: "Necessary cookies enable core functionality such as security, network management, and accessibility. You may disable these by changing your browser settings, but this may affect how the website functions.",
+            title: "Our use of cookies",
+            intro: "We use necessary cookies to make our site work. We\u0027d also like to set optional analytics cookies to help us improve it. Using this tool will set a cookie on your device to remember your preferences.",
+            acceptRecommended: "accept",
+            acceptSettings: "Accept",
+            rejectSettings: "Reject",
+            closeLabel: "",
+        },
+        statement: {
+            description: "For more detailed information about the cookies we use, see our",
+            name: "Cookies page",
+            url: "/privacy-cookie-policy",
+            updated: "21/11/2019",
+        },        
+        optionalCookies: [{
+            name: "analytics",
+            label: "Analytics cookies",
+            description: "We\u0027d like to set Google Analytics cookies to help us to improve our website by collecting and reporting information on how you use it. The cookies collect information in a way that does not directly identify anyone. If you choose to switch these cookies off (by moving the slide bar to 'Off') we will not be able to track, on any anonymous basis, how many visitors we have to our site, and therefore monitor its performance. For more information on how these cookies work, please see our \u0027Cookies page\u0027.",
+            cookies: ["_ga","_gid","_gat"],
+            recommendedState: true,
+			lawfulBasis: "consent",
+            onAccept: function() {
+                (function(w, d, s, l, i) {
+                    w[l] = w[l] || [];
+                    w[l].push({
+                        'gtm.start': new Date().getTime(),
+                        event: 'gtm.js'
+                    });
+                    var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s),
+                        dl = l != 'dataLayer' ? '&l=' + l : '';
+                    j.async = true;
+                    j.src = '../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', 'GTM-55X5GQD');
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.org_analytics;
+                }
+            },
+            onRevoke: function() {
+                window['ga-disable-GTM-55X5GQD'] = true;
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.no_analytics;
+                }
+            },            
+        },	
+		]
+    };
+
+
+var loops = 0;
+var threshold = 30;
+
+function CookieControlInit() {
+    if (typeof CookieControl !== "undefined" && window.jQuery && $('#ccc').length > 0) {
+        if ($('header[role=banner]').length > 0) {
+            $('#ccc').insertBefore($('header[role=banner]'));
+            $('#ccc').css('z-index', 9999);
+        }
+        $('#ccc-optional-categories .optional-cookie').each(function() {
+            var label = $('.optional-cookie-header', $(this)).text();
+            var idAttr = (label.split(' ').join('_')).toLowerCase();
+            $('<span/>', {
+                'class': 'invisible',
+                for: idAttr,
+                text: label + " toggle",
+            }).prependTo($('.checkbox-toggle-label', $(this)));
+            $('.checkbox-toggle-input', $(this)).attr('id', idAttr);
+
+        });
+    } else {
+        if (loops++ < threshold) {
+            setTimeout(CookieControlInit, 300);
+        }
+    }
+}
+var script = document.createElement('script');
+script.onload = function() {
+    CookieControl.load(config);
+    CookieControlInit();
+};
+script.crossorigin = "anonymous";
+script.src = '../../../cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js';
+document.head.appendChild(script);
+
+var onPageStyle = "";
+if (config.text.acceptRecommended == "") {
+    onPageStyle += "#ccc-recommended-settings{display:none;}"
+}
+if (config.text.rejectSettings == "") {
+    onPageStyle += "#ccc-reject-settings{display:none;}"
+}
+if (onPageStyle != "") {
+    var style = document.createElement('style');
+    style.innerHTML = onPageStyle;
+    document.head.appendChild(style);
+}
+</script>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55X5GQD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div class="wrapper">
+
+		
+<header class="header" aria-haspopup="true">
+    <div class="header-inner">
+        <nav class="left">
+                <a href="../../contact-us/index.html">Contact Us</a>
+        </nav>
+
+        <a href="../../index.html" class="logo">
+                <img src="../../media/1016/logo.svg" class="logo-color" />
+                <img src="../../media/1015/logo-white.svg" class="logo-white" />
+                <img src="../../media/1014/logo-emblem.svg" alt="Marathon" class="logo-emblem" />
+        </a>
+
+        <div class="right">
+                <a href="../../private/user-home/index.html">
+                    <button type="button" class="btn-client"><span>Client area</span></button>
+                </a>
+        </div>
+    </div>
+
+</header>
+
+		<main class="content">
+			
+
+<div class="container form-pages">
+		<section class="form-container">
+			<h3>Request a new password</h3>
+
+			
+<form action="https://www.marathon.co.uk/account/password-reset/" class="form" enctype="multipart/form-data" id="form3c4628a59952410dbb228130f1e9a3a8" method="post">	<div class="row">
+
+		<div class="offset-lg-4 col-lg-4 offset-md-2 col-md-8 col-sm-12 form-field">
+			
+		</div>
+
+		<div class="offset-lg-4 col-lg-4 offset-md-2 col-md-8 col-sm-12 form-field">
+			<input class="in-text" data-val="true" data-val-required="The Email field is required." id="Email" name="Email" placeholder="Email address" type="text" value="" />
+		</div>
+
+		<div class="offset-lg-4 col-lg-4 offset-md-2 col-md-8 col-sm-12 form-field">
+			<button type="submit" class="btn submit-btn">Request password</button>
+		</div>
+
+		<div class="offset-lg-4 col-lg-4 offset-md-2 col-md-8 col-sm-12 login-link">
+			<p></p>
+		</div>
+
+	</div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8GqEOhd3m2pMgn4ccNZWJyGUQUjmtPyJz_q9TS9iNkXSF8RYQ01Dw8rOGxhWLvzQUFV1KaAxyFw4tiNBeMRTt9dpbXHFPTB1hXGP9rZbUgzeXaL5QOqnkdfiRt3yS7v18ap2Y2d1gJmr7JWy3PYSbrw" /><input name="ufprt" type="hidden" value="CfDJ8GqEOhd3m2pMgn4ccNZWJyHHLSWThz3bNGkU38jcoZZgwmAmYVKt3-TyHQoSsxdA9ELTx97zdGRzEOTfmBRP2QRsYY9MK2kacTKBQ2H05S_NvqVNcigdaj1nLLiBrCjZpkgDKd1vszWJuAEKH_wU61f3pG8LJqOtFTGfITBQu3A4" /></form>
+		</section>
+</div>
+		</main>
+
+		
+<footer class="footer">
+    <div class="container">
+        <p>
+            &#xA9; 2025 Marathon Asset Management 
+
+        </p>
+            <ul role="menu">
+                <li role="menuitem">
+                    <a href="../../fund-prices/index.html" target="">Fund Prices</a>
+                </li>
+                <li role="menuitem">
+                    <a href="../../statement-of-tax-strategy/index.html" target="_blank">Statement of Tax Strategy</a>
+                </li>
+                <li role="menuitem">
+                    <a href="../../privacy-cookie-policy/index.html" target="">Privacy &amp; Cookie Policy</a>
+                </li>
+                <li role="menuitem">
+                    <a href="../../legal-notice/index.html" target="">Legal/Regulatory Notice</a>
+                </li>
+                <li role="menuitem">
+                    <a href="../../modern-slavery-statement/index.html" target="_blank">Modern Slavery Statement</a>
+                </li>
+            </ul>
+    </div>
+</footer>
+
+	</div>
+
+	<script nonce="EmGqZAFIZ4PpFhoRs46stXm0ltlCaqsIaNhwHqKSm3I=" src="../../sb/site-scripts.js.v1"></script>
+	
+
+	<!-- Google Analytics) -->
+	
+	<!-- Google Analytics) -->
+
+</body>
+
+<!-- Mirrored from www.marathon.co.uk/account/password-reset/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:09:49 GMT -->
+</html>

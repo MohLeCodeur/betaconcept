@@ -1,0 +1,940 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<!-- Mirrored from www.marathon.co.uk/privacy-cookie-policy/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:10:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="../favicon.ico" />
+	<title>REAL ESTATE</title>
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="canonical" href="index.html">
+    <link rel="stylesheet" href="front/style4.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900">
+	<link rel="stylesheet" href="../css/invest.css">
+
+	
+	
+</head>
+
+
+<body>
+	<script nonce="WXSzk4U9nNxVWUaZUdQ6pjoh0z6ASF4rgqYYrZ6ykZw=" type = "text/javascript" >
+    var config = {
+        apiKey: '89789d071d481b8dfb074a8766005961b088cf25',
+     product: 'PRO_MULTISITE',
+        initialState: "open",
+        necessaryCookies: ['UMB-XSRF-TOKEN'],
+        theme: 'light',
+        position: 'left',
+        acceptButton: true,
+        rejectButton: true,
+        consentCookieExpiry: 90,
+	 branding: {
+             fontFamily: "Playfair Display,Roboto,Arial,Helvetica,sans-serif",
+            fontColor: "#676767",
+            fontSizeTitle: "20px",
+            fontSizeIntro: "14px",
+            fontSizeHeaders: "20px",
+            fontSize: "14px",
+            acceptText: "#fff",	
+            acceptBackground: "#8f2829",
+            rejectText: "#fff",
+            rejectBackground: "#8f2829",
+            backgroundColor: "#e1e1e1",
+	    alertBackground: "#8f2829",
+	    alertText: "#fff",
+            toggleText: "#fff",
+            toggleColor: "#fff",
+            toggleBackground: "#8f2829",
+            removeAbout: true
+        },
+        text: {
+            notifyTitle: "Our use of cookies",
+            notifyDescription: "We use cookies to make the site work and help us make it better. By clicking accept, weâ€™ll set recommended analytics cookies. Or, you can ignore or close this message and weâ€™ll set only the recommended ones.",
+            accept: "Accept",
+            reject: "Reject",
+            settings: "Settings",
+            necessaryTitle: "Necessary cookies",
+            necessaryDescription: "Necessary cookies enable core functionality such as security, network management, and accessibility. You may disable these by changing your browser settings, but this may affect how the website functions.",
+            title: "Our use of cookies",
+            intro: "We use necessary cookies to make our site work. We\u0027d also like to set optional analytics cookies to help us improve it. Using this tool will set a cookie on your device to remember your preferences.",
+            acceptRecommended: "accept",
+            acceptSettings: "Accept",
+            rejectSettings: "Reject",
+            closeLabel: "",
+        },
+        statement: {
+            description: "For more detailed information about the cookies we use, see our",
+            name: "Cookies page",
+            url: "/privacy-cookie-policy",
+            updated: "21/11/2019",
+        },        
+        optionalCookies: [{
+            name: "analytics",
+            label: "Analytics cookies",
+            description: "We\u0027d like to set Google Analytics cookies to help us to improve our website by collecting and reporting information on how you use it. The cookies collect information in a way that does not directly identify anyone. If you choose to switch these cookies off (by moving the slide bar to 'Off') we will not be able to track, on any anonymous basis, how many visitors we have to our site, and therefore monitor its performance. For more information on how these cookies work, please see our \u0027Cookies page\u0027.",
+            cookies: ["_ga","_gid","_gat"],
+            recommendedState: true,
+			lawfulBasis: "consent",
+            onAccept: function() {
+                (function(w, d, s, l, i) {
+                    w[l] = w[l] || [];
+                    w[l].push({
+                        'gtm.start': new Date().getTime(),
+                        event: 'gtm.js'
+                    });
+                    var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s),
+                        dl = l != 'dataLayer' ? '&l=' + l : '';
+                    j.async = true;
+                    j.src = '../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', 'GTM-55X5GQD');
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.org_analytics;
+                }
+            },
+            onRevoke: function() {
+                window['ga-disable-GTM-55X5GQD'] = true;
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.no_analytics;
+                }
+            },            
+        },	
+		]
+    };
+
+
+var loops = 0;
+var threshold = 30;
+
+function CookieControlInit() {
+    if (typeof CookieControl !== "undefined" && window.jQuery && $('#ccc').length > 0) {
+        if ($('header[role=banner]').length > 0) {
+            $('#ccc').insertBefore($('header[role=banner]'));
+            $('#ccc').css('z-index', 9999);
+        }
+        $('#ccc-optional-categories .optional-cookie').each(function() {
+            var label = $('.optional-cookie-header', $(this)).text();
+            var idAttr = (label.split(' ').join('_')).toLowerCase();
+            $('<span/>', {
+                'class': 'invisible',
+                for: idAttr,
+                text: label + " toggle",
+            }).prependTo($('.checkbox-toggle-label', $(this)));
+            $('.checkbox-toggle-input', $(this)).attr('id', idAttr);
+
+        });
+    } else {
+        if (loops++ < threshold) {
+            setTimeout(CookieControlInit, 300);
+        }
+    }
+}
+var script = document.createElement('script');
+script.onload = function() {
+    CookieControl.load(config);
+    CookieControlInit();
+};
+script.crossorigin = "anonymous";
+script.src = '../../cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js';
+document.head.appendChild(script);
+
+var onPageStyle = "";
+if (config.text.acceptRecommended == "") {
+    onPageStyle += "#ccc-recommended-settings{display:none;}"
+}
+if (config.text.rejectSettings == "") {
+    onPageStyle += "#ccc-reject-settings{display:none;}"
+}
+if (onPageStyle != "") {
+    var style = document.createElement('style');
+    style.innerHTML = onPageStyle;
+    document.head.appendChild(style);
+}
+</script>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55X5GQD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div class="wrapper">
+    <header class="header header-pages header-fix" aria-haspopup="true">
+      <div class="header-inner">
+        <nav class="left">
+          <a href="../contact-us/index.html">Contact Us</a>
+        </nav>
+
+        <a href="../index.html" class="logo">
+          <img src="../media/1016/smco-modified.png" class="logo-color" />
+          <img src="../media/1015/logo-white.svg" class="logo-white" />
+          <img
+            src="../media/1014/redlogo.png"
+            alt="Marathon"
+            class="logo-emblem"
+            width="150"
+            height="35"
+          />
+        </a>
+
+        <div class="right">
+          <button type="button" class="btn-client js-open-client">
+            <span>Client area</span>
+          </button>
+        </div>
+        <div class="header-inner sticky-header">
+          <nav class="left">
+                  <a href="../contact-us/index.html">Contact Us</a>
+          </nav>
+  
+          <a href="../index.html" class="logo">
+                  <img src="../media/1016/smco-modified.png" class="logo-color">
+                  <img src="../media/1015/logo-white.svg" class="logo-white">
+                  <img src="../media/1014/redlogo.png" alt="Marathon" class="logo-emblem" >
+          </a>
+  
+          <div class="right">
+                  <button type="button" class="btn-client js-open-client"><span>Client area</span></button>
+                  <button type="button" class="hamburger"></button>
+          </div>
+               <style>
+      
+.hamburger {
+display: none; /* Caché par défaut */
+}
+
+@media (max-width: 525px) {
+.hamburger {
+  display: block; /* Affiche uniquement en dessous de 425px */
+  width: 30px; /* Ajuste selon la taille de ton image */
+height: 30px;
+background-image: url('front/menu.png'); /* Assure-toi que le chemin est correct */
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+border: none;
+cursor: pointer;
+background-color: transparent; /* Supprime l’arrière-plan du bouton */
+margin-left: 80px; /* Ajuste la valeur selon ton besoin */
+}
+
+.hero-navigation {
+  display: none; /* Cache le menu par défaut sur petits écrans */
+}
+
+.hero-navigation.active {
+  display: block; /* Affiche le menu quand la classe "active" est ajoutée */
+}
+}
+@media (max-width: 425px) and (min-width: 410px) {
+.hamburger {
+  margin-left: 80px;
+}
+}
+
+@media (max-width: 409px) and (min-width: 367px) {
+.hamburger {
+  margin-left: 59px;
+}
+}
+@media (max-width: 366px) and (min-width: 344px) {
+.hamburger {
+  margin-left: 50px;
+}
+}
+@media (max-width: 343px) and (min-width: 38px) {
+.hamburger {
+  margin-left: 37px;
+}
+}
+
+@media (max-width: 320px) {
+.hamburger {
+  margin-left: 33px;
+}
+}
+
+
+            </style>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const menuButton = document.querySelector(".hamburger");
+                const navMenu = document.querySelector(".hero-navigation");
+            
+                menuButton.addEventListener("click", function () {
+                  navMenu.classList.toggle("active");
+                });
+              });
+            </script>
+            
+          <div class="hero-navigation sticky-page-nav">
+                      <ul role="menu">
+                        <li role="menuitem">
+                          <a href="collective.html" >COLLECTIVE MANAGEMENT</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="private.html">PRIVATE MANAGEMENT</a>
+                        </li>
+                          <li role="menuitem">
+                              <a href="equity.html">EQUITY</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="loan.html">LOAN</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="realestate.html">REAL ESTATE</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="marketing.html">MARKETING</a>
+                          </li>
+                          <li role="menuitem">
+                            <a href="team.html">TEAM</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="proposal.html"">PROPOSAL INVESTING</a>
+                          </li>
+                        </ul>
+                  </div>
+      </div>
+      </div>
+<div class="client-overlay-wrap" aria-hidden="true">
+        <div class="client-inner">
+          <button type="button" class="close-overlay">
+            <span class="font-ico-close"></span
+            ><span class="sr-only">Close client overlay</span>
+          </button>
+          <h3>Sign in below</h3>
+
+          <form
+            action="https://www.marathon.co.uk/privacy-cookie-policy/"
+            class="form"
+            enctype="multipart/form-data"
+            id="form13ff0327de4f4d2aa3806717c22782bf"
+            method="post"
+          >
+            <div class="validation-summary-valid" data-valmsg-summary="true">
+              <ul>
+                <li style="display: none"></li>
+              </ul>
+            </div>
+            <input
+              class="in-text"
+              data-val="true"
+              data-val-required="The User name field is required."
+              id="client-email"
+              name="Username"
+              placeholder="Email address"
+              type="text"
+              value=""
+            /><input
+              class="in-text"
+              data-val="true"
+              data-val-length="The field Password must be a string with a maximum length of 256."
+              data-val-length-max="256"
+              data-val-required="The Password field is required."
+              id="client-password"
+              maxlength="256"
+              name="Password"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+            <button type="submit" class="btn keep-overlay-open">Login</button>
+            <input
+              name="__RequestVerificationToken"
+              type="hidden"
+              value="CfDJ8GqEOhd3m2pMgn4ccNZWJyHvNOkcYhza6wLupfqg9L5MjT8A8u6F98e4OOEGRkbud5jJ1p8q3I-0w6p0mX-5I6kG4tPb_50E3YIKs2s9srVeMkwLrP439Xx1wwHZ23NFxEyVBk_2J6ARo0VwbQ31kxs"
+            /><input
+              name="ufprt"
+              type="hidden"
+              value="CfDJ8GqEOhd3m2pMgn4ccNZWJyGcmvVmqszDpzUQ4Q1_-tgKVwLR1T4QUiESOgsJzJE0ZR8G9Mz74R3sQUa9oG2XJbHRIGeN7qb609uPjHCi2Ddc7OvmOo1oDmj3Rg0EQp_NClsyOwuuHsOox3sMhO6GtlY"
+            />
+          </form>
+          <div class="user-links">
+            <a href="../account/password-reset/index.html"
+              >Forgot your password?</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+<!-- <header class="header" aria-haspopup="true">
+    <div class="header-inner">
+        <nav class="left">
+                <a href="../contact-us/index.html">Contact Us</a>
+        </nav>
+
+        <a href="../index.html" class="logo">
+                <img src="../media/1016/smco-modified.png" class="logo-color" />
+                <img src="../media/1015/logo-white.svg" class="logo-white" />
+                <img src="../media/1014/redlogo.png" alt="Marathon" class="logo-emblem" width="150" height="35" />
+        </a>
+
+        <div class="right">
+                <button type="button" class="btn-client js-open-client"><span>Client area</span></button>
+        </div>
+    </div>
+
+        <div class="client-overlay-wrap"  aria-hidden="true" >
+                <div class="client-inner">
+                    <button type="button" class="close-overlay"><span class="font-ico-close"></span><span class="sr-only">Close client overlay</span></button>
+                    <h3>Sign in below</h3>
+
+                    
+
+<form action="https://www.marathon.co.uk/privacy-cookie-policy/" class="form" enctype="multipart/form-data" id="form13ff0327de4f4d2aa3806717c22782bf" method="post"><div class="validation-summary-valid" data-valmsg-summary="true"><ul><li style="display:none"></li>
+</ul></div><input class="in-text" data-val="true" data-val-required="The User name field is required." id="client-email" name="Username" placeholder="Email address" type="text" value="" /><input class="in-text" data-val="true" data-val-length="The field Password must be a string with a maximum length of 256." data-val-length-max="256" data-val-required="The Password field is required." id="client-password" maxlength="256" name="Password" placeholder="Password" type="password" value="" />    <button type="submit" class="btn keep-overlay-open">Login</button>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8GqEOhd3m2pMgn4ccNZWJyHvNOkcYhza6wLupfqg9L5MjT8A8u6F98e4OOEGRkbud5jJ1p8q3I-0w6p0mX-5I6kG4tPb_50E3YIKs2s9srVeMkwLrP439Xx1wwHZ23NFxEyVBk_2J6ARo0VwbQ31kxs" /><input name="ufprt" type="hidden" value="CfDJ8GqEOhd3m2pMgn4ccNZWJyGcmvVmqszDpzUQ4Q1_-tgKVwLR1T4QUiESOgsJzJE0ZR8G9Mz74R3sQUa9oG2XJbHRIGeN7qb609uPjHCi2Ddc7OvmOo1oDmj3Rg0EQp_NClsyOwuuHsOox3sMhO6GtlY" /></form><div class="user-links">
+    <a href="../account/password-reset/index.html">Forgot your password?</a>
+</div>
+
+                </div>
+            </div>
+</header> -->
+ <style>
+       
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .investment-section {
+            margin-bottom: 80px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .investment-section h2 {
+            border-bottom: 2px solid #720707;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .main-image {
+    width: 100%;
+    height: 800px;
+    object-fit: contain; /* Au lieu de cover */
+    object-position: center;
+    background-color: #f0f0f0; /* Fond uni pour les espaces vides */
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 4px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+        .main-image:hover {
+            transform: scale(1.01);
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .modal-img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-top: 20px;
+        }
+        .nav-btn {
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: rgba(94, 6, 6, 0.2);
+            border-radius: 5px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #6d0b0b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        .button:hover {
+            background-color: #ce4c10;
+        }
+        .details-container {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .featured-property {
+            flex: 1;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #720707;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .investment-highlights {
+            flex: 1;
+            background-color: #d6e0d9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #079e5f;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .details-container h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .details-container ul {
+            padding-left: 20px;
+        }
+        .details-container li {
+            margin-bottom: 8px;
+        }
+        @media (max-width: 768px) {
+            .details-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+		<main class="content">
+			
+<div class="standard-page">
+    <div class="container">
+        <div class="inner-indented">
+            <div class="section-header">
+                <h1>Premium Investment Proposals</h1>
+                
+                <span class="header-overlay">Investment</span>
+            </div>
+            <div class="rte-content">
+                <p>Discover our exclusive selection of high-value investment opportunities curated by SM Invest's team of experts. Each proposal offers unique advantages and growth potential in its respective market segment.</p>
+        
+                <!-- Villa Investment -->
+                <div class="investment-section" id="villa">
+                    <h2>Luxury Villa Investments</h2>
+                    <p>Our luxury villa portfolio represents the pinnacle of residential real estate investments. Located in the world's most desirable destinations, these properties combine exceptional lifestyle appeal with strong investment fundamentals.</p>
+                    
+                    <div class="details-container">
+                        <div class="featured-property">
+                            <h3>Featured Property</h3>
+                            <ul>
+                                <li><strong>Villa in Spain:</strong> 1,975,000€</li>
+                                <li><strong>Land:</strong> 751m²</li>
+                                <li><strong>Living area:</strong> 495m²</li>
+                                <li><strong>Bedrooms:</strong> 4</li>
+                                <li><strong>Location:</strong> South of Spain</li>
+                                <li><strong>Features:</strong> Private pool</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="investment-highlights">
+                            <h3>Investment Highlights</h3>
+                            <ul>
+                                <li>8-12% projected annual rental yield</li>
+                                <li>15-25% average appreciation over 5 years</li>
+                                <li>Full concierge and property management included</li>
+                                <li>Personal usage up to 60 days per year</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <img src="front/villa/1.jpg" alt="Luxury Villa Investment" class="main-image" onclick="openModal('villa', 0)">
+                    
+                    <a href="../contact-us/index.html" class="button">Request Exclusive Villa Portfolio</a>
+                </div>
+        
+                <!-- Yacht Investment -->
+                <div class="investment-section" id="yacht">
+                    <h2>Premium Yacht Investments</h2>
+                    <p>Our yacht investment program offers access to the lucrative charter market with professional management and guaranteed returns. Invest in floating assets that combine passion with profit.</p>
+                    
+                    <div class="details-container">
+                        <div class="featured-property">
+                            <h3>Featured Yacht</h3>
+                            <ul>
+                                <li><strong>Model:</strong> Yatch Pardo 43</li>
+                                <li><strong>Size:</strong> 14m / 4.2m</li>
+                                <li><strong>Hours:</strong> 400</li>
+                                <li><strong>Price:</strong> 690,000€</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="investment-highlights">
+                            <h3>Investment Highlights</h3>
+                            <ul>
+                                <li>10-15% net annual returns</li>
+                                <li>30-60 days personal usage annually</li>
+                                <li>Professional crew and maintenance included</li>
+                                <li>5-year buyback guarantee option</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <img src="front/Yacht/1.jpg" alt="Yacht Investment" class="main-image" onclick="openModal('yacht', 0)">
+                    
+                    <a href="../contact-us/index.html" class="button">Explore Yacht Ownership</a>
+                </div>
+        
+                <!-- Painting Investment -->
+                <div class="investment-section" id="painting">
+                    <h2>Masterpiece Art Investments</h2>
+                    <p>Invest in blue-chip artworks with our managed fine art investment program. We focus on established artists with proven market performance and museum-quality authentication.</p>
+                    
+                    <div class="details-container">
+                        <div class="featured-property">
+                            <h3>Featured Artwork</h3>
+                            <ul>
+                                <li><strong>Artist:</strong> Vincent Van Gogh</li>
+                                <li><strong>Title:</strong> Flowers</li>
+                                <li><strong>Year:</strong> 1885</li>
+                                <li><strong>Price:</strong> 1,240,000€</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="investment-highlights">
+                            <h3>Investment Highlights</h3>
+                            <ul>
+                                <li>8-12% annualized historical returns</li>
+                                <li>Low correlation with traditional markets</li>
+                                <li>Professional storage and insurance included</li>
+                                <li>Expert authentication and provenance research</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <img src="front/tableau/1.jpg" alt="Art Investment" class="main-image" onclick="openModal('painting', 0)">
+                    
+                    <a href="../contact-us/index.html" class="button">View Current Art Portfolio</a>
+                </div>
+        
+                <!-- Building Investment -->
+                <div class="investment-section" id="building">
+                    <h2>Commercial Real Estate Investments</h2>
+                    <p>Our commercial property portfolio offers institutional-grade investments in prime office towers, retail centers, and mixed-use developments across global gateway cities.</p>
+                    
+                    <div class="details-container">
+                        <div class="featured-property">
+                            <h3>Featured Property</h3>
+                            <ul>
+                                <li><strong>Area:</strong> 1730m²</li>
+                                <li><strong>Price:</strong> 5,200,000€</li>
+                                <li><strong>Floors:</strong> R+3</li>
+                                <li><strong>Contracts:</strong> 24 rental</li>
+                                <li><strong>Parking:</strong> 11 spaces</li>
+                                <li><strong>Location:</strong> City center of La Rochelle, France</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="investment-highlights">
+                            <h3>Investment Highlights</h3>
+                            <ul>
+                                <li>5-7% annual cash yield</li>
+                                <li>10-15% total annual return</li>
+                                <li>Long-term lease structures</li>
+                                <li>Professional asset management</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <img src="front/immo/1.jpg" alt="Commercial Real Estate" class="main-image" onclick="openModal('building', 0)">
+                    
+                    <a href="../contact-us/index.html" class="button">Request Investment Memorandum</a>
+                </div>
+        
+                <!-- Mercedes Investment -->
+                <div class="investment-section" id="mercedes">
+                    <h2>Classic Car Collections Investments</h2>
+                    <p>Invest in rare and appreciating classic vehicles through our managed collector car program, focusing on limited-production models with documented provenance.</p>
+                    
+                    <div class="details-container">
+                        <div class="featured-property">
+                            <h3>Featured Vehicle</h3>
+                            <ul>
+                                <li><strong>Model:</strong> Mercedes-Benz 300SL</li>
+                                <li><strong>Year:</strong> 1958</li>
+                                <li><strong>Mileage:</strong> 60,000km</li>
+                                <li><strong>Price:</strong> 1,425,000€</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="investment-highlights">
+                            <h3>Investment Highlights</h3>
+                            <ul>
+                                <li>15-25% annual appreciation potential</li>
+                                <li>Climate-controlled storage included</li>
+                                <li>Comprehensive insurance coverage</li>
+                                <li>Buyback options available</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <img src="front/mercedes/1.jpg" alt="Classic Car Investment" class="main-image" onclick="openModal('mercedes', 0)">
+                    
+                    <a href="../contact-us/index.html" class="button">Browse Current Inventory</a>
+                </div>
+        
+                <!-- Dragon Vase Investment -->
+                <div class="investment-section" id="vase">
+                    <h2>Imperial Vase Investments</h2>
+                    <p>Our rare Chinese porcelain investment program focuses on museum-quality dragon vases from imperial kilns, offering exposure to the rapidly growing Asian art market.</p>
+                    
+                    <div class="details-container">
+                        <div class="featured-property">
+                            <h3>Featured Piece</h3>
+                            <ul>
+                                <li><strong>Item:</strong> Dragon Vase Tianqiuping</li>
+                                <li><strong>Year:</strong> 1730</li>
+                                <li><strong>Size:</strong> 51.5cm</li>
+                                <li><strong>Price:</strong> 12,000,000€</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="investment-highlights">
+                            <h3>Investment Highlights</h3>
+                            <ul>
+                                <li>10-20% annual appreciation</li>
+                                <li>Expert authentication included</li>
+                                <li>Secure, climate-controlled storage</li>
+                                <li>Auction representation services</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <img src="front/vase/1.jpg" alt="Dragon Vase Investment" class="main-image" onclick="openModal('vase', 0)">
+                    
+                    <a href="../contact-us/index.html" class="button">Inquire About Availability</a>
+                </div>
+            </div>
+        
+            <!-- Modal -->
+            <div id="imageModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+                    <img id="modalImage" class="modal-img" src="" alt="">
+                    <div class="nav-buttons">
+                        <div class="nav-btn" onclick="prevImage()">❮</div>
+                        <div class="nav-btn" onclick="nextImage()">❯</div>
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                // Global variables for modal functionality
+                let currentCategory = '';
+                let currentIndex = 0;
+                const categories = {
+                    villa: [
+                        'front/villa/1.jpg',
+                        'front/villa/2.jpg',
+                        'front/villa/3.jpg',
+                        'front/villa/4.jpg'
+                        
+                    ],
+                    yacht: [
+                        'front/Yacht/1.jpg',
+                        'front/Yacht/2.jpg',
+                        'front/Yacht/3.jpg',
+                        'front/Yacht/4.jpg',
+                        'front/Yacht/5.jpg'
+                      
+                    ],
+                    painting: [
+                        'front/tableau/1.jpg',
+                        'front/tableau/2.jpg',
+                        'front/tableau/3.jpg'
+                       
+                    ],
+                    building: [
+                        'front/immo/1.jpg',
+                        'front/immo/2.jpg'
+                       
+                    ],
+                    mercedes: [
+                        'front/mercedes/1.jpg',
+                        'front/mercedes/2.jpg',
+                        'front/mercedes/3.jpg',
+                        'front/mercedes/4.jpg'
+                      
+                    ],
+                    vase: [
+                        'front/vase/1.jpg',
+                        'front/vase/2.jpg',
+                        'front/vase/3.jpg'
+                      
+                    ]
+                };
+        
+                function openModal(category, index) {
+                    currentCategory = category;
+                    currentIndex = index;
+                    document.getElementById('modalImage').src = categories[category][index];
+                    document.getElementById('imageModal').style.display = "block";
+                    document.body.style.overflow = "hidden"; // Prevent scrolling
+                }
+        
+                function closeModal() {
+                    document.getElementById('imageModal').style.display = "none";
+                    document.body.style.overflow = "auto"; // Re-enable scrolling
+                }
+        
+                function prevImage() {
+                    currentIndex = (currentIndex - 1 + categories[currentCategory].length) % categories[currentCategory].length;
+                    document.getElementById('modalImage').src = categories[currentCategory][currentIndex];
+                }
+        
+                function nextImage() {
+                    currentIndex = (currentIndex + 1) % categories[currentCategory].length;
+                    document.getElementById('modalImage').src = categories[currentCategory][currentIndex];
+                }
+        
+                // Keyboard navigation
+                document.addEventListener('keydown', function(event) {
+                    if (document.getElementById('imageModal').style.display === "block") {
+                        if (event.key === "ArrowLeft") {
+                            prevImage();
+                        } else if (event.key === "ArrowRight") {
+                            nextImage();
+                        } else if (event.key === "Escape") {
+                            closeModal();
+                        }
+                    }
+                });
+        
+                // Close modal when clicking outside the image
+                window.onclick = function(event) {
+                    const modal = document.getElementById('imageModal');
+                    if (event.target == modal) {
+                        closeModal();
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</div>
+		</main>
+        <style>
+            body {
+              background-image: url(front/red/yes.png);
+              background-repeat: repeat;  
+              background-size: cover;
+              background-position: center; 
+              
+      /* background-position: center;  */
+      }
+      @media screen and (max-width: 341px) {
+        body {
+          background-image: url(front/red/mino.png);
+          background-repeat: repeat;
+          background-size: cover;
+          background-position: center;
+        }
+      }
+      
+      @media screen and (max-width: 321px) {
+      body {
+      background-image: url(front/red/minim.png);
+      background-repeat: repeat;
+      background-size: cover;
+      background-position: center;
+      }
+      }
+          </style>
+  <footer class="footer" aria-label="Pied de page du site">
+    <div class="footer__top">
+      <div class="footer__logo">
+        <img src="../media/1015/sss.png" alt="Logo SM Invest" width="200" />
+      </div>
+      <div class="footer__contact">
+        <address id="dr">
+          Address : Weidstrasse 43, 8472 Seuzach,<br>
+          Switzerland
+        </address>
+        <p id="dragnir">
+          Email :
+          <a href="mailto:info@sm-invest.ch">info@sm-invest.ch</a>
+        </p>
+      </div>
+    </div>
+  
+    <hr class="footer__separator" />
+  
+    <div class="footer__bottom">
+      <p class="footer__copyright">© 2025 SM Invest</p>
+      <nav aria-label="Informations légales et politique de confidentialité">
+        <ul class="footer__links">
+          <li>
+            <a href="index.html">Privacy &amp; Cookie Policy</a>
+          </li>
+          <li>
+            <a href="../legal-notice/index.html">Legal/Regulatory Notice</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+	</div>
+
+	<!-- <script nonce="WXSzk4U9nNxVWUaZUdQ6pjoh0z6ASF4rgqYYrZ6ykZw=" src="../sb/site-scripts.js.v1"></script> -->
+	
+
+	<!-- Google Analytics) -->
+	
+	<!-- Google Analytics) -->
+<script>
+document.addEventListener("click", function (event) {
+  // Clic sur bouton "Client area"
+  if (event.target.closest(".js-open-client")) {
+    const overlay = document.querySelector(".client-overlay-wrap");
+    if (overlay) {
+      overlay.classList.add("open");
+    }
+  }
+
+  // Clic sur bouton "Close client overlay"
+  if (event.target.closest(".close-overlay")) {
+    const overlay = document.querySelector(".client-overlay-wrap");
+    if (overlay) {
+      overlay.classList.remove("open");
+    }
+  }
+});
+</script>
+
+</body>
+
+<!-- Mirrored from www.marathon.co.uk/privacy-cookie-policy/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:10:00 GMT -->
+</html>

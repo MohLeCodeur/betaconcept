@@ -1,0 +1,647 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<!-- Mirrored from www.marathon.co.uk/privacy-cookie-policy/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:10:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="../favicon.ico" />
+	<title>PRIVATE MANAGEMENT</title>
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="front/style1.css">
+	<link rel="canonical" href="index.html">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900">
+	<link rel="stylesheet" href="../css/styled882.css?v=Fd3f0XFBpHHPdH8P2gW-Dj62pnboBWRgL9UTkHRXjFw">
+
+	
+	
+</head>
+
+
+<body>
+	<script nonce="WXSzk4U9nNxVWUaZUdQ6pjoh0z6ASF4rgqYYrZ6ykZw=" type = "text/javascript" >
+    var config = {
+        apiKey: '89789d071d481b8dfb074a8766005961b088cf25',
+     product: 'PRO_MULTISITE',
+        initialState: "open",
+        necessaryCookies: ['UMB-XSRF-TOKEN'],
+        theme: 'light',
+        position: 'left',
+        acceptButton: true,
+        rejectButton: true,
+        consentCookieExpiry: 90,
+	 branding: {
+             fontFamily: "Playfair Display,Roboto,Arial,Helvetica,sans-serif",
+            fontColor: "#676767",
+            fontSizeTitle: "20px",
+            fontSizeIntro: "14px",
+            fontSizeHeaders: "20px",
+            fontSize: "14px",
+            acceptText: "#fff",	
+            acceptBackground: "#8f2829",
+            rejectText: "#fff",
+            rejectBackground: "#8f2829",
+            backgroundColor: "#e1e1e1",
+	    alertBackground: "#8f2829",
+	    alertText: "#fff",
+            toggleText: "#fff",
+            toggleColor: "#fff",
+            toggleBackground: "#8f2829",
+            removeAbout: true
+        },
+        text: {
+            notifyTitle: "Our use of cookies",
+            notifyDescription: "We use cookies to make the site work and help us make it better. By clicking accept, weâ€™ll set recommended analytics cookies. Or, you can ignore or close this message and weâ€™ll set only the recommended ones.",
+            accept: "Accept",
+            reject: "Reject",
+            settings: "Settings",
+            necessaryTitle: "Necessary cookies",
+            necessaryDescription: "Necessary cookies enable core functionality such as security, network management, and accessibility. You may disable these by changing your browser settings, but this may affect how the website functions.",
+            title: "Our use of cookies",
+            intro: "We use necessary cookies to make our site work. We\u0027d also like to set optional analytics cookies to help us improve it. Using this tool will set a cookie on your device to remember your preferences.",
+            acceptRecommended: "accept",
+            acceptSettings: "Accept",
+            rejectSettings: "Reject",
+            closeLabel: "",
+        },
+        statement: {
+            description: "For more detailed information about the cookies we use, see our",
+            name: "Cookies page",
+            url: "/privacy-cookie-policy",
+            updated: "21/11/2019",
+        },        
+        optionalCookies: [{
+            name: "analytics",
+            label: "Analytics cookies",
+            description: "We\u0027d like to set Google Analytics cookies to help us to improve our website by collecting and reporting information on how you use it. The cookies collect information in a way that does not directly identify anyone. If you choose to switch these cookies off (by moving the slide bar to 'Off') we will not be able to track, on any anonymous basis, how many visitors we have to our site, and therefore monitor its performance. For more information on how these cookies work, please see our \u0027Cookies page\u0027.",
+            cookies: ["_ga","_gid","_gat"],
+            recommendedState: true,
+			lawfulBasis: "consent",
+            onAccept: function() {
+                (function(w, d, s, l, i) {
+                    w[l] = w[l] || [];
+                    w[l].push({
+                        'gtm.start': new Date().getTime(),
+                        event: 'gtm.js'
+                    });
+                    var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s),
+                        dl = l != 'dataLayer' ? '&l=' + l : '';
+                    j.async = true;
+                    j.src = '../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', 'GTM-55X5GQD');
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.org_analytics;
+                }
+            },
+            onRevoke: function() {
+                window['ga-disable-GTM-55X5GQD'] = true;
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.no_analytics;
+                }
+            },            
+        },	
+		]
+    };
+
+
+var loops = 0;
+var threshold = 30;
+
+function CookieControlInit() {
+    if (typeof CookieControl !== "undefined" && window.jQuery && $('#ccc').length > 0) {
+        if ($('header[role=banner]').length > 0) {
+            $('#ccc').insertBefore($('header[role=banner]'));
+            $('#ccc').css('z-index', 9999);
+        }
+        $('#ccc-optional-categories .optional-cookie').each(function() {
+            var label = $('.optional-cookie-header', $(this)).text();
+            var idAttr = (label.split(' ').join('_')).toLowerCase();
+            $('<span/>', {
+                'class': 'invisible',
+                for: idAttr,
+                text: label + " toggle",
+            }).prependTo($('.checkbox-toggle-label', $(this)));
+            $('.checkbox-toggle-input', $(this)).attr('id', idAttr);
+
+        });
+    } else {
+        if (loops++ < threshold) {
+            setTimeout(CookieControlInit, 300);
+        }
+    }
+}
+var script = document.createElement('script');
+script.onload = function() {
+    CookieControl.load(config);
+    CookieControlInit();
+};
+script.crossorigin = "anonymous";
+script.src = '../../cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js';
+document.head.appendChild(script);
+
+var onPageStyle = "";
+if (config.text.acceptRecommended == "") {
+    onPageStyle += "#ccc-recommended-settings{display:none;}"
+}
+if (config.text.rejectSettings == "") {
+    onPageStyle += "#ccc-reject-settings{display:none;}"
+}
+if (onPageStyle != "") {
+    var style = document.createElement('style');
+    style.innerHTML = onPageStyle;
+    document.head.appendChild(style);
+}
+</script>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55X5GQD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div class="wrapper">
+
+    <header class="header header-pages header-fix" aria-haspopup="true">
+      <div class="header-inner">
+        <nav class="left">
+          <a href="../contact-us/index.html">Contact Us</a>
+        </nav>
+
+        <a href="../index.html" class="logo">
+          <img src="../media/1016/smco-modified.png" class="logo-color" />
+          <img src="../media/1015/logo-white.svg" class="logo-white" />
+          <img
+            src="../media/1014/redlogo.png"
+            alt="Marathon"
+            class="logo-emblem"
+            width="150"
+            height="35"
+          />
+        </a>
+
+        <div class="right">
+          <button type="button" class="btn-client js-open-client">
+            <span>Client area</span>
+          </button>
+        </div>
+        <div class="header-inner sticky-header">
+          <nav class="left">
+                  <a href="../contact-us/index.html">Contact Us</a>
+          </nav>
+  
+          <a href="../index.html" class="logo">
+                  <img src="../media/1016/smco-modified.png" class="logo-color">
+                  <img src="../media/1015/logo-white.svg" class="logo-white">
+                  <img src="../media/1014/redlogo.png" alt="Marathon" class="logo-emblem" >
+          </a>
+  
+          <div class="right">
+                  <button type="button" class="btn-client js-open-client"><span>Client area</span></button>
+                  <button type="button" class="hamburger"></button>
+          </div>
+               <style>
+      
+.hamburger {
+display: none; /* Caché par défaut */
+}
+
+@media (max-width: 525px) {
+.hamburger {
+  display: block; /* Affiche uniquement en dessous de 425px */
+  width: 30px; /* Ajuste selon la taille de ton image */
+height: 30px;
+background-image: url('front/menu.png'); /* Assure-toi que le chemin est correct */
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+border: none;
+cursor: pointer;
+background-color: transparent; /* Supprime l’arrière-plan du bouton */
+margin-left: 80px; /* Ajuste la valeur selon ton besoin */
+}
+
+.hero-navigation {
+  display: none; /* Cache le menu par défaut sur petits écrans */
+}
+
+.hero-navigation.active {
+  display: block; /* Affiche le menu quand la classe "active" est ajoutée */
+}
+}
+@media (max-width: 425px) and (min-width: 410px) {
+.hamburger {
+  margin-left: 80px;
+}
+}
+
+@media (max-width: 409px) and (min-width: 367px) {
+.hamburger {
+  margin-left: 59px;
+}
+}
+@media (max-width: 366px) and (min-width: 344px) {
+.hamburger {
+  margin-left: 50px;
+}
+}
+@media (max-width: 343px) and (min-width: 38px) {
+.hamburger {
+  margin-left: 37px;
+}
+}
+
+@media (max-width: 320px) {
+.hamburger {
+  margin-left: 33px;
+}
+
+}
+
+
+            </style>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const menuButton = document.querySelector(".hamburger");
+                const navMenu = document.querySelector(".hero-navigation");
+            
+                menuButton.addEventListener("click", function () {
+                  navMenu.classList.toggle("active");
+                });
+              });
+            </script>
+            
+          <div class="hero-navigation sticky-page-nav">
+                      <ul role="menu">
+                        <li role="menuitem">
+                          <a href="collective.html" >COLLECTIVE MANAGEMENT</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="private.html">PRIVATE MANAGEMENT</a>
+                        </li>
+                          <li role="menuitem">
+                              <a href="equity.html">EQUITY</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="loan.html">LOAN</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="realestate.html">REAL ESTATE</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="marketing.html">MARKETING</a>
+                          </li>
+                          <li role="menuitem">
+                            <a href="team.html">TEAM</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="proposal.html"">PROPOSAL INVESTING</a>
+                          </li>
+                        </ul>
+                  </div>
+      </div>
+      </div>
+<div class="client-overlay-wrap" aria-hidden="true">
+        <div class="client-inner">
+          <button type="button" class="close-overlay">
+            <span class="font-ico-close"></span
+            ><span class="sr-only">Close client overlay</span>
+          </button>
+          <h3>Sign in below</h3>
+
+          <form
+            action="https://www.marathon.co.uk/privacy-cookie-policy/"
+            class="form"
+            enctype="multipart/form-data"
+            id="form13ff0327de4f4d2aa3806717c22782bf"
+            method="post"
+          >
+            <div class="validation-summary-valid" data-valmsg-summary="true">
+              <ul>
+                <li style="display: none"></li>
+              </ul>
+            </div>
+            <input
+              class="in-text"
+              data-val="true"
+              data-val-required="The User name field is required."
+              id="client-email"
+              name="Username"
+              placeholder="Email address"
+              type="text"
+              value=""
+            /><input
+              class="in-text"
+              data-val="true"
+              data-val-length="The field Password must be a string with a maximum length of 256."
+              data-val-length-max="256"
+              data-val-required="The Password field is required."
+              id="client-password"
+              maxlength="256"
+              name="Password"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+            <button type="submit" class="btn keep-overlay-open">Login</button>
+            <input
+              name="__RequestVerificationToken"
+              type="hidden"
+              value="CfDJ8GqEOhd3m2pMgn4ccNZWJyHvNOkcYhza6wLupfqg9L5MjT8A8u6F98e4OOEGRkbud5jJ1p8q3I-0w6p0mX-5I6kG4tPb_50E3YIKs2s9srVeMkwLrP439Xx1wwHZ23NFxEyVBk_2J6ARo0VwbQ31kxs"
+            /><input
+              name="ufprt"
+              type="hidden"
+              value="CfDJ8GqEOhd3m2pMgn4ccNZWJyGcmvVmqszDpzUQ4Q1_-tgKVwLR1T4QUiESOgsJzJE0ZR8G9Mz74R3sQUa9oG2XJbHRIGeN7qb609uPjHCi2Ddc7OvmOo1oDmj3Rg0EQp_NClsyOwuuHsOox3sMhO6GtlY"
+            />
+          </form>
+          <div class="user-links">
+            <a href="../account/password-reset/index.html"
+              >Forgot your password?</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+<!-- <header class="header" aria-haspopup="true">
+    <div class="header-inner">
+        <nav class="left">
+                <a href="../contact-us/index.html">Contact Us</a>
+        </nav>
+
+        <a href="../index.html" class="logo">
+                <img src="../media/1016/smco-modified.png" class="logo-color" />
+                <img src="../media/1015/logo-white.svg" class="logo-white" />
+                <img src="../media/1014/redlogo.png" alt="Marathon" class="logo-emblem" width="150" height="35" />
+        </a>
+
+        <div class="right">
+                <button type="button" class="btn-client js-open-client"><span>Client area</span></button>
+        </div>
+    </div>
+
+        <div class="client-overlay-wrap"  aria-hidden="true" >
+                <div class="client-inner">
+                    <button type="button" class="close-overlay"><span class="font-ico-close"></span><span class="sr-only">Close client overlay</span></button>
+                    <h3>Sign in below</h3>
+
+                    
+
+<form action="https://www.marathon.co.uk/privacy-cookie-policy/" class="form" enctype="multipart/form-data" id="form13ff0327de4f4d2aa3806717c22782bf" method="post"><div class="validation-summary-valid" data-valmsg-summary="true"><ul><li style="display:none"></li>
+</ul></div><input class="in-text" data-val="true" data-val-required="The User name field is required." id="client-email" name="Username" placeholder="Email address" type="text" value="" /><input class="in-text" data-val="true" data-val-length="The field Password must be a string with a maximum length of 256." data-val-length-max="256" data-val-required="The Password field is required." id="client-password" maxlength="256" name="Password" placeholder="Password" type="password" value="" />    <button type="submit" class="btn keep-overlay-open">Login</button>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8GqEOhd3m2pMgn4ccNZWJyHvNOkcYhza6wLupfqg9L5MjT8A8u6F98e4OOEGRkbud5jJ1p8q3I-0w6p0mX-5I6kG4tPb_50E3YIKs2s9srVeMkwLrP439Xx1wwHZ23NFxEyVBk_2J6ARo0VwbQ31kxs" /><input name="ufprt" type="hidden" value="CfDJ8GqEOhd3m2pMgn4ccNZWJyGcmvVmqszDpzUQ4Q1_-tgKVwLR1T4QUiESOgsJzJE0ZR8G9Mz74R3sQUa9oG2XJbHRIGeN7qb609uPjHCi2Ddc7OvmOo1oDmj3Rg0EQp_NClsyOwuuHsOox3sMhO6GtlY" /></form><div class="user-links">
+    <a href="../account/password-reset/index.html">Forgot your password?</a>
+</div>
+
+                </div>
+            </div>
+</header> -->
+
+		<main class="content">
+			
+<div class="standard-page">
+    <div class="container">
+        <div class="inner-indented">
+            <div class="section-header">
+                <h1>PRIVATE MANAGEMENT</h1>
+                <span class="header-overlay">PRIVATE</span>
+            </div>
+            <div class="rte-content">
+                <p>&nbsp;</p>
+                <h3>Private Management</h3>
+                <p>SM Invest provides exclusive private management services offering a bespoke approach to your real estate investments. Our experts tailor strategies to maximize your portfolio's performance while aligning with your individual financial objectives.</p>
+                <p>
+                    With over 5 years of experience managing ultra-high-net-worth portfolios, our private management division combines institutional expertise with personalized service. We currently oversee €350 million in private client assets across residential, commercial, and specialty real estate sectors in 14 countries.
+                </p>
+                
+                <h3>Our Competitive Advantages</h3>
+                <ul>
+                <li><strong>Risk-Adjusted Strategies</strong><br>
+                We carefully select premium real estate assets across diversified sectors to optimize risk/reward ratios while protecting your capital. Our proprietary risk management framework evaluates 27 distinct risk factors for each investment opportunity, ensuring optimal portfolio construction.</li>
+                
+                <li><strong>Market Intelligence Leadership</strong><br>
+                Our research team of 15 analysts delivers cutting-edge market analysis, identifying emerging trends and undervalued opportunities before they become mainstream. We produce quarterly market reports covering 35 major global cities, with proprietary valuation models that have predicted 92% of major market.</li>
+                
+                <li><strong>Custom Wealth Solutions</strong><br>
+                Every investment plan is engineered around your specific financial targets, risk parameters, liquidity requirements and time horizons. Our planning process begins with a comprehensive 3-hour discovery session, followed by a 60-page customized investment blueprint updated annually.</li>
+                
+                <li><strong>Full Transparency Guarantee</strong><br>
+                Receive detailed quarterly reports including performance analytics, asset valuations, market positioning and forward-looking projections. Our reporting package includes 12 distinct performance metrics, 9 valuation methodologies, and 5-year forward projections across three market scenarios.</li>
+                
+                <li><strong>Premium Investment Pipeline</strong><br>
+                Gain privileged access to off-market property deals, pre-IPO real estate ventures and value-add repositioning projects. Our deal flow includes approximately €500 million in exclusive opportunities annually, with first-look privileges for our private management clients.</li>
+            
+                <li><strong>Technology-Enabled Management</strong><br>
+                Our proprietary client portal provides real-time portfolio analytics, 3D property visualizations, and interactive reporting tools. Access live feeds from our managed properties, environmental performance data, and lease expiration timelines.</li>
+                </ul>
+                
+                <h3>Why SM Invest Stands Out?</h3>
+                <ul>
+                    <li>Institutional-grade portfolio construction with minimum allocations starting at €500,000, receiving the same attention as clients with €50 million in assets under management.</li>
+                    <li>Data-driven investment decisions powered by our REtech analytics platform, processing over 200,000 data points daily.</li>
+                    <li>High-touch client service with dedicated teams averaging 8 years of experience within our firm.</li>
+                    <li>Proven track record in capital preservation, with a 95% protection rate on core assets since inception.</li>
+                    <li>Exclusive co-investment rights in our proprietary real estate development projects, offering high-yield opportunities.</li>
+                    <li>Multigenerational wealth planning services, including succession structuring and family governance.</li>
+                </ul>
+                
+                
+                <h3>Bespoke Portfolio Architecture</h3>
+                <p>We craft personalized investment blueprints that balance:</p>
+                <ul>
+                <li>Growth-oriented assets targeting 12-18% annual returns through strategic repositioning and development plays</li>
+                <li>Stable income generators producing 5-7% net yields from prime, long-leased assets</li>
+                <li>Tax-advantaged holdings structured through REITs, opportunity zones, and cross-border vehicles</li>
+                <li>Liquidity reserves maintained in short-duration real estate debt instruments</li>
+                <li>Legacy assets held in perpetual ownership structures with professional management</li>
+                </ul>
+            
+                <section id="hero" class="hero-section">
+                    <div class="hero-content container">
+                        <p class="subtitle">Geographic diversification</p>
+                        <h1>Global access to carefully selected real estate across 25 prime markets and emerging opportunities</h1>
+                    </div>
+                </section>
+                <br>
+                <h3>Active Asset Optimization</h3>
+                <p>Our management team of 40 specialists continuously:</p>
+                <ul>
+                <li>Enhances property performance through operational improvements averaging 15% NOI increases</li>
+                <li>Identifies value-creation opportunities through our 120-point asset review process</li>
+                <li>Implements risk mitigation strategies including currency hedges and lease restructuring</li>
+                <li>Rebalances allocations through our quarterly investment committee reviews</li>
+                <li>Monitors environmental factors with sustainability audits at all managed properties</li>
+                <li>Negotiates favorable financing through our relationships with 35 leading banks</li>
+                </ul>
+            
+                <section id="vision" class="content-section gray-bg">
+                    <div class="container">
+                        <h3>Tax and Regulatory Expertise</h3>
+                        <p>Our 12-member legal team provides comprehensive solutions including:</p>
+                        <div class="vision-content">
+                            <div class="vision-image">
+                                 <img src="front/bigbest.jpg" alt="Vision Communauté">
+                            </div>
+                            <div class="vision-text">
+                                <ul>
+                                    <li>Cross-border tax structuring for holdings in 8+ jurisdictions</li>
+                                    <li>Compliance framework implementation meeting 14 international regulations</li>
+                                    <li>Asset protection strategies including offshore vehicles and insurance wrappers</li>
+                                    <li>Estate planning integration with family office services</li>
+                                    <li>ESG compliance reporting across 18 sustainability metrics</li>
+                                    <li>Transaction structuring for 1031 exchanges and other deferral strategies</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+                <h3>Dedicated Relationship Management</h3>
+                <p>Your personal investment team provides:</p>
+                <ul>
+                <li>24/7 access to senior advisors via dedicated phone line and secure messaging</li>
+                <li>Tailored reporting packages customizable across 27 different metrics</li>
+                <li>Proactive opportunity alerts with our "First View" priority access system</li>
+                <li>Discreet transaction execution through our confidential deal process</li>
+                <li>Family office integration services including consolidated reporting</li>
+                <li>Quarterly in-person portfolio reviews at your preferred location</li>
+                </ul>
+            
+                <h3>Our Client Profile</h3>
+                <p>Our private management services are designed for:</p>
+                <ul>
+                    <li>High-net-worth individuals with €5M+ investable assets</li>
+                    <li>Family offices seeking specialized real estate expertise</li>
+                    <li>Business owners requiring complex property structuring</li>
+                    <li>Executives with concentrated equity positions</li>
+                    <li>International clients needing cross-border solutions</li>
+                </ul>
+            
+                <section id="hero" class="oustroupistache">
+                    <div class="hero-content container">
+                        <p class="subtitle">Discretion & Confidentiality</p>
+                        <h1>Your privacy protected by our Swiss-grade security protocols and non-disclosure standards</h1>
+                    </div>
+                </section>
+            <br>
+                <h3>Getting Started</h3>
+                <p>Our onboarding process includes:</p>
+                <ul>
+                    <li>Confidential consultation to understand your objectives</li>
+                    <li>Comprehensive risk profile and liquidity needs assessment</li>
+                    <li>Custom investment proposal with 3 strategic options</li>
+                    <li>Regulatory documentation and compliance checks</li>
+                    <li>Initial funding and portfolio implementation</li>
+                    <li>90-day review and strategy refinement</li>
+                </ul>
+                
+                <p><a href="../contact-us/index.html" class="button">Contact Our Private Management Team</a></p>
+                
+                <p class="disclaimer">
+                    Private management services require minimum commitments of €2 million for discretionary mandates and €5 million for fully customized solutions. 
+                    Past performance is not indicative of future results. All investments carry risk including potential loss of capital.
+                </p>
+                
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </div>
+</div>
+		</main>
+    <style>
+      body {
+        background-image: url(front/red/yes.png);
+        background-repeat: repeat;  
+        background-size: cover;
+        background-position: center; 
+        
+/* background-position: center;  */
+}
+@media screen and (max-width: 341px) {
+  body {
+    background-image: url(front/red/mino.png);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 321px) {
+body {
+background-image: url(front/red/minim.png);
+background-repeat: repeat;
+background-size: cover;
+background-position: center;
+}
+}
+    </style>
+   <footer class="footer" aria-label="Pied de page du site">
+    <div class="footer__top">
+      <div class="footer__logo">
+        <img src="../media/1015/sss.png" alt="Logo SM Invest" width="200" />
+      </div>
+      <div class="footer__contact">
+        <address id="dr">
+          Address : Weidstrasse 43, 8472 Seuzach,<br>
+          Switzerland
+        </address>
+        <p id="dragnir">
+          Email :
+          <a href="mailto:info@sm-invest.ch">info@sm-invest.ch</a>
+        </p>
+      </div>
+    </div>
+  
+    <hr class="footer__separator" />
+  
+    <div class="footer__bottom">
+      <p class="footer__copyright">© 2025 SM Invest</p>
+      <nav aria-label="Informations légales et politique de confidentialité">
+        <ul class="footer__links">
+          <li>
+            <a href="index.html">Privacy &amp; Cookie Policy</a>
+          </li>
+          <li>
+            <a href="../legal-notice/index.html">Legal/Regulatory Notice</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+	</div>
+
+	<!-- <script nonce="WXSzk4U9nNxVWUaZUdQ6pjoh0z6ASF4rgqYYrZ6ykZw=" src="../sb/site-scripts.js.v1"></script> -->
+	
+
+	<!-- Google Analytics) -->
+	
+	<!-- Google Analytics) -->
+<script>
+document.addEventListener("click", function (event) {
+  // Clic sur bouton "Client area"
+  if (event.target.closest(".js-open-client")) {
+    const overlay = document.querySelector(".client-overlay-wrap");
+    if (overlay) {
+      overlay.classList.add("open");
+    }
+  }
+
+  // Clic sur bouton "Close client overlay"
+  if (event.target.closest(".close-overlay")) {
+    const overlay = document.querySelector(".client-overlay-wrap");
+    if (overlay) {
+      overlay.classList.remove("open");
+    }
+  }
+});
+</script>
+
+</body>
+
+<!-- Mirrored from www.marathon.co.uk/privacy-cookie-policy/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:10:00 GMT -->
+</html>

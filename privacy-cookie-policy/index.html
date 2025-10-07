@@ -1,0 +1,588 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<!-- Mirrored from www.SM.co.uk/privacy-cookie-policy/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:10:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="../favicon.ico" />
+	<title>Privacy &amp; Cookie Policy | SM London</title>
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="canonical" href="index.html">
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900">
+	<link rel="stylesheet" href="../css/styled882.css?v=Fd3f0XFBpHHPdH8P2gW-Dj62pnboBWRgL9UTkHRXjFw">
+
+	
+	
+</head>
+
+
+<body>
+	<script nonce="WXSzk4U9nNxVWUaZUdQ6pjoh0z6ASF4rgqYYrZ6ykZw=" type = "text/javascript" >
+    var config = {
+        apiKey: '89789d071d481b8dfb074a8766005961b088cf25',
+     product: 'PRO_MULTISITE',
+        initialState: "open",
+        necessaryCookies: ['UMB-XSRF-TOKEN'],
+        theme: 'light',
+        position: 'left',
+        acceptButton: true,
+        rejectButton: true,
+        consentCookieExpiry: 90,
+	 branding: {
+             fontFamily: "Playfair Display,Roboto,Arial,Helvetica,sans-serif",
+            fontColor: "#676767",
+            fontSizeTitle: "20px",
+            fontSizeIntro: "14px",
+            fontSizeHeaders: "20px",
+            fontSize: "14px",
+            acceptText: "#fff",	
+            acceptBackground: "#8f2829",
+            rejectText: "#fff",
+            rejectBackground: "#8f2829",
+            backgroundColor: "#e1e1e1",
+	    alertBackground: "#8f2829",
+	    alertText: "#fff",
+            toggleText: "#fff",
+            toggleColor: "#fff",
+            toggleBackground: "#8f2829",
+            removeAbout: true
+        },
+        text: {
+            notifyTitle: "Our use of cookies",
+            notifyDescription: "We use cookies to make the site work and help us make it better. By clicking accept, weâ€™ll set recommended analytics cookies. Or, you can ignore or close this message and weâ€™ll set only the recommended ones.",
+            accept: "Accept",
+            reject: "Reject",
+            settings: "Settings",
+            necessaryTitle: "Necessary cookies",
+            necessaryDescription: "Necessary cookies enable core functionality such as security, network management, and accessibility. You may disable these by changing your browser settings, but this may affect how the website functions.",
+            title: "Our use of cookies",
+            intro: "We use necessary cookies to make our site work. We\u0027d also like to set optional analytics cookies to help us improve it. Using this tool will set a cookie on your device to remember your preferences.",
+            acceptRecommended: "accept",
+            acceptSettings: "Accept",
+            rejectSettings: "Reject",
+            closeLabel: "",
+        },
+        statement: {
+            description: "For more detailed information about the cookies we use, see our",
+            name: "Cookies page",
+            url: "/privacy-cookie-policy",
+            updated: "21/11/2019",
+        },        
+        optionalCookies: [{
+            name: "analytics",
+            label: "Analytics cookies",
+            description: "We\u0027d like to set Google Analytics cookies to help us to improve our website by collecting and reporting information on how you use it. The cookies collect information in a way that does not directly identify anyone. If you choose to switch these cookies off (by moving the slide bar to 'Off') we will not be able to track, on any anonymous basis, how many visitors we have to our site, and therefore monitor its performance. For more information on how these cookies work, please see our \u0027Cookies page\u0027.",
+            cookies: ["_ga","_gid","_gat"],
+            recommendedState: true,
+			lawfulBasis: "consent",
+            onAccept: function() {
+                (function(w, d, s, l, i) {
+                    w[l] = w[l] || [];
+                    w[l].push({
+                        'gtm.start': new Date().getTime(),
+                        event: 'gtm.js'
+                    });
+                    var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s),
+                        dl = l != 'dataLayer' ? '&l=' + l : '';
+                    j.async = true;
+                    j.src = '../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', 'GTM-55X5GQD');
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.org_analytics;
+                }
+            },
+            onRevoke: function() {
+                window['ga-disable-GTM-55X5GQD'] = true;
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.no_analytics;
+                }
+            },            
+        },	
+		]
+    };
+
+
+var loops = 0;
+var threshold = 30;
+
+function CookieControlInit() {
+    if (typeof CookieControl !== "undefined" && window.jQuery && $('#ccc').length > 0) {
+        if ($('header[role=banner]').length > 0) {
+            $('#ccc').insertBefore($('header[role=banner]'));
+            $('#ccc').css('z-index', 9999);
+        }
+        $('#ccc-optional-categories .optional-cookie').each(function() {
+            var label = $('.optional-cookie-header', $(this)).text();
+            var idAttr = (label.split(' ').join('_')).toLowerCase();
+            $('<span/>', {
+                'class': 'invisible',
+                for: idAttr,
+                text: label + " toggle",
+            }).prependTo($('.checkbox-toggle-label', $(this)));
+            $('.checkbox-toggle-input', $(this)).attr('id', idAttr);
+
+        });
+    } else {
+        if (loops++ < threshold) {
+            setTimeout(CookieControlInit, 300);
+        }
+    }
+}
+var script = document.createElement('script');
+script.onload = function() {
+    CookieControl.load(config);
+    CookieControlInit();
+};
+script.crossorigin = "anonymous";
+script.src = '../../cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js';
+document.head.appendChild(script);
+
+var onPageStyle = "";
+if (config.text.acceptRecommended == "") {
+    onPageStyle += "#ccc-recommended-settings{display:none;}"
+}
+if (config.text.rejectSettings == "") {
+    onPageStyle += "#ccc-reject-settings{display:none;}"
+}
+if (onPageStyle != "") {
+    var style = document.createElement('style');
+    style.innerHTML = onPageStyle;
+    document.head.appendChild(style);
+}
+</script>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55X5GQD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div class="wrapper">
+
+    <header class="header header-pages header-fix" aria-haspopup="true">
+      <div class="header-inner">
+        <nav class="left">
+          <a href="../contact-us/index.html">Contact Us</a>
+        </nav>
+
+        <a href="../index.html" class="logo">
+          <img src="../media/1016/smco-modified.png" class="logo-color" />
+          <img src="../media/1015/logo-white.svg" class="logo-white" />
+          <img
+            src="../media/1014/redlogo.png"
+            alt="Marathon"
+            class="logo-emblem"
+            width="150"
+            height="35"
+          />
+        </a>
+
+        <div class="right">
+          <button type="button" class="btn-client js-open-client">
+            <span>Client area</span>
+          </button>
+        </div>
+        <div class="header-inner sticky-header">
+          <nav class="left">
+                  <a href="../contact-us/index.html">Contact Us</a>
+          </nav>
+  
+          <a href="../index.html" class="logo">
+                  <img src="../media/1016/smco-modified.png" class="logo-color">
+                  <img src="../media/1015/logo-white.svg" class="logo-white">
+                  <img src="../media/1014/redlogo.png" alt="Marathon" class="logo-emblem" >
+          </a>
+  
+          <div class="right">
+                  <button type="button" class="btn-client js-open-client"><span>Client area</span></button>
+                  <button type="button" class="hamburger"></button>
+          </div>
+               <style>
+      
+.hamburger {
+display: none; /* Caché par défaut */
+}
+
+@media (max-width: 525px) {
+.hamburger {
+  display: block; /* Affiche uniquement en dessous de 425px */
+  width: 30px; /* Ajuste selon la taille de ton image */
+height: 30px;
+background-image: url('front/menu.png'); /* Assure-toi que le chemin est correct */
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+border: none;
+cursor: pointer;
+background-color: transparent; /* Supprime l’arrière-plan du bouton */
+margin-left: 80px; /* Ajuste la valeur selon ton besoin */
+}
+
+.hero-navigation {
+  display: none; /* Cache le menu par défaut sur petits écrans */
+}
+
+.hero-navigation.active {
+  display: block; /* Affiche le menu quand la classe "active" est ajoutée */
+}
+}
+@media (max-width: 425px) and (min-width: 410px) {
+.hamburger {
+  margin-left: 80px;
+}
+}
+
+@media (max-width: 409px) and (min-width: 367px) {
+.hamburger {
+  margin-left: 59px;
+}
+}
+@media (max-width: 366px) and (min-width: 344px) {
+.hamburger {
+  margin-left: 50px;
+}
+}
+@media (max-width: 343px) and (min-width: 38px) {
+.hamburger {
+  margin-left: 37px;
+}
+}
+
+@media (max-width: 320px) {
+.hamburger {
+  margin-left: 33px;
+}
+}
+
+
+            </style>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const menuButton = document.querySelector(".hamburger");
+                const navMenu = document.querySelector(".hero-navigation");
+            
+                menuButton.addEventListener("click", function () {
+                  navMenu.classList.toggle("active");
+                });
+              });
+            </script>
+            
+          <div class="hero-navigation sticky-page-nav">
+                      <ul role="menu">
+                        <li role="menuitem">
+                          <a href="collective.html" >COLLECTIVE MANAGEMENT</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="private.html">PRIVATE MANAGEMENT</a>
+                        </li>
+                          <li role="menuitem">
+                              <a href="equity.html">EQUITY</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="loan.html">LOAN</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="realestate.html">REAL ESTATE</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="marketing.html">MARKETING</a>
+                          </li>
+                          <li role="menuitem">
+                            <a href="team.html">TEAM</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="proposal.html"">PROPOSAL INVESTING</a>
+                          </li>
+                        </ul>
+                  </div>
+      </div>
+      </div>
+<div class="client-overlay-wrap" aria-hidden="true">
+        <div class="client-inner">
+          <button type="button" class="close-overlay">
+            <span class="font-ico-close"></span
+            ><span class="sr-only">Close client overlay</span>
+          </button>
+          <h3>Sign in below</h3>
+
+          <form
+            action="https://www.marathon.co.uk/privacy-cookie-policy/"
+            class="form"
+            enctype="multipart/form-data"
+            id="form13ff0327de4f4d2aa3806717c22782bf"
+            method="post"
+          >
+            <div class="validation-summary-valid" data-valmsg-summary="true">
+              <ul>
+                <li style="display: none"></li>
+              </ul>
+            </div>
+            <input
+              class="in-text"
+              data-val="true"
+              data-val-required="The User name field is required."
+              id="client-email"
+              name="Username"
+              placeholder="Email address"
+              type="text"
+              value=""
+            /><input
+              class="in-text"
+              data-val="true"
+              data-val-length="The field Password must be a string with a maximum length of 256."
+              data-val-length-max="256"
+              data-val-required="The Password field is required."
+              id="client-password"
+              maxlength="256"
+              name="Password"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+            <button type="submit" class="btn keep-overlay-open">Login</button>
+            <input
+              name="__RequestVerificationToken"
+              type="hidden"
+              value="CfDJ8GqEOhd3m2pMgn4ccNZWJyHvNOkcYhza6wLupfqg9L5MjT8A8u6F98e4OOEGRkbud5jJ1p8q3I-0w6p0mX-5I6kG4tPb_50E3YIKs2s9srVeMkwLrP439Xx1wwHZ23NFxEyVBk_2J6ARo0VwbQ31kxs"
+            /><input
+              name="ufprt"
+              type="hidden"
+              value="CfDJ8GqEOhd3m2pMgn4ccNZWJyGcmvVmqszDpzUQ4Q1_-tgKVwLR1T4QUiESOgsJzJE0ZR8G9Mz74R3sQUa9oG2XJbHRIGeN7qb609uPjHCi2Ddc7OvmOo1oDmj3Rg0EQp_NClsyOwuuHsOox3sMhO6GtlY"
+            />
+          </form>
+          <div class="user-links">
+            <a href="../account/password-reset/index.html"
+              >Forgot your password?</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+		<main class="content">
+			
+<div class="standard-page">
+    <div class="container">
+        <div class="inner-indented">
+            <div class="section-header">
+                <h1>Privacy &amp; Cookie Policy</h1>
+                <span class="header-overlay">Privacy &amp; Cookie Policy</span>
+            </div>
+                <div class="rte-content">
+
+<p>&nbsp;</p>
+<h3>Data Protection and Privacy</h3>
+<p>SM values the privacy of its clients; however, certain personal data needs to be collected, stored and processed in order to allow the business to provide asset management services. Please <a rel="noopener noreferrer" href="../privacy-policy/index.html" target="_blank" title="Privacy Policy">click here</a> to see SM’s full Data Protection and Privacy Notice.</p>
+<h3>Website Privacy and Cookies Policy</h3>
+<p>The following statement reflects the information gathering and dissemination practices for the website, <a rel="noopener noreferrer" href="../index.html" target="_blank">http://www.SM-INVEST.ch</a> (the “Website”), as well as any information services related to the Website.</p>
+<h5>Cookies</h5>
+<p>SM utilises cookies in order to make our Website operate, work more efficiently and also so we can perform analysis on how the Website is used.</p>
+<p>The table below explains the cookies we use and why.&nbsp;</p>
+<ul>
+<li>'Necessary' cookies are integral to&nbsp;the website and are necessary for the site to function.</li>
+<li>'Necessary - Third Party' cookies are&nbsp;third party cookies not managed by SM and are required for the website to function.&nbsp; Please review the links to their privacy statement for more information.</li>
+<li>'Analytics - Third Party' cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site.</li>
+</ul>
+<table border="0" style="width: 1031px;">
+<thead>
+<tr>
+<th class="firstcol" style="width: 176px; text-align: left;">Cookie</th>
+<th style="width: 265px; text-align: left;">Name / Lifespan</th>
+<th style="width: 151px; text-align: left;">Category</th>
+<th style="width: 427px; text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="width: 176px;">Anonymised Session</td>
+<td style="width: 265px;">
+<p>ASP.NET_SessionId (session)</p>
+</td>
+<td style="width: 151px;">Necessary</td>
+<td style="width: 427px;">Used to maintain an anonymised user session by the server.</td>
+</tr>
+<tr>
+<td style="width: 176px;">Branding</td>
+<td style="width: 265px;">logoPersistentCookie (1 month)</td>
+<td style="width: 151px;"><span>Necessary</span></td>
+<td style="width: 427px;">Used to display SM website branding based on your location.</td>
+</tr>
+<tr>
+<td style="width: 176px;">Cached Login</td>
+<td style="width: 265px;">yourAuthCookie (session)</td>
+<td style="width: 151px;"><span>Necessary</span></td>
+<td style="width: 427px;">Keeps you logged into the Client Area so that you do not need to re-enter your login details more than once during your visit to the site.</td>
+</tr>
+<tr>
+<td style="width: 176px;">Cookie Consent</td>
+<td style="width: 265px;">CookieControl (90 days)</td>
+<td style="width: 151px;"><span>Necessary</span></td>
+<td style="width: 427px;">Stores your cookie consent state for the SM website.</td>
+</tr>
+<tr>
+<td style="width: 176px;">Forgery Prevention</td>
+<td style="width: 265px;">__RequestVerificationToken (session)</td>
+<td style="width: 151px;"><span>Necessary</span></td>
+<td style="width: 427px;">Helps prevent Cross-Site Request Forgery (CSRF) attacks.</td>
+</tr>
+<tr>
+<td style="width: 176px;">Last Account</td>
+<td style="width: 265px;">lastaccount (1 year)</td>
+<td style="width: 151px;"><span>Necessary</span></td>
+<td style="width: 427px;">Used to store the last account selected in the client area.</td>
+</tr>
+<tr>
+<td style="width: 176px;">Traffic Optimisation</td>
+<td style="width: 265px;">BIGipServerxxxx (session)</td>
+<td style="width: 151px;">Necessary - Third Party</td>
+<td style="width: 427px;">Third party cookies, used by ISS's website to distribute traffic to the website on several servers in order to optimise response times when viewing the proxy voting dashboard.
+<p><a href="https://www.issgovernance.com/privacy/">Read ISS's Governnance's privacy statement</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 176px;">Traffic Security</td>
+<td style="width: 265px;">_cfduid (29 days)</td>
+<td style="width: 151px;"><span>Necessary - Third Party</span></td>
+<td style="width: 427px;">Third party cookies, used by the content network Cloudflare, to identify trusted web traffic.
+<p><a href="https://www.cloudflare.com/privacypolicy/">Read Cloudflares's privacy policy</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 176px;"><span>Video Streaming (Vimeo)</span></td>
+<td style="width: 265px;"><span>swg_https_xxxx (session)</span><br><span>SWG_CS_HTTPS_1 (session)</span><br><span>X-SIG-HTTPS-Umbrella-SAML (session)</span></td>
+<td style="width: 151px;"><span>Necessary – Third Party</span></td>
+<td style="width: 427px;">
+<p>Third party cookies, used by Vimeo to stream videos on our website.</p>
+<p><a rel="noopener noreferrer" href="https://vimeo.com/privacy" target="_blank" title="https://vimeo.com/privacy">Read Vimeo’s privacy policy</a></p>
+</td>
+</tr>
+<tr>
+<td style="width: 176px;">Universal Analytics (Google)</td>
+<td style="width: 265px;">_ga (2 years)<br>_gatxxxx (1 day)<br>_gid (1 day)<br>collect (session)</td>
+<td style="width: 151px;">Analytics - Third Party</td>
+<td style="width: 427px;">Third party cookies, used to collect information about how visitors use our website. The cookies collect information in a way that does not directly identify anyone, including the number of visitors to the website, where visitors have come to the website from and the pages they visited.
+<p><a href="https://support.google.com/analytics/answer/6004245">Read Google's overview of privacy and safegaurding data</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h4><span class="link-cta"><strong>How do I change my cookie settings?</strong></span></h4>
+<p>You can change your cookie preferences at any time by clicking on the ‘c’ icon at the bottom left of the screen.&nbsp; You can then adjust the available sliders to ‘On’ or ‘Off’, then clicking ‘Save and Close’.&nbsp; You may need to refresh the webpage for your settings to take effect.</p>
+<p>Alternatively, most web browsers allow some control of most cookies through the browser settings.&nbsp; To find out more about cookies, including how to see what cookies have been set, visit&nbsp;<a href="http://www.aboutcookies.org/">www.aboutcookies.org</a>&nbsp;or&nbsp;<a href="http://www.allaboutcookies.org/">www.allaboutcookies.org</a>.</p>
+<p>To opt out of being tracked by Google Analytics across all websites, visit&nbsp;<a href="http://tools.google.com/dlpage/gaoptout">http://tools.google.com/dlpage/gaoptout</a>.</p>
+<h5>Web-based forms</h5>
+<p>SM uses web-based forms to allow you to contact SM directly with questions, comments or to register technical issues. SM is committed to protecting your security and privacy and will comply with the relevant requirements of the Data Protection Act 2018. SM does not sell, lease or license this information to third parties. This information is used to respond directly to your questions or comments. SM may file your comments for the purposes of evaluating how to improve the Website or its services, or it may review and discard the information. SM may share your personal information with third parties it engages to assist it in carrying out such purposes. These service providers are prohibited from using your personal information for any other purpose.</p>
+<p>By using the Website, you consent to the collection, use and disclosure of personal information in accordance with these terms.</p>
+<h5>General</h5>
+<p>You may withdraw your consent to the use and disclosure by SM of personal information which you have provided at any time upon reasonable notice by writing to the Website Administrator at SM Asset Management Limited, Orion House, 5 Upper St. Martin's Lane, London, WC2H 9EA. Should you do so, this may terminate access to the client area of the Website.</p>
+<p>Upon written request, SM will give you access to the personal information it has on record about you. If you find any errors in such information, you may contact SM in writing at the address stated above and we will make all necessary corrections.</p>
+<p>You may direct any questions or concerns about SM’s Privacy and Cookies Policy&nbsp;using our <a href="../contact-us/index.html" title="Contact Us">Contact Us</a> page.</p>
+<p>SM reserves the right to change or modify all or any part of this Privacy and Cookies Policy at any time, effective immediately upon notice published on the Website. If you continue to use the Website after such publication you shall be deemed to have accepted such changes.</p>
+<p>&nbsp;</p>                </div>   
+        </div>
+    </div>
+</div>
+		</main>
+
+    <style>
+      body {
+        background-image: url(front/red/yes.png);
+        background-repeat: repeat;  
+        background-size: cover;
+        background-position: center; 
+        
+/* background-position: center;  */
+}
+@media screen and (max-width: 341px) {
+  body {
+    background-image: url(front/red/mino.png);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 321px) {
+body {
+background-image: url(front/red/minim.png);
+background-repeat: repeat;
+background-size: cover;
+background-position: center;
+}
+}
+    </style>
+<footer class="footer" aria-label="Pied de page du site">
+  <div class="footer__top">
+    <div class="footer__logo">
+      <img src="../media/1015/sss.png" alt="Logo SM Invest" width="200" />
+    </div>
+    <div class="footer__contact">
+      <address id="dr">
+        Address : Weidstrasse 43, 8472 Seuzach,<br>
+        Switzerland
+      </address>
+      <p id="dragnir">
+        Email :
+        <a href="mailto:info@sm-invest.ch">info@sm-invest.ch</a>
+      </p>
+    </div>
+  </div>
+
+  <hr class="footer__separator" />
+
+  <div class="footer__bottom">
+    <p class="footer__copyright">© 2025 SM Invest</p>
+    <nav aria-label="Informations légales et politique de confidentialité">
+      <ul class="footer__links">
+        <li>
+          <a href="index.html">Privacy &amp; Cookie Policy</a>
+        </li>
+        <li>
+          <a href="../legal-notice/index.html">Legal/Regulatory Notice</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+    
+	</div>
+
+	<!-- <script nonce="WXSzk4U9nNxVWUaZUdQ6pjoh0z6ASF4rgqYYrZ6ykZw=" src="../sb/site-scripts.js.v1"></script> -->
+	
+
+	<!-- Google Analytics) -->
+	
+	<!-- Google Analytics) -->
+<script>
+document.addEventListener("click", function (event) {
+  // Clic sur bouton "Client area"
+  if (event.target.closest(".js-open-client")) {
+    const overlay = document.querySelector(".client-overlay-wrap");
+    if (overlay) {
+      overlay.classList.add("open");
+    }
+  }
+
+  // Clic sur bouton "Close client overlay"
+  if (event.target.closest(".close-overlay")) {
+    const overlay = document.querySelector(".client-overlay-wrap");
+    if (overlay) {
+      overlay.classList.remove("open");
+    }
+  }
+});
+</script>
+
+</body>
+
+<!-- Mirrored from www.SM.co.uk/privacy-cookie-policy/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:10:00 GMT -->
+</html>

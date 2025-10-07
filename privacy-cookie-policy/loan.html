@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<!-- Mirrored from www.marathon.co.uk/privacy-cookie-policy/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:10:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="../favicon.ico" />
+	<title>LOAN</title>
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="canonical" href="index.html">
+    <link rel="stylesheet" href="front/style3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900">
+	<link rel="stylesheet" href="../css/styled882.css?v=Fd3f0XFBpHHPdH8P2gW-Dj62pnboBWRgL9UTkHRXjFw">
+
+	
+	
+</head>
+
+
+<body>
+	<script nonce="WXSzk4U9nNxVWUaZUdQ6pjoh0z6ASF4rgqYYrZ6ykZw=" type = "text/javascript" >
+    var config = {
+        apiKey: '89789d071d481b8dfb074a8766005961b088cf25',
+     product: 'PRO_MULTISITE',
+        initialState: "open",
+        necessaryCookies: ['UMB-XSRF-TOKEN'],
+        theme: 'light',
+        position: 'left',
+        acceptButton: true,
+        rejectButton: true,
+        consentCookieExpiry: 90,
+	 branding: {
+             fontFamily: "Playfair Display,Roboto,Arial,Helvetica,sans-serif",
+            fontColor: "#676767",
+            fontSizeTitle: "20px",
+            fontSizeIntro: "14px",
+            fontSizeHeaders: "20px",
+            fontSize: "14px",
+            acceptText: "#fff",	
+            acceptBackground: "#8f2829",
+            rejectText: "#fff",
+            rejectBackground: "#8f2829",
+            backgroundColor: "#e1e1e1",
+	    alertBackground: "#8f2829",
+	    alertText: "#fff",
+            toggleText: "#fff",
+            toggleColor: "#fff",
+            toggleBackground: "#8f2829",
+            removeAbout: true
+        },
+        text: {
+            notifyTitle: "Our use of cookies",
+            notifyDescription: "We use cookies to make the site work and help us make it better. By clicking accept, weâ€™ll set recommended analytics cookies. Or, you can ignore or close this message and weâ€™ll set only the recommended ones.",
+            accept: "Accept",
+            reject: "Reject",
+            settings: "Settings",
+            necessaryTitle: "Necessary cookies",
+            necessaryDescription: "Necessary cookies enable core functionality such as security, network management, and accessibility. You may disable these by changing your browser settings, but this may affect how the website functions.",
+            title: "Our use of cookies",
+            intro: "We use necessary cookies to make our site work. We\u0027d also like to set optional analytics cookies to help us improve it. Using this tool will set a cookie on your device to remember your preferences.",
+            acceptRecommended: "accept",
+            acceptSettings: "Accept",
+            rejectSettings: "Reject",
+            closeLabel: "",
+        },
+        statement: {
+            description: "For more detailed information about the cookies we use, see our",
+            name: "Cookies page",
+            url: "/privacy-cookie-policy",
+            updated: "21/11/2019",
+        },        
+        optionalCookies: [{
+            name: "analytics",
+            label: "Analytics cookies",
+            description: "We\u0027d like to set Google Analytics cookies to help us to improve our website by collecting and reporting information on how you use it. The cookies collect information in a way that does not directly identify anyone. If you choose to switch these cookies off (by moving the slide bar to 'Off') we will not be able to track, on any anonymous basis, how many visitors we have to our site, and therefore monitor its performance. For more information on how these cookies work, please see our \u0027Cookies page\u0027.",
+            cookies: ["_ga","_gid","_gat"],
+            recommendedState: true,
+			lawfulBasis: "consent",
+            onAccept: function() {
+                (function(w, d, s, l, i) {
+                    w[l] = w[l] || [];
+                    w[l].push({
+                        'gtm.start': new Date().getTime(),
+                        event: 'gtm.js'
+                    });
+                    var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s),
+                        dl = l != 'dataLayer' ? '&l=' + l : '';
+                    j.async = true;
+                    j.src = '../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+                    f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', 'GTM-55X5GQD');
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.org_analytics;
+                }
+            },
+            onRevoke: function() {
+                window['ga-disable-GTM-55X5GQD'] = true;
+                if (typeof(BrowseAloud) != "undefined") {
+                    BrowseAloud.analytics = BrowseAloud.no_analytics;
+                }
+            },            
+        },	
+		]
+    };
+
+
+var loops = 0;
+var threshold = 30;
+
+function CookieControlInit() {
+    if (typeof CookieControl !== "undefined" && window.jQuery && $('#ccc').length > 0) {
+        if ($('header[role=banner]').length > 0) {
+            $('#ccc').insertBefore($('header[role=banner]'));
+            $('#ccc').css('z-index', 9999);
+        }
+        $('#ccc-optional-categories .optional-cookie').each(function() {
+            var label = $('.optional-cookie-header', $(this)).text();
+            var idAttr = (label.split(' ').join('_')).toLowerCase();
+            $('<span/>', {
+                'class': 'invisible',
+                for: idAttr,
+                text: label + " toggle",
+            }).prependTo($('.checkbox-toggle-label', $(this)));
+            $('.checkbox-toggle-input', $(this)).attr('id', idAttr);
+
+        });
+    } else {
+        if (loops++ < threshold) {
+            setTimeout(CookieControlInit, 300);
+        }
+    }
+}
+var script = document.createElement('script');
+script.onload = function() {
+    CookieControl.load(config);
+    CookieControlInit();
+};
+script.crossorigin = "anonymous";
+script.src = '../../cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js';
+document.head.appendChild(script);
+
+var onPageStyle = "";
+if (config.text.acceptRecommended == "") {
+    onPageStyle += "#ccc-recommended-settings{display:none;}"
+}
+if (config.text.rejectSettings == "") {
+    onPageStyle += "#ccc-reject-settings{display:none;}"
+}
+if (onPageStyle != "") {
+    var style = document.createElement('style');
+    style.innerHTML = onPageStyle;
+    document.head.appendChild(style);
+}
+</script>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55X5GQD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div class="wrapper">
+
+    <header class="header header-pages header-fix" aria-haspopup="true">
+      <div class="header-inner">
+        <nav class="left">
+          <a href="../contact-us/index.html">Contact Us</a>
+        </nav>
+
+        <a href="../index.html" class="logo">
+          <img src="../media/1016/smco-modified.png" class="logo-color" />
+          <img src="../media/1015/logo-white.svg" class="logo-white" />
+          <img
+            src="../media/1014/redlogo.png"
+            alt="Marathon"
+            class="logo-emblem"
+            width="150"
+            height="35"
+          />
+        </a>
+
+        <div class="right">
+          <button type="button" class="btn-client js-open-client">
+            <span>Client area</span>
+          </button>
+        </div>
+        <div class="header-inner sticky-header">
+          <nav class="left">
+                  <a href="../contact-us/index.html">Contact Us</a>
+          </nav>
+  
+          <a href="../index.html" class="logo">
+                  <img src="../media/1016/smco-modified.png" class="logo-color">
+                  <img src="../media/1015/logo-white.svg" class="logo-white">
+                  <img src="../media/1014/redlogo.png" alt="Marathon" class="logo-emblem" >
+          </a>
+  
+          <div class="right">
+                  <button type="button" class="btn-client js-open-client"><span>Client area</span></button>
+                  <button type="button" class="hamburger"></button>
+          </div>
+               <style>
+      
+.hamburger {
+display: none; /* Caché par défaut */
+}
+
+@media (max-width: 525px) {
+.hamburger {
+  display: block; /* Affiche uniquement en dessous de 425px */
+  width: 30px; /* Ajuste selon la taille de ton image */
+height: 30px;
+background-image: url('front/menu.png'); /* Assure-toi que le chemin est correct */
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+border: none;
+cursor: pointer;
+background-color: transparent; /* Supprime l’arrière-plan du bouton */
+margin-left: 80px; /* Ajuste la valeur selon ton besoin */
+}
+
+.hero-navigation {
+  display: none; /* Cache le menu par défaut sur petits écrans */
+}
+
+.hero-navigation.active {
+  display: block; /* Affiche le menu quand la classe "active" est ajoutée */
+}
+}
+@media (max-width: 425px) and (min-width: 410px) {
+.hamburger {
+  margin-left: 80px;
+}
+}
+
+@media (max-width: 409px) and (min-width: 367px) {
+.hamburger {
+  margin-left: 59px;
+}
+}
+@media (max-width: 366px) and (min-width: 344px) {
+.hamburger {
+  margin-left: 50px;
+}
+}
+@media (max-width: 343px) and (min-width: 38px) {
+.hamburger {
+  margin-left: 37px;
+}
+}
+
+@media (max-width: 320px) {
+.hamburger {
+  margin-left: 33px;
+}
+}
+
+
+            </style>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const menuButton = document.querySelector(".hamburger");
+                const navMenu = document.querySelector(".hero-navigation");
+            
+                menuButton.addEventListener("click", function () {
+                  navMenu.classList.toggle("active");
+                });
+              });
+            </script>
+            
+          <div class="hero-navigation sticky-page-nav">
+                      <ul role="menu">
+                        <li role="menuitem">
+                          <a href="collective.html" >COLLECTIVE MANAGEMENT</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="private.html">PRIVATE MANAGEMENT</a>
+                        </li>
+                          <li role="menuitem">
+                              <a href="equity.html">EQUITY</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="loan.html">LOAN</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="realestate.html">REAL ESTATE</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="marketing.html">MARKETING</a>
+                          </li>
+                          <li role="menuitem">
+                            <a href="team.html">TEAM</a>
+                          </li>
+                          <li role="menuitem">
+                              <a href="proposal.html"">PROPOSAL INVESTING</a>
+                          </li>
+                        </ul>
+                  </div>
+      </div>
+      </div>
+<div class="client-overlay-wrap" aria-hidden="true">
+        <div class="client-inner">
+          <button type="button" class="close-overlay">
+            <span class="font-ico-close"></span
+            ><span class="sr-only">Close client overlay</span>
+          </button>
+          <h3>Sign in below</h3>
+
+          <form
+            action="https://www.marathon.co.uk/privacy-cookie-policy/"
+            class="form"
+            enctype="multipart/form-data"
+            id="form13ff0327de4f4d2aa3806717c22782bf"
+            method="post"
+          >
+            <div class="validation-summary-valid" data-valmsg-summary="true">
+              <ul>
+                <li style="display: none"></li>
+              </ul>
+            </div>
+            <input
+              class="in-text"
+              data-val="true"
+              data-val-required="The User name field is required."
+              id="client-email"
+              name="Username"
+              placeholder="Email address"
+              type="text"
+              value=""
+            /><input
+              class="in-text"
+              data-val="true"
+              data-val-length="The field Password must be a string with a maximum length of 256."
+              data-val-length-max="256"
+              data-val-required="The Password field is required."
+              id="client-password"
+              maxlength="256"
+              name="Password"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+            <button type="submit" class="btn keep-overlay-open">Login</button>
+            <input
+              name="__RequestVerificationToken"
+              type="hidden"
+              value="CfDJ8GqEOhd3m2pMgn4ccNZWJyHvNOkcYhza6wLupfqg9L5MjT8A8u6F98e4OOEGRkbud5jJ1p8q3I-0w6p0mX-5I6kG4tPb_50E3YIKs2s9srVeMkwLrP439Xx1wwHZ23NFxEyVBk_2J6ARo0VwbQ31kxs"
+            /><input
+              name="ufprt"
+              type="hidden"
+              value="CfDJ8GqEOhd3m2pMgn4ccNZWJyGcmvVmqszDpzUQ4Q1_-tgKVwLR1T4QUiESOgsJzJE0ZR8G9Mz74R3sQUa9oG2XJbHRIGeN7qb609uPjHCi2Ddc7OvmOo1oDmj3Rg0EQp_NClsyOwuuHsOox3sMhO6GtlY"
+            />
+          </form>
+          <div class="user-links">
+            <a href="../account/password-reset/index.html"
+              >Forgot your password?</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+		<main class="content">
+			
+<div class="standard-page">
+    <div class="container">
+        <div class="inner-indented">
+            <div class="section-header">
+                <h1>LOAN</h1>
+                <span class="header-overlay">LOAN</span>
+            </div>
+            <div class="rte-content">
+                <p>&nbsp;</p>
+                <h3>Loan Financing</h3>
+                <p>SM Invest delivers sophisticated debt solutions for premium real estate investors. We architect bespoke financing structures that align with your asset strategy while optimizing capital efficiency across your portfolio.</p>
+                <p>
+                    With €60 million in loans originated since 2021 and a team of 8 financing specialists, we provide institutional-grade debt solutions to private investors, developers, and institutional clients across 12 countries. Our loan portfolio maintains a 98.7% repayment rate and average LTV of 68.2%.
+                </p>
+            
+                <section id="hero" class="hero-section">
+                    <div class="hero-content container">
+                       
+                    </div>
+                </section>
+                <br>
+                <p><a href="../contact-us/index.html" class="button">Discuss Your Financing Needs</a></p>
+                
+                <h3>Core Financing Solutions</h3>
+                
+                <h4>Tailored Loan Products</h4>
+                <ul>
+                <li><strong>Custom Structures</strong><br>
+                - Hybrid fixed/variable rate options with conversion flexibility<br>
+                - Mezzanine financing solutions up to 90% combined LTV<br>
+                - Cross-portfolio collateralization for diversified borrowers<br>
+                - Bridge-to-permanent loans with seamless transition features<br>
+                - Construction loans with staged drawdowns and inspection waivers<br>
+                - Mini-perm financing with 3-5 year terms</li>
+                
+                <li><strong>Competitive Terms</strong><br>
+                - LTV up to 80% for qualifying assets with 1.25x DSCR minimum<br>
+                - Interest-only periods (12-36 months) with extension options<br>
+                - Pricing at Prime +0.75-2% based on asset quality and sponsor<br>
+                - Non-recourse options available with standard carveouts<br>
+                - Prepayment flexibility with declining penalty schedules<br>
+                - Foreign currency denominated loans for cross-border investments</li>
+                </ul>
+                
+                <h4>Product Matrix</h4>
+                <table border="0" style="width:100%;">
+                <thead>
+                <tr>
+                <th style="text-align:left;">Product</th>
+                <th style="text-align:left;">Term</th>
+                <th style="text-align:left;">LTV</th>
+                <th style="text-align:left;">Pricing</th>
+                <th style="text-align:left;">Best Suited For</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td>Prime Bridge</td>
+                <td>6-36 months</td>
+                <td>65-75%</td>
+                <td>SOFR + 2.25-3.50%</td>
+                <td>Time-sensitive acquisitions, lease-up properties</td>
+                </tr>
+                <tr>
+                <td>Stabilized Term</td>
+                <td>5-10 years</td>
+                <td>60-70%</td>
+                <td>Fixed 5.75-7.25%</td>
+                <td>Income-producing assets with strong NOI</td>
+                </tr>
+                <tr>
+                <td>Value-Add Facility</td>
+                <td>3-5 years</td>
+                <td>70-80%</td>
+                <td>SOFR + 3.00-4.50%</td>
+                <td>Renovation/repositioning with clear value creation</td>
+                </tr>
+                <tr>
+                <td>Construction Loan</td>
+                <td>24-48 months</td>
+                <td>65-75%</td>
+                <td>SOFR + 3.50-5.00%</td>
+                <td>Ground-up development with pre-leasing</td>
+                </tr>
+                <tr>
+                <td>Portfolio Loan</td>
+                <td>5-7 years</td>
+                <td>55-65%</td>
+                <td>Fixed 6.00-7.50%</td>
+                <td>Multi-asset collateral packages</td>
+                </tr>
+                </tbody>
+                </table>
+            
+                <section id="hero" class="oustroupistache">
+                    <div class="hero-content container">
+                      
+                    </div>
+                </section>
+                <br>
+                <h3>Strategic Advantages</h3>
+                
+                <h4>Credit Services</h4>
+                <ul>
+                <li>Preliminary term sheets within 72h of initial application</li>
+                <li>Debt yield analysis with 5-year cash flow projections</li>
+                <li>Banking partner network of 35+ lending institutions</li>
+                <li>Refinancing strategy advisory with rate hedging options</li>
+                <li>Loan syndication services for large-scale financings</li>
+                <li>Capital stack optimization across debt tranches</li>
+                </ul>
+                
+                <h4>Risk Management</h4>
+                <ul>
+                <li>Asset-level stress testing across 8 economic scenarios</li>
+                <li>Sponsor track record analysis with proprietary scoring</li>
+                <li>Market liquidity assessment by our research team</li>
+                <li>Exit strategy validation with 3 contingency plans</li>
+                <li>Environmental risk evaluation for all collateral</li>
+                <li>Lease expiration concentration analysis</li>
+                </ul>
+            
+                <h4>Technology Platform</h4>
+                <ul>
+                    <li>Digital loan application with document upload portal</li>
+                    <li>Real-time loan performance dashboards</li>
+                    <li>Automated covenant compliance monitoring</li>
+                    <li>Secure document sharing with e-signature capability</li>
+                    <li>Payment processing with multiple currency options</li>
+                </ul>
+                
+                <h3>Investor-Centric Approach</h3>
+                <ul>
+                <li>Family office solutions with consolidated reporting</li>
+                <li>Cross-border financing in 7 major currencies</li>
+                <li>1031 exchange facilitation with reverse exchange options</li>
+                <li>Portfolio optimization through debt recycling strategies</li>
+                <li>Interest rate hedging advisory and execution</li>
+                <li>Interim loan servicing during transitional periods</li>
+                </ul>
+            
+                <h3>Our Financing Process</h3>
+                <ul>
+                    <li><strong>Initial Consultation</strong> - 60-minute needs assessment</li>
+                    <li><strong>Preliminary Analysis</strong> - Property and sponsor evaluation</li>
+                    <li><strong>Term Sheet</strong> - Customized financing proposal</li>
+                    <li><strong>Due Diligence</strong> - 15-point underwriting process</li>
+                    <li><strong>Documentation</strong> - Loan agreement preparation</li>
+                    <li><strong>Closing</strong> - Funds disbursement (avg. 45 days from application)</li>
+                    <li><strong>Servicing</strong> - Ongoing loan administration</li>
+                </ul>
+                
+                <h3>Recent Transactions</h3>
+                <ul>
+                    <li>€42 million bridge loan for Paris office acquisition (75% LTV)</li>
+                    <li>€28 million construction facility for Berlin residential project</li>
+                    <li>€65 million portfolio refinancing across 5 European markets</li>
+                    <li>€18 million mezzanine debt for London value-add opportunity</li>
+                </ul>
+                
+                <p><a href="../contact-us/index.html" class="button">Structure Your Loan</a></p>
+                
+                <p class="disclaimer">
+                    Loans subject to credit approval and property valuation. Minimum loan size €1 million. 
+                    Rates and terms subject to change based on market conditions and borrower profile. 
+                    Some products not available in all jurisdictions.
+                </p>
+                
+                <p>&nbsp;</p>
+            </div> 
+        </div>
+    </div>
+</div>
+		</main>
+
+    <style>
+      body {
+        background-image: url(front/red/yes.png);
+        background-repeat: repeat;  
+        background-size: cover;
+        background-position: center; 
+        
+/* background-position: center;  */
+}
+@media screen and (max-width: 341px) {
+  body {
+    background-image: url(front/red/mino.png);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 321px) {
+body {
+background-image: url(front/red/minim.png);
+background-repeat: repeat;
+background-size: cover;
+background-position: center;
+}
+}
+    </style>
+     <footer class="footer" aria-label="Pied de page du site">
+      <div class="footer__top">
+        <div class="footer__logo">
+          <img src="../media/1015/sss.png" alt="Logo SM Invest" width="200" />
+        </div>
+        <div class="footer__contact">
+          <address id="dr">
+            Address : Weidstrasse 43, 8472 Seuzach,<br>
+            Switzerland
+          </address>
+          <p id="dragnir">
+            Email :
+            <a href="mailto:info@sm-invest.ch">info@sm-invest.ch</a>
+          </p>
+        </div>
+      </div>
+    
+      <hr class="footer__separator" />
+    
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2025 SM Invest</p>
+        <nav aria-label="Informations légales et politique de confidentialité">
+          <ul class="footer__links">
+            <li>
+              <a href="index.html">Privacy &amp; Cookie Policy</a>
+            </li>
+            <li>
+              <a href="../legal-notice/index.html">Legal/Regulatory Notice</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+	</div>
+
+	<!-- <script nonce="WXSzk4U9nNxVWUaZUdQ6pjoh0z6ASF4rgqYYrZ6ykZw=" src="../sb/site-scripts.js.v1"></script> -->
+	
+
+	<!-- Google Analytics) -->
+	
+	<!-- Google Analytics) -->
+<script>
+document.addEventListener("click", function (event) {
+  // Clic sur bouton "Client area"
+  if (event.target.closest(".js-open-client")) {
+    const overlay = document.querySelector(".client-overlay-wrap");
+    if (overlay) {
+      overlay.classList.add("open");
+    }
+  }
+
+  // Clic sur bouton "Close client overlay"
+  if (event.target.closest(".close-overlay")) {
+    const overlay = document.querySelector(".client-overlay-wrap");
+    if (overlay) {
+      overlay.classList.remove("open");
+    }
+  }
+});
+</script>
+
+</body>
+
+<!-- Mirrored from www.marathon.co.uk/privacy-cookie-policy/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:10:00 GMT -->
+</html>
