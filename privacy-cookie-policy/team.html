@@ -391,82 +391,58 @@ margin-left: 80px; /* Ajuste la valeur selon ton besoin */
               <h3>Executive Committee</h3>
               <br>
               <div class="services-grid">
-                <div class="service-card">
-                  <div class="section-heade">
-                    <span class="header-overla">CEO</span>
-                    <h4>CEO</h4>
+               <div class="side-by-side">
+                  <div class="service-card">
+                    <div class="section-heade">
+                      <span class="header-overla">CFO</span>
+                      <h4>CFO</h4>
+                    </div>
+                    <p><strong>Jerry Vishal</strong> – Chief Financial Officer</p>
                   </div>
-                 
-                  <p><strong>Frisch Gus</strong> – Chief Executive Officer</p>
-                 
-                </div>
-                <br>
-                <div class="service-card">
-                  <div class="section-heade">
-                    <span class="header-overla">CFO</span>
-                    <h4>CFO</h4>
+                  <div class="service-card">
+                    <div class="section-heade">
+                      <span class="header-overla">CMO</span>
+                      <h4>CMO</h4>
+                    </div>
+                    <p><strong>Daniel Hoffmann</strong> – Chief Marketing Officer</p>
                   </div>
-                  <p><strong>Jerry Vishal</strong> – Chief Financial Officer</p>
                 </div>
-                
-                <div class="service-card">
-                  <br>
-                  <div class="section-heade">
-                    <span class="header-overla">CMO</span>
-                    <h4>CMO</h4>
+                <div class="side-by-side">
+                  <div class="service-card">
+                    <div class="section-heade">
+                      <span class="header-overla">COO</span>
+                      <h4>COO</h4>
+                    </div>
+                    <p><strong>Simon Wang</strong> – Chief Operating Officer</p>
                   </div>
-                  <p><strong>Daniel Hoffmann</strong> – Chief Marketing Officer</p>
-                </div>
-              </div>
-            
-              <div class="services-grid">
-                <div class="service-card">
-                  <br>
-                  <div class="section-heade">
-                    <span class="header-overla">COO</span>
-                    <h4>COO</h4>
+                  <div class="service-card">
+                    <div class="section-heade">
+                      <span class="header-overla">Financial Advisor</span>
+                      <h4>Financial Advisor</h4>
+                    </div>
+                    <p><strong>Frédéric Klein</strong> – Financial Advisor</p>
+                    <p><strong>Xian Li</strong> – Financial Advisor</p>
+                    <p><strong>Alejandro Garcia</strong> – Financial Advisor</p>
+                    <p><strong>Ari Balbir</strong> – Financial Advisor</p>
                   </div>
-                  <p><strong>Simon Wang</strong> – Chief Operating Officer</p>
                 </div>
-                
-                <div class="service-card">
-                  <br>
-                  <div class="section-heade">
-                    <span class="header-overla">Financial Advisor</span>
-                    <h4>Financial Advisor</h4>
+                <div class="side-by-side">
+                  <div class="service-card">
+                    <div class="section-heade">
+                      <span class="header-overla">Investment Analysis</span>
+                      <h4>Investment Analysis</h4>
+                    </div>
+                    <p><strong>Amandine Weber</strong> – Investment Analyst</p>
                   </div>
-                  <p><strong>Frédéric Klein</strong> – Financial Advisor</p>
-                  <p><strong>Xian Li</strong> – Financial Advisor</p>
-                  <p><strong>Alejandro Garcia</strong> – Financial Advisor</p>
-                  <p><strong>Ari Balbir</strong> – Financial Advisor</p>
-
-                </div>
-              </div>
-            
-              <section id="hero" class="oustroupistache">
-                <div class="hero-content container"></div>
-              </section>
-              <br>
-            
-              <div class="two-column">
-                <div class="column">
-                  <br>
-                  <div class="section-heade">
-                    <span class="header-overla">Investment Analysis</span>
-                    <h4>Investment Analysis</h4>
+                  <div class="service-card">
+                    <div class="section-heade">
+                      <span class="header-overla">Data Analysis</span>
+                      <h4>Data Analysis</h4>
+                    </div>
+                    <p><strong>François Hansen</strong> – Data Analyst</p>
+                    <p><strong>Victoria Weis</strong> – Data Analyst</p>
                   </div>
-                  <p><strong>Amandine Weber</strong> – Investment Analyst</p>
                 </div>
-                <div class="column">
-                  <br>
-                  <div class="section-heade">
-                    <span class="header-overla">Data Analysis</span>
-                    <h4>Data Analysis</h4>
-                  </div>
-                  <p><strong>François Hansen</strong> – Data Analyst</p>
-                  <p><strong>Victoria Weis</strong> – Data Analyst</p>
-                </div>
-              </div>
             
               <div class="services-grid">
                 <div class="service-card">
@@ -483,6 +459,30 @@ margin-left: 80px; /* Ajuste la valeur selon ton besoin */
                 </div>
                 <br><br><br><br>
               </div>
+                <style>
+                .side-by-side {
+                  display: flex;
+                  gap: 32px;
+                  margin-bottom: 24px;
+                  justify-content: space-between;
+                  flex-wrap: wrap;
+                }
+                .side-by-side .service-card {
+                  flex: 1 1 0;
+                  min-width: 250px;
+                  max-width: 48%;
+                  box-sizing: border-box;
+                }
+                @media (max-width: 900px) {
+                  .side-by-side {
+                    flex-direction: column;
+                  }
+                  .side-by-side .service-card {
+                    max-width: 100%;
+                  }
+                }
+              </style>
+                
               <style>
                 body {
                   background-image: url(front/red/yes.png);
