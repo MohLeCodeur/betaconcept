@@ -291,6 +291,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer__logo">
       <img src="../media/1015/sss.png" alt="Logo Beta Concept" width="50" />
     </div>
+    <style>
+   .footer__top {
+  display: flex;
+  align-items: center;
+}
+.footer__logo {
+  margin-left: auto;
+  margin-right: 561px; /* Ajuste la distance à droite sur desktop */
+}
+
+/* Sur mobile (max 768px), on remet à zéro pour éviter un décalage trop grand */
+@media (max-width: 768px) {
+  .footer__logo {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+    </style>
     <div class="footer__contact">
       <address id="dr">
           Adress: 1, rue de muehlenbach, 2168 Luxembourg, Luxembourg<br>

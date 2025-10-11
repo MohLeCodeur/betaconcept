@@ -8985,3 +8985,19 @@ div.contact-info {
 
 background-image: url(../privacy-cookie-policy/front/abstract-red.jpg);
 }
+ .footer__top {
+  display: flex;
+  align-items: center;
+}
+.footer__logo {
+  margin-left: auto;
+  margin-right: 561px; /* Ajuste la distance à droite sur desktop */
+}
+
+/* Sur mobile (max 768px), on remet à zéro pour éviter un décalage trop grand */
+@media (max-width: 768px) {
+  .footer__logo {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
