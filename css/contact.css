@@ -8344,13 +8344,14 @@ div.contact-info {
 
 .footer__logo img {
   display: block;
+ 
 }
 
 .footer__contact {
   text-align: right;
   line-height: 1.6;
   text-align: center;
-  margin-right: 58px;
+  margin-right: 8px;
 }
 
 
@@ -8433,6 +8434,7 @@ div.contact-info {
   }
   .footer__logo img {
     margin: 0 auto;
+     margin-right: 8px;
   }
 }
 
