@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-<!-- Mirrored from www.marathon.co.uk/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:09:28 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 <head>
 	<meta charset="utf-8">
@@ -23,6 +21,27 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900">
 	<link rel="stylesheet" href="css/styled882.css?v=Fd3f0XFBpHHPdH8P2gW-Dj62pnboBWRgL9UTkHRXjFw">
 	<script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>
+	<style>
+		/* Style pour l'iframe YouTube responsive */
+		.responsive-iframe-container {
+			position: relative;
+			width: 100%;
+			padding-bottom: 56.25%; /* Ratio 16:9 */
+			height: 0;
+			overflow: hidden;
+			max-width: 100%;
+			margin: 2rem auto;
+		}
+		
+		.responsive-iframe-container iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+	</style>
 	<style>
 		.ccc-disable-scroll {
 			overflow-y: scroll;
@@ -1222,7 +1241,7 @@
 
 <body>
 	<div id="ccc" role="region" aria-label="Cookie preferences" aria-live="polite" style="z-index: 2147483647;"
-class="">
+	class="">
 <div id="ccc-overlay"></div>
 <div id="ccc-module" class="ccc-module--slideout ccc-module--left" role="dialog" aria-modal="true"
     aria-labelledby="ccc-title">
@@ -1472,7 +1491,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				<a href="index.html" class="logo">
 					<img src="media/1016/logo.svg" class="logo-color" />
 					<img src="media/1015/sm.png" class="logo-white" />
-					<img src="media/1014/redlogo.png" alt="Marathon" class="logo-emblem"  />
+					<img src="media/1014/redlogo.png" alt="Beta Concept" class="logo-emblem"  />
 
 				</a>
 
@@ -1588,7 +1607,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-					<form action="https://www.marathon.co.uk/" class="form" enctype="multipart/form-data"
+					<form action="#" class="form" enctype="multipart/form-data"
 						id="formf623acffd6894058ac47f0dc6c2e62d4" method="post">
 						<div class="validation-summary-valid" data-valmsg-summary="true">
 							<ul>
@@ -1854,12 +1873,25 @@ font-size: 58px;
 					<div class="inner-indented">
 						<section class="home-section section-536d496e-7665-7374-5075-626c69636174696f6e73">
 							<div class="section-header">
-								<h2>What’s is one asset management</h2>
+								<h2>What's is one asset management</h2>
 								<span class="header-overlay">WHAT</span>
 							</div>
 							<div class="responsive-iframe-container">
-								<iframe src="https://www.youtube.com/embed/XV_s5U0fvdU?si=M3ogRNz-K-fKTc-l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+								<iframe 
+									src="https://www.youtube.com/embed/XV_s5U0fvdU" 
+									title="YouTube video player" 
+									frameborder="0" 
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+									allowfullscreen
+									data-iframe-resizer-ignore="true"
+									class="youtube-iframe">
+								</iframe>
 							</div>
+							<p style="text-align: center; margin-top: 1rem;">
+								<a href="https://www.youtube.com/watch?v=XV_s5U0fvdU" target="_blank" rel="noopener noreferrer" style="color: #8f2829; text-decoration: underline;">
+									Si la vidéo ne s'affiche pas, cliquez ici pour la voir sur YouTube
+								</a>
+							</p>
 							
 						</section>
 					</div>
@@ -1919,6 +1951,5 @@ font-size: 58px;
 
 </body>
 
-<!-- Mirrored from www.marathon.co.uk/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:09:37 GMT -->
 
 </html>

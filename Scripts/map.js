@@ -165,7 +165,7 @@ function initMap() {
     var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
-        title: "Marathon Asset Management",
+        title: "Beta Concept",
         animation: google.maps.Animation.DROP,
         icon: mapPin
     });
