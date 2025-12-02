@@ -566,6 +566,128 @@
             </div>
           </div>
         </div>
+        
+        <section class="donation-section">
+          <div class="container donation-container">
+            <h3 class="donation-title">Donation</h3>
+            <p class="donation-subtitle">
+              Support the development of Beta Concept by sending a contribution
+              to one of the addresses below.
+            </p>
+
+            <div class="donation-grid">
+              <div class="donation-card">
+                <h3 class="donation-label">Bitcoin (BTC)</h3>
+                <div class="donation-row">
+                  <span class="donation-address">
+                    1Ficti0usBTCAddre55Example00000001
+                  </span>
+                  <button type="button" class="donation-copy-btn" aria-label="Copy bitcoin address (visual only)">
+                    <span class="copy-icon"></span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="donation-card">
+                <h3 class="donation-label">Ethereum (ETH)</h3>
+                <div class="donation-row">
+                  <span class="donation-address">
+                    0xFicti0usEthereumAddre55Example0000002
+                  </span>
+                  <button type="button" class="donation-copy-btn" aria-label="Copy ethereum address (visual only)">
+                    <span class="copy-icon"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <style>
+          .donation-section {
+            padding: 3rem 0 4rem;
+          }
+          .donation-container {
+            max-width: 960px;
+            margin: 0 auto;
+          }
+          .donation-title {
+            font-size: 2rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+          }
+          .donation-subtitle {
+            margin-bottom: 2rem;
+            opacity: 0.85;
+            text-align: center;
+          }
+          .donation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+          }
+          .donation-card {
+            background: rgba(255, 255, 255, 0.94);
+            border-radius: 10px;
+            padding: 1.5rem 1.75rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+          }
+          .donation-label {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+          }
+          .donation-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            overflow: hidden;
+          }
+          .donation-address {
+            font-family: "Roboto", monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            flex: 1 1 auto;
+            padding: 0.55rem 0.75rem;
+            border-radius: 6px;
+            background-color: #f5f5f5;
+          }
+          .donation-copy-btn {
+            flex: 0 0 auto;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: none;
+            cursor: default;
+            background: #8f2829;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .copy-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            border: 2px solid #ffffff;
+            position: relative;
+          }
+          .copy-icon::before {
+            content: "";
+            position: absolute;
+            top: -4px;
+            left: 4px;
+            width: 80%;
+            height: 80%;
+            border-radius: 3px;
+            border: 2px solid #ffffff;
+            background: transparent;
+          }
+          @media (max-width: 768px) {
+            .donation-grid {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
       </main>
 
       <footer class="footer" aria-label="Pied de page du site">

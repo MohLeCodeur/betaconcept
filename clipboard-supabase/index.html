@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gestionnaire d'historique du presse-papiers avec synchronisation cloud">
+    <title>ClipSync - Historique Presse-Papiers</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Gradient -->
+    <div class="bg-gradient"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="4" width="24" height="24" rx="6" stroke="url(#gradient)" stroke-width="2" />
+                    <path d="M12 16L14.5 18.5L20 13" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <defs>
+                        <linearGradient id="gradient" x1="4" y1="4" x2="28" y2="28">
+                            <stop offset="0%" stop-color="#667eea" />
+                            <stop offset="100%" stop-color="#764ba2" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h1>ClipSync</h1>
+            </div>
+
+            <div class="auth-section">
+                <div id="auth-buttons" class="auth-buttons">
+                    <button id="login-btn" class="btn btn-secondary">Connexion</button>
+                    <button id="signup-btn" class="btn btn-primary">Inscription</button>
+                </div>
+                <div id="user-info" class="user-info" style="display: none;">
+                    <span id="user-email" class="user-email"></span>
+                    <button id="logout-btn" class="btn btn-secondary">Déconnexion</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Section -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">📋</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="total-items">0</div>
+                    <div class="stat-label">Éléments</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">☁️</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="sync-status">Hors ligne</div>
+                    <div class="stat-label">Statut</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-content">
+                    <div class="stat-value" id="today-items">0</div>
+                    <div class="stat-label">Aujourd'hui</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Capture Section -->
+        <div class="capture-section">
+            <h2>Capturer du Presse-Papiers</h2>
+            <div class="capture-controls">
+                <button id="paste-btn" class="btn btn-primary btn-large">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8 2H12M6 6H14M4 10V16C4 17.1046 4.89543 18 6 18H14C15.1046 18 16 17.1046 16 16V10M4 10V6C4 4.89543 4.89543 4 6 4H14C15.1046 4 16 4.89543 16 6V10M4 10H16"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    Coller & Sauvegarder (Ctrl+V)
+                </button>
+                <div class="info-text">
+                    💡 Copiez du texte n'importe où (Ctrl+C), puis cliquez ici pour le sauvegarder
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-box">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2" />
+                    <path d="M14 14L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <input type="text" id="search-input" placeholder="Rechercher dans l'historique..." />
+                <button id="clear-search" class="clear-btn" style="display: none;">✕</button>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Tout</button>
+                <button class="filter-btn" data-filter="today">Aujourd'hui</button>
+                <button class="filter-btn" data-filter="week">Cette semaine</button>
+            </div>
+        </div>
+
+        <!-- History Section -->
+        <div class="history-section">
+            <div class="history-header">
+                <h2>Historique</h2>
+                <button id="clear-all-btn" class="btn btn-danger-outline">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 4H14M6 4V2H10V4M3 4L4 14H12L13 4" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Tout effacer
+                </button>
+            </div>
+
+            <div id="history-list" class="history-list">
+                <div class="empty-state">
+                    <div class="empty-icon">📋</div>
+                    <h3>Aucun élément dans l'historique</h3>
+                    <p>Commencez par copier du texte et cliquez sur "Coller & Sauvegarder"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Connexion</h2>
+                <button class="modal-close" id="close-modal">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" required placeholder="••••••••" minlength="6">
+                    </div>
+                    <div id="auth-error" class="error-message" style="display: none;"></div>
+                    <button type="submit" class="btn btn-primary btn-block" id="auth-submit">
+                        Se connecter
+                    </button>
+                </form>
+                <div class="modal-footer">
+                    <p id="auth-switch-text">Pas encore de compte ?
+                        <a href="#" id="auth-switch-link">S'inscrire</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Configuration -->
+    <script src="config.js"></script>
+
+    <!-- Main App -->
+    <script src="app.js"></script>
+</body>
+
+</html>
