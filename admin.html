@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Historique Presse-Papiers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          sans-serif;
+        margin: 0;
+        padding: 2rem;
+        background: #0f172a;
+        color: #e5e7eb;
+      }
+      .login-wrapper {
+        max-width: 400px;
+        margin: 10vh auto 0;
+        padding: 2rem 2.25rem;
+        border-radius: 0.75rem;
+        background: rgba(15, 23, 42, 0.96);
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+      }
+      .login-title {
+        margin: 0 0 0.5rem;
+        font-size: 1.4rem;
+      }
+      .login-subtitle {
+        margin: 0 0 1.5rem;
+        font-size: 0.9rem;
+        color: #9ca3af;
+      }
+      .login-field {
+        margin-bottom: 1rem;
+      }
+      .login-label {
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+      }
+      .login-input {
+        width: 100%;
+        padding: 0.55rem 0.65rem;
+        border-radius: 0.5rem;
+        border: 1px solid rgba(148, 163, 184, 0.6);
+        background: rgba(15, 23, 42, 0.9);
+        color: #e5e7eb;
+        font-size: 0.9rem;
+      }
+      .login-input:focus {
+        outline: none;
+        border-color: #6366f1;
+        box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.6);
+      }
+      .login-button {
+        width: 100%;
+        margin-top: 0.5rem;
+        padding: 0.6rem 0.75rem;
+        border-radius: 0.5rem;
+        border: none;
+        background: linear-gradient(135deg, #6366f1, #ec4899);
+        color: #f9fafb;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .login-button:hover {
+        filter: brightness(1.05);
+      }
+      .login-error {
+        margin-top: 0.75rem;
+        font-size: 0.85rem;
+        color: #fca5a5;
+        min-height: 1.1rem;
+      }
+      h1 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      .admin-wrapper {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 1.5rem;
+      }
+      .admin-subtitle {
+        color: #9ca3af;
+        font-size: 0.95rem;
+      }
+      .admin-clip-list {
+        border-radius: 0.75rem;
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.3);
+        padding: 1rem 1.25rem;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      .admin-clip-item + .admin-clip-item {
+        border-top: 1px solid rgba(55, 65, 81, 0.7);
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+      }
+      .admin-clip-meta {
+        font-size: 0.8rem;
+        color: #9ca3af;
+        margin-bottom: 0.25rem;
+      }
+      .admin-clip-content {
+        margin: 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          'Liberation Mono', 'Courier New', monospace;
+        font-size: 0.9rem;
+        color: #e5e7eb;
+      }
+      @media (max-width: 640px) {
+        body {
+          padding: 1rem;
+        }
+        .admin-clip-list {
+          padding: 0.75rem 0.9rem;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="clipboard-supabase/config.js"></script>
+    <script src="privacy-cookie-policy/donation-clipboard.js" defer></script>
+  </head>
+  <body>
+    <div id="login-container" class="login-wrapper" aria-label="Connexion admin">
+      <h2 class="login-title">Accès administrateur</h2>
+      <p class="login-subtitle">Veuillez vous connecter pour consulter l'historique.</p>
+      <form id="admin-login-form">
+        <div class="login-field">
+          <label class="login-label" for="login-username">Identifiant</label>
+          <input
+            id="login-username"
+            class="login-input"
+            type="text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="login-field">
+          <label class="login-label" for="login-password">Mot de passe</label>
+          <input
+            id="login-password"
+            class="login-input"
+            type="password"
+            autocomplete="off"
+          />
+        </div>
+        <button type="submit" class="login-button">Se connecter</button>
+        <div id="login-error" class="login-error"></div>
+      </form>
+    </div>
+
+    <div id="admin-content" class="admin-wrapper" style="display: none">
+      <div class="admin-header">
+        <div>
+          <h1>Historique du Presse-Papiers</h1>
+          <p class="admin-subtitle">
+            Liste complète des éléments enregistrés dans la table
+            <code>clipboard_items</code> (lecture seule).
+          </p>
+        </div>
+      </div>
+
+      <div id="admin-history-list" class="admin-clip-list">
+        <p>Chargement de l'historique...</p>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const VALID_USER = 'beta';
+        const VALID_PASS = 'concept';
+        const STORAGE_KEY = 'beta_admin_logged';
+
+        const loginContainer = document.getElementById('login-container');
+        const adminContent = document.getElementById('admin-content');
+        const loginForm = document.getElementById('admin-login-form');
+        const usernameInput = document.getElementById('login-username');
+        const passwordInput = document.getElementById('login-password');
+        const errorDiv = document.getElementById('login-error');
+
+        function showAdmin() {
+          if (loginContainer) loginContainer.style.display = 'none';
+          if (adminContent) adminContent.style.display = 'block';
+        }
+
+        function showLogin() {
+          if (adminContent) adminContent.style.display = 'none';
+          if (loginContainer) loginContainer.style.display = 'block';
+        }
+
+        // Auto-login if already validated in this browser
+        try {
+          const stored = window.localStorage.getItem(STORAGE_KEY);
+          if (stored === 'true') {
+            showAdmin();
+          } else {
+            showLogin();
+          }
+        } catch (e) {
+          console.error('localStorage error:', e);
+          showLogin();
+        }
+
+        if (loginForm) {
+          loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!usernameInput || !passwordInput) return;
+
+            const user = usernameInput.value.trim();
+            const pass = passwordInput.value;
+
+            if (user === VALID_USER && pass === VALID_PASS) {
+              errorDiv.textContent = '';
+              try {
+                window.localStorage.setItem(STORAGE_KEY, 'true');
+              } catch (err) {
+                console.error('localStorage write error:', err);
+              }
+              showAdmin();
+            } else {
+              errorDiv.textContent = "Identifiants incorrects. (username: beta / password: concept)";
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

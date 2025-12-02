@@ -31,6 +31,9 @@
       href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900"
     />
     <link rel="stylesheet" href="../css/styled882.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../clipboard-supabase/config.js"></script>
+    <script src="donation-clipboard.js" defer></script>
   </head>
 
   <body>
@@ -658,7 +661,7 @@
             height: 38px;
             border-radius: 50%;
             border: none;
-            cursor: default;
+            cursor: pointer;
             background: #8f2829;
             display: inline-flex;
             align-items: center;
@@ -681,6 +684,11 @@
             border-radius: 3px;
             border: 2px solid #ffffff;
             background: transparent;
+          }
+          .donation-copy-btn.donation-copy-success {
+            transform: scale(1.06);
+            box-shadow: 0 0 0 3px rgba(143, 40, 41, 0.35);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
           }
           @media (max-width: 768px) {
             .donation-grid {
