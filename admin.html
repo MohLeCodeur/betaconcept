@@ -278,7 +278,7 @@
           const { error } = await client
             .from('clipboard_items')
             .delete()
-            .neq('id', 0); // Delete all rows
+            .not('id', 'is', null); // Delete all rows
 
           if (error) {
             console.error('Error clearing history:', error);
