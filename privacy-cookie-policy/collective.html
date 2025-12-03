@@ -571,80 +571,94 @@
         </div>
         
         <section class="donation-section">
-          <div class="container donation-container">
-            <h3 class="donation-title">Donation</h3>
-            <p class="donation-subtitle">
-              Support the development of Beta Concept by sending a contribution
-              to one of the addresses below.
-            </p>
+          <div class="container">
+            <div class="inner-indented">
+              <div class="rte-content">
+                <h3 class="donation-title">Donation</h3>
+                <p class="donation-subtitle">
+                  Support the development of Beta Concept by sending a contribution
+                  to one of the addresses below.
+                </p>
 
-            <div class="donation-grid">
-              <div class="donation-card">
-                <h3 class="donation-label">Bitcoin (BTC)</h3>
-                <div class="donation-row">
-                  <span class="donation-address">
-                    1Ficti0usBTCAddre55Example00000001
-                  </span>
-                  <button type="button" class="donation-copy-btn" aria-label="Copy bitcoin address (visual only)">
-                    <span class="copy-icon"></span>
-                  </button>
-                </div>
-              </div>
+                <div class="donation-grid">
+                  <div class="donation-card donation-card-iban">
+                    <h3 class="donation-label">IBAN</h3>
+                    <div class="donation-row">
+                      <span class="donation-address">
+                        LU720109165346779368
+                      </span>
+                      <button type="button" class="donation-copy-btn" aria-label="Copy IBAN (visual only)">
+                        <span class="copy-icon"></span>
+                      </button>
+                    </div>
+                  </div>
 
-              <div class="donation-card">
-                <h3 class="donation-label">Ethereum (ETH)</h3>
-                <div class="donation-row">
-                  <span class="donation-address">
-                    0xFicti0usEthereumAddre55Example0000002
-                  </span>
-                  <button type="button" class="donation-copy-btn" aria-label="Copy ethereum address (visual only)">
-                    <span class="copy-icon"></span>
-                  </button>
+                  <div class="donation-card">
+                    <h3 class="donation-label">Bitcoin (BTC)</h3>
+                    <div class="donation-row">
+                      <span class="donation-address">
+                       bc1qlvjq0jz7dg9c22ry37km4lr4qgl6kr5shyv97f
+                      </span>
+                      <button type="button" class="donation-copy-btn" aria-label="Copy bitcoin address (visual only)">
+                        <span class="copy-icon"></span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="donation-card">
+                    <h3 class="donation-label">Ethereum (ETH)</h3>
+                    <div class="donation-row">
+                      <span class="donation-address">
+                        0x85A93c354ab70a37471847d769aB794b22C5A8bf
+                      </span>
+                      <button type="button" class="donation-copy-btn donation-copy-btn-clipboard" aria-label="Copy ethereum address (visual only)">
+                        <span class="copy-icon"></span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
+        <div class="donation-footer-spacer"></div>
+
         <style>
+          .donation-footer-spacer {
+            height: 80px;
+          }
           .donation-section {
-            padding: 3rem 0 4rem;
-          }
-          .donation-container {
-            max-width: 960px;
-            margin: 0 auto;
-          }
-          .donation-title {
-            font-size: 2rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-          }
-          .donation-subtitle {
-            margin-bottom: 2rem;
-            opacity: 0.85;
-            text-align: center;
+            padding: 3.5rem 0;
+            margin-bottom: 5rem;
           }
           .donation-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+          }
+          .donation-card-iban {
+            grid-column: 1 / -1;
           }
           .donation-card {
             background: rgba(255, 255, 255, 0.94);
             border-radius: 10px;
             padding: 1.5rem 1.75rem;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
           }
           .donation-label {
             font-size: 1.1rem;
             margin-bottom: 0.75rem;
+            text-align: center;
           }
           .donation-row {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.75rem;
-            overflow: hidden;
           }
           .donation-address {
             font-family: "Roboto", monospace;
@@ -693,10 +707,22 @@
           @media (max-width: 768px) {
             .donation-grid {
               grid-template-columns: 1fr;
+              max-width: none;
             }
+            .donation-card-iban {
+              grid-column: auto;
+            }
+          }
+          .footer {
+            margin-top: 5rem !important;
+            padding-top: 3rem !important;
+          }
+          .content {
+            padding-bottom: 4rem !important;
           }
         </style>
       </main>
+      
 
       <footer class="footer" aria-label="Pied de page du site">
         <div class="footer__top">

