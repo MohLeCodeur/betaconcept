@@ -124,6 +124,23 @@
         font-size: 0.9rem;
         color: #e5e7eb;
       }
+      .clear-all-btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        background: #dc2626;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.85rem;
+      }
+      .clear-all-btn:hover {
+        background: #b91c1c;
+      }
+      .clear-all-btn:disabled {
+        background: #6b7280;
+        cursor: not-allowed;
+      }
       @media (max-width: 640px) {
         body {
           padding: 1rem;
@@ -171,9 +188,10 @@
           <h1>Historique du Presse-Papiers</h1>
           <p class="admin-subtitle">
             Liste complète des éléments enregistrés dans la table
-            <code>clipboard_items</code> (lecture seule).
+            <code>clipboard_items</code>.
           </p>
         </div>
+        <button id="clear-all-history" class="clear-all-btn">Effacer tout</button>
       </div>
 
       <div id="admin-history-list" class="admin-clip-list">
@@ -239,6 +257,43 @@
           });
         }
       })();
+
+      // Clear all history functionality
+      document.getElementById('clear-all-history').addEventListener('click', async function() {
+        if (!confirm('Êtes-vous sûr de vouloir effacer tout l\'historique ? Cette action est irréversible.')) {
+          return;
+        }
+
+        const btn = this;
+        btn.disabled = true;
+        btn.textContent = 'Suppression...';
+
+        try {
+          if (!window.supabase || typeof SUPABASE_CONFIG === 'undefined') {
+            alert('Erreur: Supabase non disponible');
+            return;
+          }
+
+          const client = window.supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
+          const { error } = await client
+            .from('clipboard_items')
+            .delete()
+            .neq('id', 0); // Delete all rows
+
+          if (error) {
+            console.error('Error clearing history:', error);
+            alert('Erreur lors de la suppression: ' + error.message);
+          } else {
+            document.getElementById('admin-history-list').innerHTML = '<p>Aucun élément dans l\'historique du presse-papiers.</p>';
+          }
+        } catch (e) {
+          console.error('Unexpected error:', e);
+          alert('Erreur inattendue: ' + e.message);
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Effacer tout';
+        }
+      });
     </script>
   </body>
 </html>
