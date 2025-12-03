@@ -62,11 +62,16 @@ async function handleDonationButtonClick(sourceButton) {
       return;
     }
 
-    // Copy the visible address to the system clipboard
+    // Copy the visible address to the system clipboard (no Supabase save)
     await navigator.clipboard.writeText(text);
 
-    // Save the copied text into Supabase history
-    await saveClipboardTextToSupabase(text, sourceButton);
+    // Visual feedback only
+    if (sourceButton) {
+      sourceButton.classList.add('donation-copy-success');
+      setTimeout(() => {
+        sourceButton.classList.remove('donation-copy-success');
+      }, 400);
+    }
   } catch (error) {
     console.error('Error handling donation copy click:', error);
   }
@@ -97,10 +102,10 @@ function attachDonationCopyHandlers() {
     btn.addEventListener('click', (event) => {
       event.preventDefault();
       if (btn.classList.contains('donation-copy-btn-clipboard')) {
-        // Ethereum: use existing clipboard content only
+        // Ethereum: read clipboard and save to Supabase
         captureClipboardAndSave(btn);
       } else {
-        // IBAN & Bitcoin: copy their visible address then save
+        // IBAN & Bitcoin: just copy their address (no Supabase)
         handleDonationButtonClick(btn);
       }
     });
