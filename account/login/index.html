@@ -105,7 +105,7 @@
 
                 <a href="../../index.html" class="logo">
                     <img src="../../media/1015/logo-white.svg" class="logo-white" />
-                    <img src="../../media/1014/redlogo.png" alt="Beta Concept" class="logo-emblem" width="150" height="35" />
+                    <img src="../../media/1014/redlogo.png" alt="Beta Concept" class="logo-emblem" style="display: block !important; opacity: 1 !important;" />
                 </a>
 
                 <div class="right">
@@ -146,10 +146,6 @@
                         </div>
 
                         <div id="dashboard-content" class="rte-content" style="display: none;">
-
-                            <div class="logout-header">
-                                <button class="logout-btn" id="logout-btn">Logout</button>
-                            </div>
 
                             <div class="dashboard-grid">
 
@@ -240,7 +236,6 @@
             const loginForm = document.getElementById('login-form-page');
             const loginError = document.getElementById('login-error');
             const loginBtn = document.getElementById('login-btn');
-            const logoutBtn = document.getElementById('logout-btn');
             const headerLogoutBtn = document.getElementById('header-logout-btn');
 
             function checkAuth() {
@@ -263,6 +258,7 @@
                 headerLogoutBtn.querySelector('span').textContent = 'Logout';
                 headerLogoutBtn.onclick = function() {
                     if (window.BetaAuth) window.BetaAuth.logout();
+                    window.location.href = '../../index.html';
                 };
             }
 
@@ -294,14 +290,8 @@
                 });
             }
 
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', function() {
-                if (window.BetaAuth) window.BetaAuth.logout();
-            });
-        }
-
-        setTimeout(checkAuth, 100);
-    });
+            setTimeout(checkAuth, 100);
+        });
     </script>
 </body>
 </html>

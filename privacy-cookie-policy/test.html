@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Beta Concept x CertiK – Fund Legitimacy Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0b1020;
+      --accent: #2dd4bf;
+      --accent-soft: rgba(45, 212, 191, 0.12);
+      --accent-strong: rgba(45, 212, 191, 0.25);
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2933;
+      --danger: #f97373;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #f9fafb, #22c1c3 40%, #111827 80%);
+      box-shadow: 0 0 40px rgba(45, 212, 191, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-circle::after {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border-radius: inherit;
+      border: 1px solid rgba(15, 23, 42, 0.7);
+      background: radial-gradient(circle at 30% 30%, rgba(15, 23, 42, 0.3), transparent 60%);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text span:first-child {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+    }
+
+    .brand-text span:last-child {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(31, 41, 55, 0.7);
+      backdrop-filter: blur(12px);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
+      gap: 32px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+
+    /* Left column – content */
+    .hero-title {
+      font-size: clamp(2rem, 2.6vw, 2.6rem);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .hero-accent {
+      font-weight: 700;
+      background: linear-gradient(to right, #2dd4bf, #22c1c3, #4f46e5);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      max-width: 540px;
+      font-size: 0.98rem;
+      margin-bottom: 20px;
+    }
+
+    .callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      margin-bottom: 16px;
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    .callout-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(45, 212, 191, 0.7);
+    }
+
+    .panel {
+      margin-top: 16px;
+      background: radial-gradient(circle at top left, rgba(45, 212, 191, 0.16), transparent 55%),
+                  linear-gradient(to bottom right, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
+      border-radius: 20px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 20px 18px;
+      box-shadow:
+        0 22px 40px rgba(15, 23, 42, 0.85),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .panel h2 {
+      font-size: 0.98rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .panel p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .panel + .panel {
+      margin-top: 12px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 700px) {
+      .steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .step {
+      border-radius: 14px;
+      border: 1px dashed rgba(55, 65, 81, 0.8);
+      padding: 10px 12px;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .step span {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .step strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-main);
+      font-size: 0.83rem;
+    }
+
+    /* Right column – form & PDF card */
+    .card {
+      background: radial-gradient(circle at top right, rgba(45, 212, 191, 0.16), transparent 55%),
+                  linear-gradient(to bottom left, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.98));
+      border-radius: 20px;
+      padding: 20px 18px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow:
+        0 22px 40px rgba(15, 23, 42, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 10px;
+    }
+
+    .card-header h2 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.16);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #bbf7d0;
+      white-space: nowrap;
+    }
+
+    label {
+      font-size: 0.84rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 90px;
+      resize: vertical;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      padding: 10px 12px;
+      font-size: 0.86rem;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    textarea::placeholder {
+      color: #4b5563;
+    }
+
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.4);
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    .helper-text {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      margin-bottom: 10px;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: linear-gradient(135deg, #22c1c3, #2dd4bf);
+      color: #020617;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 14px 30px rgba(34, 211, 238, 0.38);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+      white-space: nowrap;
+    }
+
+    button span.icon {
+      font-size: 1rem;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 18px 40px rgba(34, 211, 238, 0.42);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 10px 25px rgba(34, 211, 238, 0.25);
+    }
+
+    .note {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .status-message {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      border-radius: 12px;
+      padding: 8px 10px;
+      border: 1px solid rgba(45, 212, 191, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent);
+      display: none;
+    }
+
+    .status-message.error {
+      border-color: rgba(248, 113, 113, 0.7);
+      color: #fecaca;
+      background: rgba(127, 29, 29, 0.75);
+    }
+
+    /* PDF visual card */
+    .pdf-card {
+      margin-top: 16px;
+      border-radius: 16px;
+      border: 1px dashed rgba(55, 65, 81, 0.9);
+      background: radial-gradient(circle at top left, rgba(45, 212, 191, 0.12), transparent 55%),
+                  rgba(15, 23, 42, 0.92);
+      padding: 12px 12px 14px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    @media (max-width: 500px) {
+      .pdf-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .pdf-visual {
+      width: 64px;
+      height: 84px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: linear-gradient(
+          to bottom right,
+          rgba(148, 163, 184, 0.4),
+          rgba(15, 23, 42, 0.6)
+        ),
+        #020617;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pdf-visual::before {
+      content: "PDF";
+      position: absolute;
+      top: 6px;
+      left: 8px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 3px 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.88);
+      color: var(--accent);
+      border: 1px solid rgba(45, 212, 191, 0.6);
+    }
+
+    .pdf-line {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      height: 2px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.75);
+    }
+
+    .pdf-line:nth-child(2) { top: 30px; }
+    .pdf-line:nth-child(3) { top: 38px; width: 60%; }
+    .pdf-line:nth-child(4) { top: 46px; width: 80%; }
+    .pdf-line:nth-child(5) { top: 54px; width: 40%; }
+    .pdf-line:nth-child(6) {
+      top: 64px;
+      height: 4px;
+      background: linear-gradient(to right, #22c1c3, #2dd4bf);
+      box-shadow: 0 0 12px rgba(45, 212, 191, 0.6);
+    }
+
+    .pdf-text-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .pdf-text-body {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      margin-top: 40px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 16px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="logo-circle"></div>
+        <div class="brand-text">
+          <span>Beta Concept</span>
+          <span>Digital Asset Due Diligence</span>
+        </div>
+      </div>
+      <div class="tagline">Fund Legitimacy &amp; On-Chain Risk Verification</div>
+    </header>
+
+    <main>
+      <!-- LEFT COLUMN -->
+      <section>
+        <div class="callout">
+          <div class="callout-dot"></div>
+          <div>Beta Concept x CertiK – Collaborative Verification Layer</div>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-accent">On-chain fund legitimacy</span><br />
+          verified with institutional-grade standards.
+        </h1>
+
+        <p class="hero-subtitle">
+          Paste a public crypto address and initiate a structured verification process,
+          combining Beta Concept’s due diligence framework with CertiK’s advanced security
+          analytics.
+        </p>
+
+        <!-- TEXT ABOVE THE INPUT (AS REQUESTED) -->
+        <div class="panel">
+          <h2>Strategic collaboration for fund verification</h2>
+          <p>
+            Beta Concept partners with CertiK to ensure full transparency,
+            traceability, and legitimacy of all funds involved. This collaboration
+            provides deep operational analysis supported by a clear and structured
+            verification report, strengthening confidence and security in every
+            transaction.
+          </p>
+          <p style="margin-top: 8px;">
+            With CertiK’s expertise, Beta Concept offers its investors a reliable,
+            verified, and industry-aligned environment for major financial operations.
+          </p>
+        </div>
+
+        <!-- TEXT BELOW (ABOUT CERTIK) -->
+        <div class="panel">
+          <h2>About CertiK</h2>
+          <p>
+            CertiK is recognized as one of the global leaders in Web3 security, providing
+            advanced audit services, formal verification, and continuous on-chain monitoring
+            to strengthen the reliability of blockchain and crypto projects. Their approach
+            combines deep code analysis, AI-driven assessment, and mathematical verification,
+            ensuring vulnerabilities are detected and addressed before they become exploitable
+            risks.
+          </p>
+          <p style="margin-top: 8px;">
+            Beyond technical security, CertiK delivers intelligence and legitimacy assessment
+            on projects, helping protect the capital involved and reinforcing confidence in
+            the integrity of the ecosystem. With a CertiK audit, investors gain greater
+            transparency, improved risk visibility, and a higher level of assurance regarding
+            the project’s long-term stability. Today, a CertiK audit is widely considered a
+            mark of trust — a strong signal of credibility that reassures partners,
+            institutions, and capital investors.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <span>Step 1</span>
+            <strong>Paste public address</strong>
+            Provide the wallet address to initiate legitimacy checks.
+          </div>
+          <div class="step">
+            <span>Step 2</span>
+            <strong>On-chain &amp; risk analysis</strong>
+            Data, flows and exposure are assessed with security intelligence.
+          </div>
+          <div class="step">
+            <span>Step 3</span>
+            <strong>PDF solvency report</strong>
+            Receive a structured, AML-style address solvency report in PDF.
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <section>
+        <div class="card">
+          <div class="card-header">
+            <h2>Public Address Verification</h2>
+            <div class="badge">Encrypted Verification Flow</div>
+          </div>
+
+          <form id="verification-form">
+            <label for="address-input">
+              Public crypto address to verify
+            </label>
+            <textarea
+              id="address-input"
+              name="address"
+              placeholder="Paste the public wallet address you want to verify (e.g. 0x..., bc1..., etc.)"
+            ></textarea>
+            <div class="helper-text">
+              We only process public on-chain data. No private keys or confidential credentials are ever requested.
+            </div>
+
+            <div class="actions">
+              <button type="submit">
+                <span class="icon">⬇️</span>
+                Generate PDF Verification Report
+              </button>
+              <div class="note">
+                The report is intended to mirror an AML-style solvency analysis of the submitted address.
+              </div>
+            </div>
+
+            <div id="status-message" class="status-message"></div>
+          </form>
+
+          <!-- PDF VISUAL / IMAGE-LIKE AREA -->
+          <div class="pdf-card">
+            <div class="pdf-visual">
+              <!-- Decorative "lines" to mimic a document -->
+              <div class="pdf-line"></div>
+              <div class="pdf-line"></div>
+              <div class="pdf-line"></div>
+              <div class="pdf-line"></div>
+              <div class="pdf-line"></div>
+            </div>
+            <div>
+              <div class="pdf-text-title">Solvency &amp; Legitimacy PDF Report</div>
+              <div class="pdf-text-body">
+                A structured document summarizing risk exposure, address solvency indicators,
+                transactional patterns and legitimacy insights — designed as an AML-style
+                report for institutional review.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Beta Concept. All rights reserved.</div>
+      <div>For institutional and professional investors only.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple demo logic for the form
+    const form = document.getElementById("verification-form");
+    const statusEl = document.getElementById("status-message");
+    const addressInput = document.getElementById("address-input");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const value = addressInput.value.trim();
+
+      if (!value) {
+        statusEl.textContent = "Please paste a public crypto address before requesting a report.";
+        statusEl.classList.add("error");
+        statusEl.style.display = "block";
+        return;
+      }
+
+      // Basic length check, purely illustrative – you can adjust/remove as needed
+      if (value.length < 16) {
+        statusEl.textContent = "The address appears too short. Please verify it and try again.";
+        statusEl.classList.add("error");
+        statusEl.style.display = "block";
+        return;
+      }
+
+      statusEl.classList.remove("error");
+      statusEl.textContent =
+        "Verification request received. In a live environment, this action would trigger the on-chain analysis and generate a downloadable PDF report for this address.";
+      statusEl.style.display = "block";
+    });
+  </script>
+</body>
+</html>

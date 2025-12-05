@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="icon" href="../../favicon.ico" />
+    <title>KYC Verification | Beta Concept</title>
+    <meta name="description" content="Address Verification / KYC - Beta Concept" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900">
+    <link rel="stylesheet" href="../../css/styled882.css">
+    <style>
+        body {
+            background-image: url(../../privacy-cookie-policy/front/red/yes.png);
+            background-repeat: repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .kyc-page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+        }
+
+        .kyc-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .kyc-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .kyc-brand-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8f2829 0%, #b33a3b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(143, 40, 41, 0.3);
+        }
+
+        .kyc-brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .kyc-brand-text span:first-child {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .kyc-brand-text span:last-child {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .kyc-tagline {
+            font-size: 0.8rem;
+            color: #666;
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .kyc-main {
+            display: grid;
+            grid-template-columns: 1.8fr 1.2fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .kyc-main { grid-template-columns: 1fr; }
+            .kyc-header { flex-direction: column; align-items: flex-start; }
+        }
+
+        .kyc-callout {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(143, 40, 41, 0.08);
+            border: 1px solid rgba(143, 40, 41, 0.2);
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            color: #8f2829;
+        }
+
+        .kyc-callout-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #8f2829;
+            box-shadow: 0 0 8px rgba(143, 40, 41, 0.5);
+        }
+
+        .kyc-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .kyc-title-accent {
+            color: #8f2829;
+        }
+
+        .kyc-subtitle {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .kyc-panel {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #e5e5e5;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .kyc-panel h2 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .kyc-panel p {
+            font-size: 0.88rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .kyc-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .kyc-steps { grid-template-columns: 1fr; }
+        }
+
+        .kyc-step {
+            border-radius: 10px;
+            border: 1px dashed #ccc;
+            padding: 12px;
+            font-size: 0.8rem;
+            background: #fff;
+        }
+
+        .kyc-step span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #8f2829;
+            font-weight: 600;
+        }
+
+        .kyc-step strong {
+            display: block;
+            margin-top: 5px;
+            color: #333;
+            font-size: 0.85rem;
+        }
+
+        .kyc-step p {
+            margin-top: 5px;
+            color: #666;
+            font-size: 0.78rem;
+        }
+
+        /* Right column - Form */
+        .kyc-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .kyc-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .kyc-card-header h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .kyc-badge {
+            font-size: 0.7rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #16a34a;
+        }
+
+        .kyc-card label {
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .kyc-card textarea {
+            width: 100%;
+            min-height: 100px;
+            resize: vertical;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            background: #fafafa;
+            color: #333;
+            padding: 12px;
+            font-size: 0.88rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .kyc-card textarea::placeholder {
+            color: #999;
+        }
+
+        .kyc-card textarea:focus {
+            border-color: #8f2829;
+            box-shadow: 0 0 0 3px rgba(143, 40, 41, 0.1);
+            background: #fff;
+        }
+
+        .kyc-helper {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 6px;
+            margin-bottom: 15px;
+        }
+
+        .kyc-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .kyc-submit {
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: #8f2829;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(143, 40, 41, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .kyc-submit:hover {
+            background: #6b1e1f;
+            transform: translateY(-1px);
+        }
+
+        .kyc-note {
+            font-size: 0.72rem;
+            color: #888;
+        }
+
+        .kyc-status {
+            margin-top: 12px;
+            font-size: 0.82rem;
+            border-radius: 8px;
+            padding: 10px 12px;
+            border: 1px solid rgba(143, 40, 41, 0.3);
+            background: rgba(143, 40, 41, 0.05);
+            color: #8f2829;
+            display: none;
+        }
+
+        .kyc-status.error {
+            border-color: rgba(220, 38, 38, 0.5);
+            color: #dc2626;
+            background: rgba(220, 38, 38, 0.05);
+        }
+
+        /* Document card */
+        .kyc-doc-card {
+            margin-top: 20px;
+            border-radius: 10px;
+            border: 1px dashed #ccc;
+            background: #fafafa;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 15px;
+            align-items: center;
+        }
+
+        @media (max-width: 500px) {
+            .kyc-doc-card { grid-template-columns: 1fr; }
+        }
+
+        .kyc-doc-visual {
+            width: 60px;
+            height: 80px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: linear-gradient(to bottom right, #f5f5f5, #e5e5e5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kyc-doc-visual::before {
+            content: "PDF";
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 3px 6px;
+            border-radius: 4px;
+            background: #8f2829;
+            color: #fff;
+        }
+
+        .kyc-doc-line {
+            position: absolute;
+            left: 8px;
+            right: 8px;
+            height: 2px;
+            border-radius: 2px;
+            background: #ccc;
+        }
+
+        .kyc-doc-line:nth-child(2) { top: 28px; }
+        .kyc-doc-line:nth-child(3) { top: 36px; width: 60%; }
+        .kyc-doc-line:nth-child(4) { top: 44px; width: 80%; }
+        .kyc-doc-line:nth-child(5) { top: 52px; width: 40%; }
+        .kyc-doc-line:nth-child(6) {
+            top: 62px;
+            height: 4px;
+            background: #8f2829;
+        }
+
+        .kyc-doc-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .kyc-doc-body {
+            font-size: 0.75rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .kyc-back {
+            display: inline-block;
+            margin-top: 25px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .kyc-back:hover {
+            color: #8f2829;
+        }
+
+        .kyc-footer {
+            margin-top: 40px;
+            border-top: 1px solid #e5e5e5;
+            padding-top: 15px;
+            font-size: 0.75rem;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header header-pages header-fix" aria-haspopup="true">
+            <div class="header-inner">
+                <nav class="left"><a href="../../contact-us/index.html">Contact Us</a></nav>
+                <a href="../../index.html" class="logo">
+                    <img src="../../media/1015/logo-white.svg" class="logo-white" />
+                    <img src="../../media/1014/redlogo.png" alt="Beta Concept" class="logo-emblem" style="display: block !important; opacity: 1 !important;" />
+                </a>
+                <div class="right"><a href="../login/index.html" class="btn-client"><span>Dashboard</span></a></div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="kyc-page">
+                <div class="kyc-header">
+                    <div class="kyc-brand">
+                        <div class="kyc-brand-icon">🔒</div>
+                        <div class="kyc-brand-text">
+                            <span>Beta Concept</span>
+                            <span>Identity Verification Services</span>
+                        </div>
+                    </div>
+                    <div class="kyc-tagline">KYC & Address Verification Portal</div>
+                </div>
+
+                <div class="kyc-main">
+                    <!-- LEFT COLUMN -->
+                    <section>
+                        <div class="kyc-callout">
+                            <div class="kyc-callout-dot"></div>
+                            <div>Beta Concept – Secure Identity Verification</div>
+                        </div>
+
+                        <h1 class="kyc-title">
+                            <span class="kyc-title-accent">Complete your KYC</span><br />
+                            verification process securely.
+                        </h1>
+
+                        <p class="kyc-subtitle">
+                            Submit your identity documents and address verification to complete your account verification. 
+                            This process ensures compliance with regulatory requirements and protects your investments.
+                        </p>
+
+                        <div class="kyc-panel">
+                            <h2>Why KYC Verification?</h2>
+                            <p>
+                                Know Your Customer (KYC) verification is a mandatory process that helps us verify your identity 
+                                and ensure compliance with anti-money laundering (AML) regulations. This process protects both 
+                                you and Beta Concept from potential fraud and ensures a secure investment environment.
+                            </p>
+                            <p style="margin-top: 10px;">
+                                Your documents are processed securely and stored in compliance with GDPR and international 
+                                data protection standards.
+                            </p>
+                        </div>
+
+                        <div class="kyc-panel">
+                            <h2>Required Documents</h2>
+                            <p>
+                                To complete your verification, please prepare the following documents:
+                            </p>
+                            <p style="margin-top: 10px;">
+                                <strong>• Identity Document:</strong> Valid passport, national ID card, or driver's license.<br>
+                                <strong>• Proof of Address:</strong> Utility bill, bank statement, or official correspondence (dated within 3 months).<br>
+                                <strong>• Selfie Verification:</strong> A clear photo of yourself holding your ID document.
+                            </p>
+                        </div>
+
+                        <div class="kyc-steps">
+                            <div class="kyc-step">
+                                <span>Step 1</span>
+                                <strong>Upload Documents</strong>
+                                <p>Submit your identity and address verification documents.</p>
+                            </div>
+                            <div class="kyc-step">
+                                <span>Step 2</span>
+                                <strong>Review Process</strong>
+                                <p>Our compliance team reviews your submission within 24-48 hours.</p>
+                            </div>
+                            <div class="kyc-step">
+                                <span>Step 3</span>
+                                <strong>Verification Complete</strong>
+                                <p>Receive confirmation and gain full access to your account.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- RIGHT COLUMN -->
+                    <section>
+                        <div class="kyc-card">
+                            <div class="kyc-card-header">
+                                <h2>Document Submission</h2>
+                                <div class="kyc-badge">Secure Upload</div>
+                            </div>
+
+                            <form id="kyc-form">
+                                <label for="doc-input">Upload your documents or provide details</label>
+                                <textarea
+                                    id="doc-input"
+                                    name="documents"
+                                    placeholder="Describe the documents you are submitting or paste any relevant information here..."
+                                ></textarea>
+                                <div class="kyc-helper">
+                                    All documents are encrypted and processed in compliance with data protection regulations.
+                                </div>
+
+                                <div class="kyc-actions">
+                                    <button type="submit" class="kyc-submit">
+                                        📤 Submit for Verification
+                                    </button>
+                                    <div class="kyc-note">
+                                        Processing time: 24-48 hours
+                                    </div>
+                                </div>
+
+                                <div id="kyc-status" class="kyc-status"></div>
+                            </form>
+
+                            <div class="kyc-doc-card">
+                                <div class="kyc-doc-visual">
+                                    <div class="kyc-doc-line"></div>
+                                    <div class="kyc-doc-line"></div>
+                                    <div class="kyc-doc-line"></div>
+                                    <div class="kyc-doc-line"></div>
+                                    <div class="kyc-doc-line"></div>
+                                </div>
+                                <div>
+                                    <div class="kyc-doc-title">KYC Verification Report</div>
+                                    <div class="kyc-doc-body">
+                                        Upon successful verification, you will receive a confirmation document 
+                                        summarizing your verification status and compliance level.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="../login/index.html" class="kyc-back">← Back to Dashboard Menu</a>
+                    </section>
+                </div>
+
+                <footer class="kyc-footer">
+                    <div>© <span id="year"></span> Beta Concept. All rights reserved.</div>
+                    <div>For institutional and professional investors only.</div>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        const form = document.getElementById("kyc-form");
+        const statusEl = document.getElementById("kyc-status");
+        const docInput = document.getElementById("doc-input");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const value = docInput.value.trim();
+
+            if (!value) {
+                statusEl.textContent = "Please provide document details or description before submitting.";
+                statusEl.classList.add("error");
+                statusEl.style.display = "block";
+                return;
+            }
+
+            if (value.length < 20) {
+                statusEl.textContent = "Please provide more details about your documents.";
+                statusEl.classList.add("error");
+                statusEl.style.display = "block";
+                return;
+            }
+
+            statusEl.classList.remove("error");
+            statusEl.textContent = "Your KYC submission has been received. Our compliance team will review your documents within 24-48 hours. You will receive a confirmation email once the verification is complete.";
+            statusEl.style.display = "block";
+        });
+    </script>
+</body>
+</html>

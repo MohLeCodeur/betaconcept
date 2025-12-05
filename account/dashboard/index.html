@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="icon" href="../../favicon.ico" />
+    <title>Dashboard | Beta Concept</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .otp-container {
+            max-width: 420px;
+            width: 100%;
+            padding: 40px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .otp-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #8f2829 0%, #b33a3b 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+        }
+        .otp-title {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .otp-subtitle {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        .otp-label {
+            display: block;
+            text-align: left;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        .otp-label .required {
+            color: #8f2829;
+        }
+        .otp-hint {
+            display: block;
+            text-align: left;
+            font-size: 0.8em;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        .otp-input-wrapper {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .otp-input {
+            width: 50px;
+            height: 55px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 600;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .otp-input:focus {
+            border-color: #8f2829;
+            box-shadow: 0 0 0 3px rgba(143, 40, 41, 0.1);
+        }
+        .otp-submit {
+            width: 100%;
+            padding: 14px;
+            background: #8f2829;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+        .otp-submit:hover {
+            background: #6b1e1f;
+        }
+        .otp-submit:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .otp-resend {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .otp-resend a {
+            color: #8f2829;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .otp-resend a:hover {
+            text-decoration: underline;
+        }
+        .otp-error {
+            color: #dc2626;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: none;
+        }
+        .otp-method {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .otp-method-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        .otp-method-btn:hover {
+            border-color: #8f2829;
+        }
+        .otp-method-btn.active {
+            border-color: #8f2829;
+            background: rgba(143, 40, 41, 0.05);
+        }
+        .otp-method-btn .method-icon {
+            font-size: 1.3em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .otp-sent-msg {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .back-link:hover {
+            color: #8f2829;
+        }
+    </style>
+</head>
+<body>
+    <div class="otp-container">
+                            <div class="otp-icon">🔐</div>
+                            <h2 class="otp-title">Security Verification</h2>
+                            <p class="otp-subtitle">For your security, please verify your identity to access your dashboard.</p>
+
+                            <div class="otp-method">
+                                <button type="button" class="otp-method-btn active" data-method="sms">
+                                    <span class="method-icon">📱</span>
+                                    SMS
+                                </button>
+                                <button type="button" class="otp-method-btn" data-method="email">
+                                    <span class="method-icon">📧</span>
+                                    Email
+                                </button>
+                            </div>
+
+                            <div class="otp-sent-msg" id="otp-sent-msg">
+                                ✓ A verification code has been sent to your phone ending in **42
+                            </div>
+
+                            <label class="otp-label">
+                                OTP Password <span class="required">*</span>
+                            </label>
+                            <span class="otp-hint">One-time password — You need to receive it via SMS or Email</span>
+
+                            <div class="otp-input-wrapper">
+                                <input type="text" class="otp-input" maxlength="1" data-index="0" inputmode="numeric" />
+                                <input type="text" class="otp-input" maxlength="1" data-index="1" inputmode="numeric" />
+                                <input type="text" class="otp-input" maxlength="1" data-index="2" inputmode="numeric" />
+                                <input type="text" class="otp-input" maxlength="1" data-index="3" inputmode="numeric" />
+                                <input type="text" class="otp-input" maxlength="1" data-index="4" inputmode="numeric" />
+                                <input type="text" class="otp-input" maxlength="1" data-index="5" inputmode="numeric" />
+                            </div>
+
+                            <button type="button" class="otp-submit" id="otp-verify-btn">Verify & Continue</button>
+
+                            <div class="otp-error" id="otp-error">Invalid verification code. Please try again.</div>
+
+                            <p class="otp-resend">
+                                Didn't receive the code? <a href="#" id="resend-otp">Resend OTP</a>
+                            </p>
+
+        <a href="../login/index.html" class="back-link">← Back to Dashboard Menu</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const otpInputs = document.querySelectorAll('.otp-input');
+            const verifyBtn = document.getElementById('otp-verify-btn');
+            const otpError = document.getElementById('otp-error');
+            const otpSentMsg = document.getElementById('otp-sent-msg');
+            const methodBtns = document.querySelectorAll('.otp-method-btn');
+            const resendLink = document.getElementById('resend-otp');
+
+            // Auto-focus and move between inputs
+            otpInputs.forEach((input, index) => {
+                input.addEventListener('input', function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    if (this.value && index < otpInputs.length - 1) {
+                        otpInputs[index + 1].focus();
+                    }
+                });
+
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && !this.value && index > 0) {
+                        otpInputs[index - 1].focus();
+                    }
+                });
+
+                input.addEventListener('paste', function(e) {
+                    e.preventDefault();
+                    const paste = (e.clipboardData || window.clipboardData).getData('text');
+                    const digits = paste.replace(/[^0-9]/g, '').split('');
+                    otpInputs.forEach((inp, i) => {
+                        if (digits[i]) inp.value = digits[i];
+                    });
+                });
+            });
+
+            // Method selection
+            methodBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    methodBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const method = this.dataset.method;
+                    if (method === 'sms') {
+                        otpSentMsg.innerHTML = '✓ A verification code has been sent to your phone ending in **42';
+                    } else {
+                        otpSentMsg.innerHTML = '✓ A verification code has been sent to your email j***@beta-concept.com';
+                    }
+                    otpSentMsg.style.display = 'block';
+                });
+            });
+
+            // Resend OTP
+            resendLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                otpSentMsg.style.display = 'block';
+                this.textContent = 'Code sent!';
+                setTimeout(() => {
+                    this.textContent = 'Resend OTP';
+                }, 3000);
+            });
+
+            // Verify button
+            verifyBtn.addEventListener('click', function() {
+                const code = Array.from(otpInputs).map(i => i.value).join('');
+                if (code.length < 6) {
+                    otpError.textContent = 'Please enter the complete 6-digit code.';
+                    otpError.style.display = 'block';
+                    return;
+                }
+                
+                verifyBtn.disabled = true;
+                verifyBtn.textContent = 'Verifying...';
+                
+                setTimeout(() => {
+                    otpError.textContent = 'Invalid verification code. Please try again.';
+                    otpError.style.display = 'block';
+                    verifyBtn.disabled = false;
+                    verifyBtn.textContent = 'Verify & Continue';
+                    otpInputs.forEach(i => i.value = '');
+                    otpInputs[0].focus();
+                }, 2000);
+            });
+
+            // Show sent message on load
+        });
+    </script>
+</body>
+</html>
