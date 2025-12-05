@@ -704,24 +704,9 @@ margin-left: 80px; /* Ajuste la valeur selon ton besoin */
 	<!-- Google Analytics) -->
 	
 	<!-- Google Analytics) -->
-<script>
-document.addEventListener("click", function (event) {
-  // Clic sur bouton "Client area"
-  if (event.target.closest(".js-open-client")) {
-    const overlay = document.querySelector(".client-overlay-wrap");
-    if (overlay) {
-      overlay.classList.add("open");
-    }
-  }
+<!-- Système d'authentification et login partagé -->
+<script src="../components/auth.js"></script>
+<script src="../components/login-overlay.js"></script>
 
-  // Clic sur bouton "Close client overlay"
-  if (event.target.closest(".close-overlay")) {
-    const overlay = document.querySelector(".client-overlay-wrap");
-    if (overlay) {
-      overlay.classList.remove("open");
-    }
-  }
-});
-</script>
 </body>
 </html>

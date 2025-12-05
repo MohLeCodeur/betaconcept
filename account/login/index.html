@@ -1,271 +1,307 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-	<meta name="format-detection" content="telephone=no">
-	<link rel="icon" href="../../favicon.ico" />
-	<title>Login | Beta Concept</title>
-	<meta name="description" content="" />
-	<meta name="author" content="" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="../../favicon.ico" />
+    <title>Dashboard | Beta Concept</title>
+    <meta name="description" content="Dashboard - Beta Concept" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../privacy-cookie-policy/front/style1.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900">
+    <link rel="stylesheet" href="../../css/styled882.css">
 
-	<link rel="canonical" href="index.html">
+    <style>
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900">
-	<link rel="stylesheet" href="../../css/styled882.css?v=Fd3f0XFBpHHPdH8P2gW-Dj62pnboBWRgL9UTkHRXjFw">
+        @media (max-width: 900px) {
+            .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
 
-	
-	
+        .dashboard-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(143, 40, 41, 0.12);
+            border-color: #8f2829;
+        }
+
+        .dashboard-card h3 {
+            color: #8f2829;
+            margin: 0;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dashboard-card .icon { font-size: 1.3em; }
+
+        .card-status {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.7em;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .status-active { background: #e8f5e9; color: #2e7d32; }
+        .status-pending { background: #fff3e0; color: #ef6c00; }
+        .status-new { background: #e3f2fd; color: #1565c0; }
+
+        .logout-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+
+        .logout-btn {
+            background: #8f2829;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .logout-btn:hover { background: #6b1e1f; }
+
+        .section-header { margin-bottom: 10px; }
+    </style>
 </head>
 
-
 <body>
-	<script nonce="KFyl4oqWcEjzYXEbNWqN/9eqnFtyqx8J37MaggZuUjI=" type = "text/javascript" >
-    var config = {
-        apiKey: '89789d071d481b8dfb074a8766005961b088cf25',
-     product: 'PRO_MULTISITE',
-        initialState: "open",
-        necessaryCookies: ['UMB-XSRF-TOKEN'],
-        theme: 'light',
-        position: 'left',
-        acceptButton: true,
-        rejectButton: true,
-        consentCookieExpiry: 90,
-	 branding: {
-             fontFamily: "Playfair Display,Roboto,Arial,Helvetica,sans-serif",
-            fontColor: "#676767",
-            fontSizeTitle: "20px",
-            fontSizeIntro: "14px",
-            fontSizeHeaders: "20px",
-            fontSize: "14px",
-            acceptText: "#fff",	
-            acceptBackground: "#8f2829",
-            rejectText: "#fff",
-            rejectBackground: "#8f2829",
-            backgroundColor: "#e1e1e1",
-	    alertBackground: "#8f2829",
-	    alertText: "#fff",
-            toggleText: "#fff",
-            toggleColor: "#fff",
-            toggleBackground: "#8f2829",
-            removeAbout: true
-        },
-        text: {
-            notifyTitle: "Our use of cookies",
-            notifyDescription: "We use cookies to make the site work and help us make it better. By clicking accept, weâ€™ll set recommended analytics cookies. Or, you can ignore or close this message and weâ€™ll set only the recommended ones.",
-            accept: "Accept",
-            reject: "Reject",
-            settings: "Settings",
-            necessaryTitle: "Necessary cookies",
-            necessaryDescription: "Necessary cookies enable core functionality such as security, network management, and accessibility. You may disable these by changing your browser settings, but this may affect how the website functions.",
-            title: "Our use of cookies",
-            intro: "We use necessary cookies to make our site work. We\u0027d also like to set optional analytics cookies to help us improve it. Using this tool will set a cookie on your device to remember your preferences.",
-            acceptRecommended: "accept",
-            acceptSettings: "Accept",
-            rejectSettings: "Reject",
-            closeLabel: "",
-        },
-        statement: {
-            description: "For more detailed information about the cookies we use, see our",
-            name: "Cookies page",
-            url: "/privacy-cookie-policy",
-            updated: "21/11/2019",
-        },        
-        optionalCookies: [{
-            name: "analytics",
-            label: "Analytics cookies",
-            description: "We\u0027d like to set Google Analytics cookies to help us to improve our website by collecting and reporting information on how you use it. The cookies collect information in a way that does not directly identify anyone. If you choose to switch these cookies off (by moving the slide bar to 'Off') we will not be able to track, on any anonymous basis, how many visitors we have to our site, and therefore monitor its performance. For more information on how these cookies work, please see our \u0027Cookies page\u0027.",
-            cookies: ["_ga","_gid","_gat"],
-            recommendedState: true,
-			lawfulBasis: "consent",
-            onAccept: function() {
-                (function(w, d, s, l, i) {
-                    w[l] = w[l] || [];
-                    w[l].push({
-                        'gtm.start': new Date().getTime(),
-                        event: 'gtm.js'
-                    });
-                    var f = d.getElementsByTagName(s)[0],
-                        j = d.createElement(s),
-                        dl = l != 'dataLayer' ? '&l=' + l : '';
-                    j.async = true;
-                    j.src = '../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-                    f.parentNode.insertBefore(j, f);
-                })(window, document, 'script', 'dataLayer', 'GTM-55X5GQD');
-                if (typeof(BrowseAloud) != "undefined") {
-                    BrowseAloud.analytics = BrowseAloud.org_analytics;
-                }
-            },
-            onRevoke: function() {
-                window['ga-disable-GTM-55X5GQD'] = true;
-                if (typeof(BrowseAloud) != "undefined") {
-                    BrowseAloud.analytics = BrowseAloud.no_analytics;
-                }
-            },            
-        },	
-		]
-    };
+    <div class="wrapper">
 
+        <header class="header header-pages header-fix" aria-haspopup="true">
+            <div class="header-inner">
+                <nav class="left">
+                    <a href="../../contact-us/index.html">Contact Us</a>
+                </nav>
 
-var loops = 0;
-var threshold = 30;
-
-function CookieControlInit() {
-    if (typeof CookieControl !== "undefined" && window.jQuery && $('#ccc').length > 0) {
-        if ($('header[role=banner]').length > 0) {
-            $('#ccc').insertBefore($('header[role=banner]'));
-            $('#ccc').css('z-index', 9999);
-        }
-        $('#ccc-optional-categories .optional-cookie').each(function() {
-            var label = $('.optional-cookie-header', $(this)).text();
-            var idAttr = (label.split(' ').join('_')).toLowerCase();
-            $('<span/>', {
-                'class': 'invisible',
-                for: idAttr,
-                text: label + " toggle",
-            }).prependTo($('.checkbox-toggle-label', $(this)));
-            $('.checkbox-toggle-input', $(this)).attr('id', idAttr);
-
-        });
-    } else {
-        if (loops++ < threshold) {
-            setTimeout(CookieControlInit, 300);
-        }
-    }
-}
-var script = document.createElement('script');
-script.onload = function() {
-    CookieControl.load(config);
-    CookieControlInit();
-};
-script.crossorigin = "anonymous";
-script.src = '../../../cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js';
-document.head.appendChild(script);
-
-var onPageStyle = "";
-if (config.text.acceptRecommended == "") {
-    onPageStyle += "#ccc-recommended-settings{display:none;}"
-}
-if (config.text.rejectSettings == "") {
-    onPageStyle += "#ccc-reject-settings{display:none;}"
-}
-if (onPageStyle != "") {
-    var style = document.createElement('style');
-    style.innerHTML = onPageStyle;
-    document.head.appendChild(style);
-}
-</script>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55X5GQD"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-	<div class="wrapper">
-
-		
-<header class="header" aria-haspopup="true">
-    <div class="header-inner">
-        <nav class="left">
-                <a href="../../contact-us/index.html">Contact Us</a>
-        </nav>
-
-        <a href="../../index.html" class="logo">
-                <img src="../../media/1016/logo.svg" class="logo-color" />
-                <img src="../../media/1015/logo-white.svg" class="logo-white" />
-                <img src="../../media/1014/logo-emblem.svg" alt="Beta Concept" class="logo-emblem" />
-        </a>
-
-        <div class="right">
-                <a href="../../private/user-home/index.html">
-                    <button type="button" class="btn-client"><span>Client area</span></button>
+                <a href="../../index.html" class="logo">
+                    <img src="../../media/1015/logo-white.svg" class="logo-white" />
+                    <img src="../../media/1014/redlogo.png" alt="Beta Concept" class="logo-emblem" width="150" height="35" />
                 </a>
-        </div>
+
+                <div class="right">
+                    <button type="button" class="btn-client" id="header-logout-btn">
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="standard-page">
+                <div class="container">
+                    <div class="inner-indented">
+                        <div class="section-header">
+                            <h1>DASHBOARD</h1>
+                            <span class="header-overlay">DASHBOARD</span>
+                        </div>
+
+                        <div id="login-section" class="login-section" style="display: none;">
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <img src="../../media/1014/redlogo.png" alt="Beta Concept" style="height: 40px;" />
+                            </div>
+                            <h3>Login</h3>
+                            <div class="login-error" id="login-error"></div>
+                            <form id="login-form-page">
+                                <div class="form-field">
+                                    <input type="email" id="login-email" placeholder="Email address" required />
+                                </div>
+                                <div class="form-field">
+                                    <input type="password" id="login-password" placeholder="Password" required />
+                                </div>
+                                <button type="submit" id="login-btn">Login</button>
+                            </form>
+                            <p style="text-align: center; margin-top: 20px; color: #666;">
+                                <a href="../password-reset/index.html" style="color: #8f2829;">Forgot your password?</a>
+                            </p>
+                        </div>
+
+                        <div id="dashboard-content" class="rte-content" style="display: none;">
+
+                            <div class="logout-header">
+                                <button class="logout-btn" id="logout-btn">Logout</button>
+                            </div>
+
+                            <div class="dashboard-grid">
+
+                                <a href="../dashboard/index.html" class="dashboard-card">
+                                    <h3>
+                                        <span class="icon">📊</span>
+                                        Dashboard
+                                        <span class="card-status status-active">Active</span>
+                                    </h3>
+                                </a>
+
+                                <a href="../portfolio/index.html" class="dashboard-card">
+                                    <h3>
+                                        <span class="icon">💼</span>
+                                        Portfolio
+                                        <span class="card-status status-active">Active</span>
+                                    </h3>
+                                </a>
+
+                                <a href="../reports/index.html" class="dashboard-card">
+                                    <h3>
+                                        <span class="icon">📄</span>
+                                        Reports
+                                        <span class="card-status status-new">2 New</span>
+                                    </h3>
+                                </a>
+
+                                <a href="../kyc/index.html" class="dashboard-card">
+                                    <h3>
+                                        <span class="icon">✅</span>
+                                        KYC
+                                        <span class="card-status status-pending">Pending</span>
+                                    </h3>
+                                </a>
+
+                                <a href="../support/index.html" class="dashboard-card">
+                                    <h3>
+                                        <span class="icon">💬</span>
+                                        Support
+                                        <span class="card-status status-new">1 New</span>
+                                    </h3>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <style>
+            body {
+                background-image: url(../../privacy-cookie-policy/front/red/yes.png);
+                background-repeat: repeat;
+                background-size: cover;
+                background-position: center;
+            }
+        </style>
+
+        <footer class="footer" aria-label="Pied de page du site">
+            <div class="footer__top">
+                <div class="footer__logo">
+                    <img src="../../media/1015/sss.png" alt="Logo Beta Concept" width="50" />
+                </div>
+                <div class="footer__contact">
+                    <address id="dr">Adresse: 1, rue de muehlenbach, 2168 Luxembourg, Luxembourg</address>
+                    <p id="dragnir">Email: <a href="mailto:info@beta-concept.com">info@beta-concept.com</a></p>
+                </div>
+            </div>
+            <hr class="footer__separator" />
+            <div class="footer__bottom">
+                <p class="footer__copyright">2025 Beta Concept</p>
+                <nav>
+                    <ul class="footer__links">
+                        <li><a href="../../privacy-cookie-policy/index.html">Privacy and Cookie Policy</a></li>
+                        <li><a href="../../legal-notice/index.html">Legal/Regulatory Notice</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
     </div>
 
-</header>
+    <script src="../../components/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginSection = document.getElementById('login-section');
+            const dashboardContent = document.getElementById('dashboard-content');
+            const loginForm = document.getElementById('login-form-page');
+            const loginError = document.getElementById('login-error');
+            const loginBtn = document.getElementById('login-btn');
+            const logoutBtn = document.getElementById('logout-btn');
+            const headerLogoutBtn = document.getElementById('header-logout-btn');
 
-		<main class="content">
-			
+            function checkAuth() {
+                if (window.BetaAuth && window.BetaAuth.isLoggedIn()) {
+                    showDashboard(window.BetaAuth.getCurrentUser());
+                } else {
+                    showLoginSection();
+                }
+            }
 
-<div class="container form-pages">
-		<section class="form-container open">
-			<h3>Login</h3>
+            function showLoginSection() {
+                loginSection.style.display = 'block';
+                dashboardContent.style.display = 'none';
+                headerLogoutBtn.querySelector('span').textContent = 'Client area';
+            }
 
-			
+            function showDashboard(user) {
+                loginSection.style.display = 'none';
+                dashboardContent.style.display = 'block';
+                headerLogoutBtn.querySelector('span').textContent = 'Logout';
+                headerLogoutBtn.onclick = function() {
+                    if (window.BetaAuth) window.BetaAuth.logout();
+                };
+            }
 
-<form action="https://www.marathon.co.uk/account/login/" class="form" enctype="multipart/form-data" id="formcb21b52051f742609ceb7b3a770741bc" method="post">	<div class="row">
+            if (loginForm) {
+                loginForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('login-email').value.trim();
+                    const password = document.getElementById('login-password').value;
 
-		<div class="offset-lg-4 col-lg-4 offset-md-2 col-md-8 col-sm-12 form-field">
-            <div class="validation-summary-valid" data-valmsg-summary="true"><ul><li style="display:none"></li>
-</ul></div> 
-			
-		</div>
+                    loginError.style.display = 'none';
+                    loginBtn.disabled = true;
+                    loginBtn.textContent = 'Logging in...';
 
-		<div class="offset-lg-4 col-lg-4 offset-md-2 col-md-8 col-sm-12 form-field">
-			<input class="in-text" data-val="true" data-val-required="The User name field is required." id="Username" name="Username" placeholder="Email address" type="text" value="" />
-		</div>
+                    try {
+                        const result = await window.BetaAuth.login(email, password);
+                        if (result.success) {
+                            showDashboard(result.user);
+                        } else {
+                            loginError.textContent = result.message || 'Invalid credentials.';
+                            loginError.style.display = 'block';
+                        }
+                    } catch (error) {
+                        loginError.textContent = 'An error occurred. Please try again.';
+                        loginError.style.display = 'block';
+                    } finally {
+                        loginBtn.disabled = false;
+                        loginBtn.textContent = 'Login';
+                    }
+                });
+            }
 
-		<div class="offset-lg-4 col-lg-4 offset-md-2 col-md-8 col-sm-12 form-field">
-			<input class="in-text" data-val="true" data-val-length="The field Password must be a string with a maximum length of 256." data-val-length-max="256" data-val-required="The Password field is required." id="Password" maxlength="256" name="Password" placeholder="Password" type="password" value="" />
-		</div>
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function() {
+                if (window.BetaAuth) window.BetaAuth.logout();
+            });
+        }
 
-		<div class="offset-lg-4 col-lg-4 offset-md-2 col-md-8 col-sm-12 form-field">
-			<button type="submit" class="btn submit-btn">Login</button>
-		</div>
-
-		<div class="offset-lg-4 col-lg-4 offset-md-2 col-md-8 col-sm-12 login-link">
-			<p></p>
-
-			<a href="../password-reset/index.html">Forgot your password?</a>
-		</div>
-
-	</div>
-<input name="__RequestVerificationToken" type="hidden" value="CfDJ8GqEOhd3m2pMgn4ccNZWJyEG5kmVZv7lZUX8PzXFnzHbFC89aXh5cEMH34w4chYaAM-ByII5xgrhZe7xSfZZzYfRioX7dIOwlBklwkoGjRD2F8QLr8dPo8nSEtfTarZjXE-IMxhWZfcsRIGR8846jWE" /><input name="ufprt" type="hidden" value="CfDJ8GqEOhd3m2pMgn4ccNZWJyEs_QLSDAvNC3AOI7p33kS1YsIXFl17EQm1i__mYwmq-Nnlm8w7R40Odjl7kK54r1XgACz2Unm50jgA6krYy6bkTqoZTKsSDJJ1bEOmn72nBkCIWiMvCuJfRnHUTStdMp0" /></form>
-		</section>
-</div>
-
-		</main>
-
-		
-<footer class="footer">
-    <div class="container">
-        <p>
-            &#xA9; 2025 Marathon Asset Management 
-
-        </p>
-            <ul role="menu">
-                <li role="menuitem">
-                    <a href="../../fund-prices/index.html" target="">Fund Prices</a>
-                </li>
-                <li role="menuitem">
-                    <a href="../../statement-of-tax-strategy/index.html" target="_blank">Statement of Tax Strategy</a>
-                </li>
-                <li role="menuitem">
-                    <a href="../../privacy-cookie-policy/index.html" target="">Privacy &amp; Cookie Policy</a>
-                </li>
-                <li role="menuitem">
-                    <a href="../../legal-notice/index.html" target="">Legal/Regulatory Notice</a>
-                </li>
-                <li role="menuitem">
-                    <a href="../../modern-slavery-statement/index.html" target="_blank">Modern Slavery Statement</a>
-                </li>
-            </ul>
-    </div>
-</footer>
-
-	</div>
-
-	<script nonce="KFyl4oqWcEjzYXEbNWqN/9eqnFtyqx8J37MaggZuUjI=" src="../../sb/site-scripts.js.v1"></script>
-	
-
-	<!-- Google Analytics) -->
-	
-	<!-- Google Analytics) -->
-
+        setTimeout(checkAuth, 100);
+    });
+    </script>
 </body>
-
-<!-- Mirrored from www.marathon.co.uk/account/login/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Mar 2025 23:10:41 GMT -->
 </html>

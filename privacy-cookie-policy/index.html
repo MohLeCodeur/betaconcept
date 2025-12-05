@@ -342,73 +342,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
             </div>
             </div>
-			<!-- ========================================================== -->
-			<!-- ==== DÉBUT DE LA MODIFICATION : FORMULAIRE DE CONNEXION ==== -->
-			<!-- ========================================================== -->
-			<!-- J'ai ajouté la classe "full-page-login" et changé aria-hidden à "false" -->
-			<div class="client-overlay-wrap open full-page-login" aria-hidden="false">
-				<div class="client-inner">
-					<button type="button" class="close-overlay">
-					<span class="font-ico-close"></span
-					><span class="sr-only">Close client overlay</span>
-					</button>
-					<h3>Sign in below</h3>
-		
-					<form
-					action="https://www.marathon.co.uk/privacy-cookie-policy/"
-					class="form"
-					enctype="multipart/form-data"
-					id="form13ff0327de4f4d2aa3806717c22782bf"
-					method="post"
-					>
-					<div class="validation-summary-valid" data-valmsg-summary="true">
-						<ul>
-						<li style="display: none"></li>
-						</ul>
-					</div>
-					<input
-						class="in-text"
-						data-val="true"
-						data-val-required="The User name field is required."
-						id="client-email"
-						name="Username"
-						placeholder="Email address"
-						type="text"
-						value=""
-					/><input
-						class="in-text"
-						data-val="true"
-						data-val-length="The field Password must be a string with a maximum length of 256."
-						data-val-length-max="256"
-						data-val-required="The Password field is required."
-						id="client-password"
-						maxlength="256"
-						name="Password"
-						placeholder="Password"
-						type="password"
-						value=""
-					/>
-					<button type="submit" class="btn keep-overlay-open">Login</button>
-					<input
-						name="__RequestVerificationToken"
-						type="hidden"
-						value="CfDJ8GqEOhd3m2pMgn4ccNZWJyHvNOkcYhza6wLupfqg9L5MjT8A8u6F98e4OOEGRkbud5jJ1p8q3I-0w6p0mX-5I6kG4tPb_50E3YIKs2s9srVeMkwLrP439Xx1wwHZ23NFxEyVBk_2J6ARo0VwbQ31kxs"
-					/><input
-						name="ufprt"
-						type="hidden"
-						value="CfDJ8GqEOhd3m2pMgn4ccNZWJyGcmvVmqszDpzUQ4Q1_-tgKVwLR1T4QUiESOgsJzJE0ZR8G9Mz74R3sQUa9oG2XJbHRIGeN7qb609uPjHCi2Ddc7OvmOo1oDmj3Rg0EQp_NClsyOwuuHsOox3sMhO6GtlY"
-					/>
-					</form>
-					<div class="user-links">
-					<a href="../account/password-reset/index.html"
-						>Forgot your password?</a
-					>
-					</div>
-				</div>
-            </div>
-			<!-- ======================================================== -->
-			<!-- ==== FIN DE LA MODIFICATION : FORMULAIRE DE CONNEXION ==== -->
-			<!-- ======================================================== -->
+			<!-- Login overlay injecté dynamiquement par components/login-overlay.js -->
           </header>
 
 		<main class="content">
@@ -521,7 +455,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <hr class="footer__separator" />
 
   <div class="footer__bottom">
-    <p class="footer__copyright">© 2025 Beta Concept</p>
+    <p class="footer__copyright"> 2025 Beta Concept</p>
     <nav aria-label="Informations légales et politique de confidentialité">
       <ul class="footer__links">
         <li>
@@ -544,28 +478,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- Google Analytics) -->
 	
 	<!-- Google Analytics) -->
-<script>
-document.addEventListener("click", function (event) {
-  // Clic sur bouton "Client area"
-  if (event.target.closest(".js-open-client")) {
-    const overlay = document.querySelector(".client-overlay-wrap");
-    if (overlay) {
-      // Si on clique sur "Client area", on s'assure qu'il n'a pas le style plein écran
-	  // et on l'ouvre de manière classique (à droite)
-	  overlay.classList.remove("full-page-login");
-      overlay.classList.add("open");
-    }
-  }
-
-  // Clic sur bouton "Close client overlay"
-  if (event.target.closest(".close-overlay")) {
-    const overlay = document.querySelector(".client-overlay-wrap");
-    if (overlay) {
-      overlay.classList.remove("open");
-    }
-  }
-});
-</script>
+<!-- Système d'authentification et login partagé -->
+<script src="../components/auth.js"></script>
+<script src="../components/login-overlay.js"></script>
 </body>
 
 

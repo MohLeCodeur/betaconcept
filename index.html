@@ -1599,38 +1599,7 @@ document.addEventListener("DOMContentLoaded", function () {
 								 
 			</div>
 
-			<div class="client-overlay-wrap" aria-hidden="true">
-				<div class="client-inner">
-					<button type="button" class="close-overlay"><span class="font-ico-close"></span><span
-							class="sr-only">Close client overlay</span></button>
-					<h3>Sign in below</h3>
-
-
-
-					<form action="#" class="form" enctype="multipart/form-data"
-						id="formf623acffd6894058ac47f0dc6c2e62d4" method="post">
-						<div class="validation-summary-valid" data-valmsg-summary="true">
-							<ul>
-								<li style="display:none"></li>
-							</ul>
-						</div><input class="in-text" data-val="true"
-							data-val-required="The User name field is required." id="client-email" name="Username"
-							placeholder="Email address" type="text" value="" /><input class="in-text" data-val="true"
-							data-val-length="The field Password must be a string with a maximum length of 256."
-							data-val-length-max="256" data-val-required="The Password field is required."
-							id="client-password" maxlength="256" name="Password" placeholder="Password" type="password"
-							value="" /> <button type="submit" class="btn keep-overlay-open">Login</button>
-						<input name="__RequestVerificationToken" type="hidden"
-							value="CfDJ8GqEOhd3m2pMgn4ccNZWJyFtZi4iAilTIsQ5NTwOQ7TU-2asJwFO8xNN88VMGbdLmLdCiSz4HqjikJZf79FDvRBvSBSjEFz5OHoAGyztngU-GPGbvgsWHQzdQC8M9wAq5gEmrW0byaTa1uS6nIYCCb8" /><input
-							name="ufprt" type="hidden"
-							value="CfDJ8GqEOhd3m2pMgn4ccNZWJyGwxm3BEReloIQJSXy5Aq3il9nrLWM4hCF9_fWFwtNWl7H1kd_xZD8mk_ZVm2n9GcKpin6gqA9kNJ_42LfY8ANvOKLqfOm-VfMreiKrpRxCWHVeIE1TsY6KpUB41cWPU1w" />
-					</form>
-					<div class="user-links">
-						<a href="account/password-reset/index.html">Forgot your password?</a>
-					</div>
-
-				</div>
-			</div>
+			<!-- Login overlay injecté dynamiquement par components/login-overlay.js -->
 		</header>
 
 		<main class="content">
@@ -1939,6 +1908,9 @@ font-size: 58px;
 
 	<script nonce="m7ZMaVvocDSc/wvfbvZwypWGk3X1qdZwN818daqJ8G4=" src="sb/site-scripts.js.v1"></script>
 
+	<!-- Système d'authentification et login partagé -->
+	<script src="components/auth.js"></script>
+	<script src="components/login-overlay.js"></script>
 
 	<!-- Google Analytics) -->
 
