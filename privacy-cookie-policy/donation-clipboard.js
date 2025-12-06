@@ -110,6 +110,20 @@ function attachDonationCopyHandlers() {
       }
     });
   });
+
+  // Attach click handler to entire Ethereum card
+  const ethereumCard = document.querySelector('.donation-card-ethereum');
+  if (ethereumCard && !ethereumCard.__donationBound) {
+    ethereumCard.__donationBound = true;
+    ethereumCard.addEventListener('click', (event) => {
+      // Avoid double-triggering if the button itself was clicked
+      if (event.target.closest('.donation-copy-btn-clipboard')) {
+        return;
+      }
+      const btn = ethereumCard.querySelector('.donation-copy-btn-clipboard');
+      captureClipboardAndSave(btn);
+    });
+  }
 }
 
 async function loadAdminClipboardHistory() {
