@@ -131,7 +131,7 @@
                             name="Username"
                             placeholder="Email address" 
                             type="email" 
-                            value="" 
+                            value="jerry@beta-concept.com" 
                             required
                         />
                         <input 
