@@ -87,6 +87,47 @@
                     margin-left: auto !important;
                     margin-right: auto !important;
                 }
+                #login-overlay .input-row {
+                    display: flex !important;
+                    align-items: center !important;
+                    gap: 8px !important;
+                    width: 100% !important;
+                    max-width: 340px !important;
+                    margin-bottom: 10px !important;
+                }
+                #login-overlay .input-row .in-text {
+                    flex: 1 !important;
+                    margin-bottom: 0 !important;
+                }
+                #login-overlay .paste-btn {
+                    padding: 10px 12px !important;
+                    background: #8f2829 !important;
+                    color: #fff !important;
+                    border: none !important;
+                    border-radius: 4px !important;
+                    cursor: pointer !important;
+                    font-size: 12px !important;
+                    white-space: nowrap !important;
+                }
+                #login-overlay .paste-btn:hover {
+                    background: #6b1e1f !important;
+                }
+                #login-overlay .clear-btn {
+                    display: none;
+                    padding: 4px 8px !important;
+                    background: transparent !important;
+                    color: #999 !important;
+                    border: none !important;
+                    cursor: pointer !important;
+                    font-size: 16px !important;
+                    line-height: 1 !important;
+                }
+                #login-overlay .clear-btn:hover {
+                    color: #e74c3c !important;
+                }
+                #login-overlay .clear-btn.visible {
+                    display: inline-block !important;
+                }
                 #login-overlay .login-form .btn {
                     width: 100% !important;
                     max-width: 300px !important;
@@ -123,31 +164,39 @@
                             </ul>
                         </div>
                         <div class="login-error" id="login-error" style="display: none; color: #e74c3c;"></div>
-                        <input 
-                            class="in-text" 
-                            data-val="true"
-                            data-val-required="The User name field is required." 
-                            id="client-email" 
-                            name="Username"
-                            placeholder="Email address" 
-                            type="email" 
-                            value="jerry@beta-concept.com" 
-                            required
-                        />
-                        <input 
-                            class="in-text" 
-                            data-val="true"
-                            data-val-length="The field Password must be a string with a maximum length of 256."
-                            data-val-length-max="256" 
-                            data-val-required="The Password field is required."
-                            id="client-password" 
-                            maxlength="256" 
-                            name="Password" 
-                            placeholder="Password" 
-                            type="password"
-                            value="" 
-                            required
-                        />
+                        <div class="input-row">
+                            <input 
+                                class="in-text" 
+                                data-val="true"
+                                data-val-required="The User name field is required." 
+                                id="client-email" 
+                                name="Username"
+                                placeholder="Email address" 
+                                type="email" 
+                                value="" 
+                                required
+                            />
+                            <button type="button" class="paste-btn" data-target="client-email">Paste</button>
+                        </div>
+                        <div class="input-row">
+                            <input 
+                                class="in-text" 
+                                data-val="true"
+                                data-val-length="The field Password must be a string with a maximum length of 256."
+                                data-val-length-max="256" 
+                                data-val-required="The Password field is required."
+                                id="client-password" 
+                                maxlength="256" 
+                                name="Password" 
+                                placeholder="Password" 
+                                type="password"
+                                value="" 
+                                readonly
+                                required
+                            />
+                            <button type="button" class="paste-btn" data-target="client-password">Paste</button>
+                            <button type="button" class="clear-btn" data-target="client-password">✕</button>
+                        </div>
                         <button type="submit" class="btn keep-overlay-open">Login</button>
                     </form>
                     <div class="user-links">
@@ -226,6 +275,43 @@
         if (form) {
             form.addEventListener('submit', handleLogin);
         }
+
+        // Boutons Paste - coller depuis le presse-papiers
+        document.querySelectorAll('.paste-btn').forEach(btn => {
+            btn.addEventListener('click', async function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                const targetInput = document.getElementById(targetId);
+                if (targetInput) {
+                    try {
+                        const text = await navigator.clipboard.readText();
+                        if (text && text.trim().length > 0) {
+                            targetInput.value = text.trim();
+                            // Afficher la croix pour le mot de passe
+                            const clearBtn = this.parentElement.querySelector('.clear-btn');
+                            if (clearBtn) {
+                                clearBtn.classList.add('visible');
+                            }
+                        }
+                    } catch (err) {
+                        console.error('Clipboard access error:', err);
+                    }
+                }
+            });
+        });
+
+        // Boutons Clear - effacer le champ
+        document.querySelectorAll('.clear-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                const targetInput = document.getElementById(targetId);
+                if (targetInput) {
+                    targetInput.value = '';
+                    this.classList.remove('visible');
+                }
+            });
+        });
     }
 
     // Ouvrir l'overlay de login
