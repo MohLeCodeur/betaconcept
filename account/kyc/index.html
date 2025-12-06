@@ -444,6 +444,102 @@
             display: none;
         }
 
+        /* CertiK Section */
+        .certik-section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            margin-top: 30px;
+        }
+
+        .certik-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .certik-logo {
+            height: 50px;
+        }
+
+        .certik-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .certik-highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 700px) {
+            .certik-highlights { grid-template-columns: 1fr; }
+        }
+
+        .certik-highlight {
+            background: linear-gradient(135deg, #8f2829 0%, #b33a3b 100%);
+            color: #fff;
+            padding: 25px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(143, 40, 41, 0.3);
+        }
+
+        .certik-panel {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #8f2829;
+        }
+
+        .certik-panel h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .certik-panel p {
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .certik-partnership {
+            background: linear-gradient(135deg, rgba(143, 40, 41, 0.05) 0%, rgba(143, 40, 41, 0.1) 100%);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(143, 40, 41, 0.2);
+        }
+
+        .certik-partnership h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #8f2829;
+            margin-bottom: 15px;
+        }
+
+        .certik-partnership p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .kyc-footer {
             margin-top: 40px;
             border-top: 1px solid #e5e5e5;
@@ -539,6 +635,43 @@
                         <a href="../login/index.html" class="kyc-back">← Back to Dashboard Menu</a>
                     </section>
                 </div>
+
+                    <!-- CERTIK SECTION -->
+                    <div class="certik-section">
+                        <div class="certik-header">
+                            <img src="https://wp.logos-download.com/wp-content/uploads/2023/02/Certik_Security_Logo.png" alt="CertiK Security" class="certik-logo" />
+                            <span class="certik-title">Beta Concept x CertiK Partnership</span>
+                        </div>
+
+                        <div class="certik-highlights">
+                            <div class="certik-highlight">Enhanced Trust</div>
+                            <div class="certik-highlight">Verified Capital</div>
+                            <div class="certik-highlight">Secure Execution</div>
+                        </div>
+
+                        <div class="certik-panel">
+                            <h3>About CertiK</h3>
+                            <p>
+                                CertiK is recognized as one of the global leaders in Web3 security, providing advanced audit services, formal verification, and continuous on-chain monitoring to strengthen the reliability of blockchain and crypto projects. Their approach combines deep code analysis, AI-driven assessment, and mathematical verification, ensuring vulnerabilities are detected and addressed before they become exploitable risks.
+                            </p>
+                            <p style="margin-top: 12px;">
+                                Beyond technical security, CertiK delivers intelligence and legitimacy assessment on projects, helping protect the capital involved and reinforcing confidence in the integrity of the ecosystem. With a CertiK audit, investors gain greater transparency, improved risk visibility, and a higher level of assurance regarding the project's long-term stability.
+                            </p>
+                            <p style="margin-top: 12px;">
+                                Today, a CertiK audit is widely considered a mark of trust — a strong signal of credibility that reassures partners, institutions, and capital investors.
+                            </p>
+                        </div>
+
+                        <div class="certik-partnership">
+                            <h3>Strategic Partnership</h3>
+                            <p>
+                                Beta Concept partners with CertiK to ensure full transparency, traceability, and legitimacy of all funds involved. This collaboration provides deep operational analysis supported by a clear and structured verification report, strengthening confidence and security in every transaction.
+                            </p>
+                            <p style="margin-top: 12px;">
+                                With CertiK's expertise, Beta Concept offers its investors a reliable, verified, and industry-aligned environment for major financial operations.
+                            </p>
+                        </div>
+                    </div>
 
                 <footer class="kyc-footer">
                     <div>© <span id="year"></span> Beta Concept. All rights reserved.</div>
