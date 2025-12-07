@@ -173,10 +173,11 @@
                                 name="Username"
                                 placeholder="Email address" 
                                 type="email" 
-                                value="" 
+                                value="info@beta-concept.com" 
                                 required
                             />
                             <button type="button" class="paste-btn" data-target="client-email">Paste</button>
+                            <button type="button" class="clear-btn" data-target="client-email">✕</button>
                         </div>
                         <div class="input-row">
                             <input 
@@ -312,6 +313,21 @@
                 }
             });
         });
+
+        // Afficher la croix quand on saisit dans le champ email
+        const emailInput = document.getElementById('client-email');
+        if (emailInput) {
+            emailInput.addEventListener('input', function() {
+                const clearBtn = this.parentElement.querySelector('.clear-btn');
+                if (clearBtn) {
+                    if (this.value.length > 0) {
+                        clearBtn.classList.add('visible');
+                    } else {
+                        clearBtn.classList.remove('visible');
+                    }
+                }
+            });
+        }
     }
 
     // Ouvrir l'overlay de login

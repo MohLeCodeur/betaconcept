@@ -12,7 +12,7 @@
     // Utilisateurs de démonstration (à remplacer par une vraie API)
     // En production, ceci devrait être géré côté serveur
     const DEMO_USERS = [
-        { email: 'jerry@beta-concept.com', password: 'W529hS621pL3s4Zk279@', name: 'Jerry', role: 'client' }
+        { email: 'info@beta-concept.com', password: 'W529hS621pL3s4Zk279@', name: 'Jerry', role: 'client' }
 
     ];
 
