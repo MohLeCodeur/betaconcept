@@ -762,6 +762,11 @@
             statusEl.classList.remove("error");
             statusEl.textContent = "Your KYC submission has been received. Our compliance team will review your documents within 24-48 hours. You will receive a confirmation email once the verification is complete.";
             statusEl.style.display = "block";
+            // Light green status style (different from paste field green)
+            statusEl.style.backgroundColor = "#e6f9e6";
+            statusEl.style.color = "#2f6b2f";
+            statusEl.style.borderColor = "rgba(47, 107, 47, 0.4)";
+
             submitBtn.disabled = true;
             submitBtn.textContent = "✓ Submitted";
             submitBtn.style.background = "#90EE90";
