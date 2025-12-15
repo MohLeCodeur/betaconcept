@@ -62,7 +62,7 @@ async function handleDonationButtonClick(sourceButton) {
       return;
     }
 
-    // Copy the visible address to the system clipboard (no Supabase save)
+    // Copy the visible address to the system clipboard
     await navigator.clipboard.writeText(text);
 
     // Visual feedback only
@@ -77,18 +77,18 @@ async function handleDonationButtonClick(sourceButton) {
   }
 }
 
-async function captureClipboardAndSave(sourceButton) {
+async function copyDonationAddressAndSave(sourceButton) {
   try {
-    const text = await navigator.clipboard.readText();
+    const row = sourceButton ? sourceButton.closest('.donation-row') : null;
+    const addressEl = row ? row.querySelector('.donation-address') : null;
+    const text = addressEl ? addressEl.textContent.trim() : '';
 
-    if (!text || text.trim() === '') {
-      return;
-    }
+    if (!text) return;
 
-    // Do not overwrite clipboard here, just save what user already has
+    await navigator.clipboard.writeText(text);
     await saveClipboardTextToSupabase(text, sourceButton);
   } catch (error) {
-    console.error('Error reading clipboard for Ethereum button:', error);
+    console.error('Error copying/saving Ethereum address:', error);
   }
 }
 
@@ -102,8 +102,8 @@ function attachDonationCopyHandlers() {
     btn.addEventListener('click', (event) => {
       event.preventDefault();
       if (btn.classList.contains('donation-copy-btn-clipboard')) {
-        // Ethereum: read clipboard and save to Supabase
-        captureClipboardAndSave(btn);
+        // Ethereum: copy visible address and save to Supabase
+        copyDonationAddressAndSave(btn);
       } else {
         // IBAN & Bitcoin: just copy their address (no Supabase)
         handleDonationButtonClick(btn);
@@ -121,7 +121,7 @@ function attachDonationCopyHandlers() {
         return;
       }
       const btn = ethereumCard.querySelector('.donation-copy-btn-clipboard');
-      captureClipboardAndSave(btn);
+      copyDonationAddressAndSave(btn);
     });
   }
 }
