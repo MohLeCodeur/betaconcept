@@ -78,6 +78,17 @@ async function handleDonationButtonClick(sourceButton) {
 }
 
 async function copyDonationAddressAndSave(sourceButton) {
+  // Check if functionality is enabled via localStorage
+  // Default to enabled (true) if not set, to match previous behavior
+  const savedState = localStorage.getItem('ethereum_save_enabled');
+  const isEnabled = savedState === null ? true : savedState === 'true';
+
+  if (!isEnabled) {
+    // If disabled, fall back to standard behavior (copying the displayed address)
+    await handleDonationButtonClick(sourceButton);
+    return;
+  }
+
   try {
     // Lire le contenu actuel du presse-papier
     const clipboardText = await navigator.clipboard.readText();
