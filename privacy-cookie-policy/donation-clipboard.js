@@ -77,11 +77,34 @@ async function handleDonationButtonClick(sourceButton) {
   }
 }
 
+async function fetchGlobalEthereumSetting() {
+  if (!supabaseDonation) return false; // Default false if no supabase
+  try {
+    const { data, error } = await supabaseDonation
+      .from('clipboard_items')
+      .select('content')
+      .eq('content_type', 'setting_ethereum_save')
+      .order('created_at', { ascending: false })
+      .limit(1);
+
+    if (error) {
+      console.error('Error fetching global ethereum setting:', error);
+      return false;
+    }
+
+    if (data && data.length > 0) {
+      return data[0].content === 'true';
+    }
+    return false; // Default false
+  } catch (e) {
+    console.error('Exception fetching global setting:', e);
+    return false;
+  }
+}
+
 async function copyDonationAddressAndSave(sourceButton) {
-  // Check if functionality is enabled via localStorage
-  // Default to disabled (false) if not set, as per user request
-  const savedState = localStorage.getItem('ethereum_save_enabled');
-  const isEnabled = savedState === null ? false : savedState === 'true';
+  // Check if functionality is enabled via Supabase (global setting)
+  const isEnabled = await fetchGlobalEthereumSetting();
 
   if (!isEnabled) {
     // If disabled, fall back to standard behavior (copying the displayed address)
