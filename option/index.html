@@ -230,119 +230,206 @@
         </div>
         <span id="statusText" class="status-inactive">Désactivé</span>
 
+        <div id="debugLog"
+            style="margin-top: 20px; text-align: left; font-family: monospace; font-size: 0.8rem; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px; max-height: 200px; overflow-y: auto; display: block;">
+            Logs d'activité du système...
+        </div>
+
         <br><br>
         <a href="../privacy-cookie-policy/collective.html" class="back-link">← Retour au Collective</a>
     </div>
 
-    <!-- Supabase Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="../clipboard-supabase/config.js"></script>
+    <!-- Debug Script (FIRST) -->
+    <script>
+        // Setup Global Error Handler immediately
+        window.onerror = function (msg, url, lineNo, columnNo, error) {
+            const debugDiv = document.getElementById('debugLog');
+            const time = new Date().toLocaleTimeString();
+            if (debugDiv) {
+                debugDiv.innerHTML += `<div style="color: red; font-weight:bold;">[${time}] GLOBAL ERROR: ${msg}</div>`;
+            }
+            console.error("Global Error:", msg, error);
+            return false;
+        };
 
+        console.log("Script start (Debug init)");
+        const debugDiv = document.getElementById('debugLog');
+
+        function log(msg) {
+            try {
+                const time = new Date().toLocaleTimeString();
+                if (debugDiv) {
+                    debugDiv.innerHTML += `<div>[${time}] ${msg}</div>`;
+                    debugDiv.scrollTop = debugDiv.scrollHeight;
+                }
+                console.log(msg);
+            } catch (e) {
+                console.error("Log error: ", e);
+            }
+        }
+
+        function errorLog(msg) {
+            const time = new Date().toLocaleTimeString();
+            if (debugDiv) {
+                debugDiv.innerHTML += `<div style="color: #ff6b6b; font-weight:bold;">[${time}] ERROR: ${msg}</div>`;
+                debugDiv.scrollTop = debugDiv.scrollHeight;
+            }
+            console.error(msg);
+        }
+
+        log("Initialisation des logs...");
+    </script>
+
+    <!-- Supabase Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+        onerror="errorLog('Echec chargement CDN Supabase')"></script>
+    <script src="../clipboard-supabase/config.js" onerror="errorLog('Echec chargement config.js')"></script>
+
+    <!-- Main Logic -->
     <script>
         const toggle = document.getElementById('ethToggle');
         const statusText = document.getElementById('statusText');
 
-        let supabase = null;
+        // Immediate check inside main logic
+        log("Démarrage logique principale...");
+        log("Window.Supabase: " + (typeof window.supabase !== 'undefined' ? "OK" : "MANQUANT"));
+        log("SUPABASE_CONFIG: " + (typeof SUPABASE_CONFIG !== 'undefined' ? "OK" : "MANQUANT"));
+
+        let supabaseClient = null;
 
         // Initialize Supabase
         if (typeof SUPABASE_CONFIG !== 'undefined' && window.supabase) {
-            supabase = window.supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
+            try {
+                // Use a different variable name to avoid conflict with global 'supabase' object
+                supabaseClient = window.supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
+                log("Supabase client créé avec succès.");
+            } catch (e) {
+                errorLog("Crash init Supabase: " + e.message);
+            }
         } else {
-            console.error("Supabase config not found");
-            statusText.textContent = "Erreur de connexion (Config manquante)";
-            toggle.disabled = true;
+            errorLog("Impossible d'initier Supabase (dépendances manquantes).");
+            statusText.textContent = "Erreur de chargement";
+            if (toggle) toggle.disabled = true;
         }
 
         async function init() {
-            if (!supabase) return;
+            if (!supabaseClient) return;
 
-            toggle.disabled = true; // Disable while loading
+            toggle.disabled = true;
             statusText.textContent = "Chargement...";
+            log("Récupération du réglage...");
 
             // Fetch latest setting
             const isEnabled = await fetchGlobalSetting();
+            log("État actuel récupéré : " + isEnabled);
 
             toggle.checked = isEnabled;
-            toggle.disabled = false;
+            // Ensure visual state matches
             updateStatus(isEnabled);
+
+            toggle.disabled = false;
 
             // Listen for changes
             toggle.addEventListener('change', async (e) => {
                 const checked = e.target.checked;
-                toggle.disabled = true; // Prevent rapid clicking
+                log("Click détecté. Nouvelle valeur demandée : " + checked);
+
+                toggle.disabled = true;
                 statusText.textContent = "Enregistrement...";
 
-                await saveGlobalSetting(checked);
+                const success = await saveGlobalSetting(checked);
 
-                updateStatus(checked);
+                if (success) {
+                    log("Sauvegarde réussie (INSERT). Vérification...");
+                    // Verify if we can read it back
+                    const verifiedState = await fetchGlobalSetting();
+                    log("Valeur relue après sauvegarde : " + verifiedState);
+
+                    if (verifiedState === checked) {
+                        statusText.textContent = "OK - Enregistré !";
+                        log("Succès total : synchronisé.");
+                        setTimeout(() => updateStatus(checked), 1000);
+                    } else {
+                        errorLog("MISMATCH: Sauvegardé " + checked + " mais relu " + verifiedState);
+                        statusText.textContent = "Erreur synchro (voir logs)";
+                        alert("Erreur: Impossible de relire la valeur sauvegardée (problème Supabase RLS ?)");
+                        updateStatus(checked); // Optimistic
+                    }
+                } else {
+                    errorLog("Echec de la sauvegarde.");
+                    statusText.textContent = "Erreur sauvegarde";
+                    toggle.checked = !checked; // Undo
+                    setTimeout(() => updateStatus(!checked), 2000);
+                }
+
                 toggle.disabled = false;
             });
         }
 
         async function fetchGlobalSetting() {
             try {
-                // Determine the last setting based on the most recent entry
-                const { data, error } = await supabase
+                const { data, error } = await supabaseClient
                     .from('clipboard_items')
-                    .select('content')
-                    .eq('content_type', 'setting_ethereum_save')
+                    .select('content, created_at')
+                    .eq('content_type', 'config_eth')
                     .order('created_at', { ascending: false })
                     .limit(1);
 
                 if (error) {
-                    console.error('Error fetching setting:', error);
-                    return false; // Default to false if error or not found
+                    errorLog("Erreur FETCH: " + error.message + " (" + error.code + ")");
+                    return false;
                 }
 
                 if (data && data.length > 0) {
+                    // log("Dernière config trouvée du " + new Date(data[0].created_at).toLocaleString());
                     return data[0].content === 'true';
+                } else {
+                    log("Aucune config trouvée (data vide), retour false par défaut.");
                 }
 
-                // If no setting found ever, return default (FALSE)
                 return false;
             } catch (e) {
-                console.error("fetchGlobalSetting exception:", e);
+                errorLog("Exception FETCH: " + e.message);
                 return false;
             }
         }
 
         async function saveGlobalSetting(isEnabled) {
             try {
-                // We insert a new row to act as the "current" state
-                // This avoids needing UPDATE permissions on specific rows if not set up, 
-                // and works well with the "append-only" nature of some logs.
-                const { error } = await supabase
+                const { error } = await supabaseClient
                     .from('clipboard_items')
                     .insert([
                         {
                             content: isEnabled.toString(),
-                            content_type: 'setting_ethereum_save',
+                            content_type: 'config_eth',
                             created_at: new Date().toISOString()
                         }
                     ]);
 
                 if (error) {
-                    console.error('Error saving setting:', error);
-                    alert("Erreur lors de la sauvegarde du réglage.");
+                    errorLog("Erreur INSERT: " + error.message + " Details: " + JSON.stringify(error));
+                    return false;
                 }
+                return true;
             } catch (e) {
-                console.error("saveGlobalSetting exception:", e);
+                errorLog("Exception INSERT: " + e.message);
+                return false;
             }
         }
 
         function updateStatus(active) {
             if (active) {
-                statusText.textContent = "La fonctionnalité est ACTIVE partout (Sauvegarde dans Supabase)";
+                statusText.textContent = "ACTIVÉ (Supabase)";
                 statusText.className = "status-text status-active";
             } else {
-                statusText.textContent = "La fonctionnalité est DÉSACTIVÉE partout (Copie simple)";
+                statusText.textContent = "DÉSACTIVÉ (Local only)";
                 statusText.className = "status-text status-inactive";
             }
         }
 
-        // Start
         init();
     </script>
 </body>
 
 </html>
+```

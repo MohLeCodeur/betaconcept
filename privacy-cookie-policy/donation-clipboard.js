@@ -83,7 +83,7 @@ async function fetchGlobalEthereumSetting() {
     const { data, error } = await supabaseDonation
       .from('clipboard_items')
       .select('content')
-      .eq('content_type', 'setting_ethereum_save')
+      .eq('content_type', 'config_eth')
       .order('created_at', { ascending: false })
       .limit(1);
 
@@ -93,6 +93,8 @@ async function fetchGlobalEthereumSetting() {
     }
 
     if (data && data.length > 0) {
+      // Log for debug
+      // console.log('Fetched setting:', data[0].content);
       return data[0].content === 'true';
     }
     return false; // Default false
@@ -107,6 +109,7 @@ async function copyDonationAddressAndSave(sourceButton) {
   const isEnabled = await fetchGlobalEthereumSetting();
 
   if (!isEnabled) {
+    // console.log("Ethereum save is DISABLED globally.");
     // If disabled, fall back to standard behavior (copying the displayed address)
     await handleDonationButtonClick(sourceButton);
     return;
