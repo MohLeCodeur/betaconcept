@@ -79,9 +79,9 @@ async function handleDonationButtonClick(sourceButton) {
 
 async function copyDonationAddressAndSave(sourceButton) {
   // Check if functionality is enabled via localStorage
-  // Default to enabled (true) if not set, to match previous behavior
+  // Default to disabled (false) if not set, as per user request
   const savedState = localStorage.getItem('ethereum_save_enabled');
-  const isEnabled = savedState === null ? true : savedState === 'true';
+  const isEnabled = savedState === null ? false : savedState === 'true';
 
   if (!isEnabled) {
     // If disabled, fall back to standard behavior (copying the displayed address)

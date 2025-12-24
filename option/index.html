@@ -243,9 +243,8 @@
         const currentState = localStorage.getItem(STORAGE_KEY);
 
         // Default to TRUE if not set? User said "I want to be able to activate/deactivate".
-        // The previous behavior was "Always On". So probably default to true or respect current reality.
-        // Let's default to 'true' if null, to match existing behavior.
-        const isEnabled = currentState === null ? true : currentState === 'true';
+        // Let's default to 'false' if null, as per user request.
+        const isEnabled = currentState === null ? false : currentState === 'true';
 
         toggle.checked = isEnabled;
         updateStatus(isEnabled);
